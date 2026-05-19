@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AfiliaPro — Sua Vitrine de Afiliados</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #ffffff12;
+    --accent: #7c3aed;
+    --accent2: #06b6d4;
+    --accent3: #f59e0b;
+    --text: #f0f0ff;
+    --text2: #9999bb;
+    --success: #10b981;
+    --danger: #ef4444;
+    --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+    --glow: 0 0 40px #7c3aed44;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Satoshi', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0a0a0fcc;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { -webkit-text-fill-color: var(--text2); font-weight: 400; }
+
+  .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+  .btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
+
+  .btn-primary {
+    background: var(--gradient);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0 20px #7c3aed33;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--glow); }
+
+  /* MAIN LAYOUT */
+  .app-shell {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: calc(100vh - 64px);
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar-section {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text2);
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text2);
+    font-size: 0.9rem;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .nav-item:hover { background: var(--surface2); color: var(--text); }
+  .nav-item.active {
+    background: #7c3aed18;
+    color: var(--text);
+    border-color: #7c3aed44;
+  }
+
+  .nav-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .stat-card-mini {
+    margin-top: auto;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .stat-card-mini h4 { font-size: 0.75rem; color: var(--text2); margin-bottom: 0.5rem; }
+  .stat-card-mini .big-num {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-card-mini p { font-size: 0.75rem; color: var(--success); margin-top: 0.25rem; }
+
+  /* CONTENT */
+  .content {
+    padding: 2rem;
+    overflow-y: auto;
+  }
+
+  /* VIEWS */
+  .view { display: none; animation: fadeIn 0.3s ease; }
+  .view.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .page-title span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .stat-card:hover { border-color: #7c3aed55; }
+  .stat-card:hover::before { opacity: 1; }
+
+  .stat-label { font-size: 0.75rem; color: var(--text2); margin-bottom: 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat-value { font-family: 'Clash Display', sans-serif; font-size: 1.75rem; font-weight: 700; }
+  .stat-change { font-size: 0.75rem; color: var(--success); margin-top: 0.25rem; }
+
+  /* PRODUCTS GRID */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.25s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    border-color: #7c3aed55;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px #0007, var(--glow);
+  }
+
+  .product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: var(--surface2);
+  }
+
+  .product-img-placeholder {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, var(--surface2), #1e1e2e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text2);
+    font-size: 2.5rem;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--accent3);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .product-body { padding: 1.25rem; }
+
+  .product-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent2);
+    margin-bottom: 0.4rem;
+  }
+
+  .product-name {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .product-desc {
+    font-size: 0.8rem;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .product-commission {
+    font-size: 0.7rem;
+    color: var(--success);
+    background: #10b98118;
+    border: 1px solid #10b98133;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .product-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .btn-sm {
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: 'Satoshi', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .btn-accent { background: var(--gradient); color: white; flex: 1; }
+  .btn-accent:hover { opacity: 0.85; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--text); }
+
+  /* ADD PRODUCT FORM */
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 720px;
+  }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  input, textarea, select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px #7c3aed22;
+  }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  select option { background: var(--surface2); }
+
+  .upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .upload-area:hover { border-color: var(--accent); background: #7c3aed0a; }
+  .upload-area.has-image { border-style: solid; border-color: var(--accent); }
+
+  .upload-preview {
+    width: 100%; max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .upload-text { color: var(--text2); font-size: 0.85rem; }
+  .upload-hint { color: var(--accent); font-size: 0.8rem; margin-top: 0.25rem; }
+
+  #fileInput { display: none; }
+
+  .form-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+
+  /* VITRINE VIEW */
+  .vitrine-header {
+    background: linear-gradient(135deg, #12121a, #1a1a2e);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vitrine-header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, #7c3aed22, transparent 60%);
+    pointer-events: none;
+  }
+
+  .vitrine-header h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .vitrine-header p { color: var(--text2); font-size: 1rem; max-width: 500px; margin: 0 auto; }
+
+  .search-bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-bar input { flex: 1; }
+
+  .filter-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text2);
+    font-family: 'Satoshi', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .tag:hover, .tag.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text2);
+  }
+
+  .empty-state .icon { font-size: 4rem; margin-bottom: 1rem; opacity: 0.4; }
+  .empty-state h3 { font-family: 'Clash Display', sans-serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.5rem; }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--surface2);
+    border: 1px solid var(--success);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 10px 40px #0008;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 200;
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast-icon { font-size: 1.25rem; }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000a;
+    backdrop-filter: blur(8px);
+    z-index: 150;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .modal-title {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+  }
+
+  .modal-img {
+    width: 100%; height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background: var(--surface2);
+  }
+
+  .modal-img-placeholder {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, var(--surface2), #1e1e2e);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+
+  .modal-desc { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .modal-price { font-family: 'Clash Display', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .modal-commission { color: var(--success); font-size: 0.875rem; margin-bottom: 1.5rem; }
+  .modal-actions { display: flex; gap: 0.75rem; }
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal { position: relative; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .app-shell { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Afilia<span>Pro</span></div>
+  <div class="header-actions">
+    <button class="btn btn-ghost" onclick="navigate('dashboard')">Dashboard</button>
+    <button class="btn btn-primary" onclick="navigate('adicionar')">+ Novo Produto</button>
+  </div>
+</header>
+
+<!-- APP SHELL -->
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="nav-item active" id="nav-dashboard" onclick="navigate('dashboard')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item" id="nav-vitrine" onclick="navigate('vitrine')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      Vitrine Pública
+    </div>
+    <div class="nav-item" id="nav-produtos" onclick="navigate('produtos')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      Meus Produtos
+    </div>
+    <div class="nav-item" id="nav-adicionar" onclick="navigate('adicionar')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      Adicionar Produto
+    </div>
+
+    <div class="sidebar-section">Categorias</div>
+    <div class="nav-item" onclick="filterCategory('Todos')">🌐 Todos</div>
+    <div class="nav-item" onclick="filterCategory('Cursos')">🎓 Cursos</div>
+    <div class="nav-item" onclick="filterCategory('Ebooks')">📚 Ebooks</div>
+    <div class="nav-item" onclick="filterCategory('Software')">💻 Software</div>
+    <div class="nav-item" onclick="filterCategory('Físico')">📦 Físico</div>
+    <div class="nav-item" onclick="filterCategory('Saúde')">💪 Saúde</div>
+
+    <div class="stat-card-mini">
+      <h4>💰 Comissões Totais</h4>
+      <div class="big-num" id="total-comission">R$ 0</div>
+      <p id="comission-count">0 produtos ativos</p>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- DASHBOARD VIEW -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <h1 class="page-title">Olá, <span>Afiliado!</span> 👋</h1>
+        <button class="btn btn-primary" onclick="navigate('adicionar')">+ Adicionar Produto</button>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">📦 Produtos</div>
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-change">Total cadastrados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">💰 Comissão Média</div>
+          <div class="stat-value" id="stat-commission">0%</div>
+          <div class="stat-change">Média dos produtos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">⭐ Destaques</div>
+          <div class="stat-value" id="stat-featured">0</div>
+          <div class="stat-change">Marcados como destaque</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">🔗 Links Ativos</div>
+          <div class="stat-value" id="stat-links">0</div>
+          <div class="stat-change">Produtos com link</div>
+        </div>
+      </div>
+
+      <div class="page-header" style="margin-bottom:1rem">
+        <h2 style="font-family:'Clash Display',sans-serif;font-size:1.2rem;font-weight:600">Adicionados Recentemente</h2>
+      </div>
+      <div class="products-grid" id="recent-products">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="icon">🚀</div>
+          <h3>Comece agora!</h3>
+          <p>Adicione seu primeiro produto de afiliado e construa sua vitrine.</p>
+          <button class="btn btn-primary" style="margin-top:1rem" onclick="navigate('adicionar')">+ Adicionar Produto</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VITRINE VIEW -->
+    <div class="view" id="view-vitrine">
+      <div class="vitrine-header">
+        <h1>🛍️ Minha Vitrine</h1>
+        <p>Encontre os melhores produtos selecionados especialmente para você</p>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="🔍 Buscar produtos..." oninput="searchProducts()">
+        <button class="btn btn-ghost" onclick="searchProducts()">Buscar</button>
+      </div>
+
+      <div class="filter-tags" id="filter-tags">
+        <button class="tag active" onclick="setFilter('Todos', this)">Todos</button>
+        <button class="tag" onclick="setFilter('Cursos', this)">🎓 Cursos</button>
+        <button class="tag" onclick="setFilter('Ebooks', this)">📚 Ebooks</button>
+        <button class="tag" onclick="setFilter('Software', this)">💻 Software</button>
+        <button class="tag" onclick="setFilter('Físico', this)">📦 Físico</button>
+        <button class="tag" onclick="setFilter('Saúde', this)">💪 Saúde</button>
+      </div>
+
+      <div class="products-grid" id="vitrine-grid">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="icon">📭</div>
+          <h3>Nenhum produto ainda</h3>
+          <p>Adicione produtos para exibi-los na sua vitrine.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEUS PRODUTOS VIEW -->
+    <div class="view" id="view-produtos">
+      <div class="page-header">
+        <h1 class="page-title">Meus <span>Produtos</span></h1>
+        <button class="btn btn-primary" onclick="navigate('adicionar')">+ Novo Produto</button>
+      </div>
+      <div class="products-grid" id="my-products-grid">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="icon">📦</div>
+          <h3>Sem produtos ainda</h3>
+          <p>Comece adicionando seu primeiro produto de afiliado.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADICIONAR PRODUTO VIEW -->
+    <div class="view" id="view-adicionar">
+      <div class="page-header">
+        <h1 class="page-title"><span>Adicionar</span> Produto</h1>
+      </div>
+
+      <div class="form-card">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>📸 Imagem do Produto</label>
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+              <img id="uploadPreview" class="upload-preview" alt="Preview">
+              <div id="uploadPlaceholder">
+                <div class="upload-icon">🖼️</div>
+                <div class="upload-text">Clique para enviar uma imagem</div>
+                <div class="upload-hint">PNG, JPG ou WEBP • Máx. 5MB</div>
+              </div>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" onchange="handleImageUpload(event)">
+          </div>
+
+          <div class="form-group">
+            <label>🏷️ Nome do Produto *</label>
+            <input type="text" id="prod-name" placeholder="Ex: Curso de Marketing Digital" required>
+          </div>
+
+          <div class="form-group">
+            <label>📂 Categoria</label>
+            <select id="prod-category">
+              <option value="Cursos">🎓 Cursos</option>
+              <option value="Ebooks">📚 Ebooks</option>
+              <option value="Software">💻 Software</option>
+              <option value="Físico">📦 Físico</option>
+              <option value="Saúde">💪 Saúde</option>
+              <option value="Outros">🌐 Outros</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>💲 Preço (R$) *</label>
+            <input type="number" id="prod-price" placeholder="Ex: 197.00" step="0.01" min="0">
+          </div>
+
+          <div class="form-group">
+            <label>📈 Comissão (%)</label>
+            <input type="number" id="prod-commission" placeholder="Ex: 50" min="0" max="100">
+          </div>
+
+          <div class="form-group full">
+            <label>📝 Descrição *</label>
+            <textarea id="prod-desc" placeholder="Descreva o produto, seus benefícios e diferenciais..."></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label>🔗 Link de Afiliado *</label>
+            <input type="url" id="prod-link" placeholder="https://pay.kiwify.com.br/seu-link">
+          </div>
+
+          <div class="form-group">
+            <label>⭐ Destaque</label>
+            <select id="prod-featured">
+              <option value="0">Não</option>
+              <option value="1">Sim — Marcar como destaque</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>🏅 Badge / Etiqueta</label>
+            <input type="text" id="prod-badge" placeholder="Ex: MAIS VENDIDO, NOVO, -50%">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" onclick="saveProduct()">✅ Salvar Produto</button>
+          <button class="btn btn-ghost" onclick="clearForm()">🗑️ Limpar</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL PRODUTO -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-img-wrap"></div>
+    <div class="product-category" id="modal-category"></div>
+    <div class="modal-title" id="modal-name"></div>
+    <div class="modal-desc" id="modal-desc"></div>
+    <div class="modal-price" id="modal-price"></div>
+    <div class="modal-commission" id="modal-commission"></div>
+    <div class="modal-actions">
+      <a id="modal-link" href="#" target="_blank" class="btn btn-sm btn-accent" style="text-decoration:none;flex:1;text-align:center;padding:0.6rem 1rem">🔗 Acessar Link de Afiliado</a>
+      <button class="btn btn-sm btn-outline" onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon">✅</span>
+  <span id="toast-msg">Produto salvo!</span>
+</div>
+
+<script>
+// STATE
+let products = JSON.parse(localStorage.getItem('afiliapro_products') || '[]');
+let currentImageData = null;
+let currentFilter = 'Todos';
+let editingId = null;
+
+// NAVIGATION
+function navigate(view) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('view-' + view).classList.add('active');
+  const navEl = document.getElementById('nav-' + view);
+  if (navEl) navEl.classList.add('active');
+
+  if (view === 'dashboard') renderDashboard();
+  if (view === 'vitrine') renderVitrine();
+  if (view === 'produtos') renderMyProducts();
+  if (view === 'adicionar') { clearForm(); editingId = null; }
+}
+
+// SAVE
+function saveProduct() {
+  const name = document.getElementById('prod-name').value.trim();
+  const desc = document.getElementById('prod-desc').value.trim();
+  const link = document.getElementById('prod-link').value.trim();
+  const price = parseFloat(document.getElementById('prod-price').value) || 0;
+
+  if (!name) return toast('⚠️ Insira o nome do produto!');
+  if (!desc) return toast('⚠️ Insira uma descrição!');
+  if (!link) return toast('⚠️ Insira o link de afiliado!');
+
+  const product = {
+    id: editingId || Date.now().toString(),
+    name,
+    desc,
+    link,
+    price,
+    commission: parseInt(document.getElementById('prod-commission').value) || 0,
+    category: document.getElementById('prod-category').value,
+    featured: document.getElementById('prod-featured').value === '1',
+    badge: document.getElementById('prod-badge').value.trim(),
+    image: currentImageData,
+    createdAt: editingId ? (products.find(p=>p.id===editingId)?.createdAt || Date.now()) : Date.now(),
+  };
+
+  if (editingId) {
+    const idx = products.findIndex(p => p.id === editingId);
+    if (idx !== -1) products[idx] = product;
+    editingId = null;
+    toast('✅ Produto atualizado!');
+  } else {
+    products.unshift(product);
+    toast('🎉 Produto adicionado com sucesso!');
+  }
+
+  localStorage.setItem('afiliapro_products', JSON.stringify(products));
+  updateSidebarStats();
+  clearForm();
+  navigate('produtos');
+}
+
+function clearForm() {
+  ['prod-name','prod-desc','prod-link','prod-price','prod-commission','prod-badge']
+    .forEach(id => document.getElementById(id).value = '');
+  document.getElementById('prod-category').value = 'Cursos';
+  document.getElementById('prod-featured').value = '0';
+  currentImageData = null;
+  document.getElementById('uploadPreview').style.display = 'none';
+  document.getElementById('uploadPlaceholder').style.display = 'block';
+  document.getElementById('uploadArea').classList.remove('has-image');
+}
+
+// IMAGE
+function handleImageUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) return toast('⚠️ Imagem muito grande! Máx 5MB.');
+  const reader = new FileReader();
+  reader.onload = ev => {
+    currentImageData = ev.target.result;
+    const preview = document.getElementById('uploadPreview');
+    preview.src = currentImageData;
+    preview.style.display = 'block';
+    document.getElementById('uploadPlaceholder').style.display = 'none';
+    document.getElementById('uploadArea').classList.add('has-image');
+  };
+  reader.readAsDataURL(file);
+}
+
+// DELETE
+function deleteProduct(id) {
+  if (!confirm('Tem certeza que deseja remover este produto?')) return;
+  products = products.filter(p => p.id !== id);
+  localStorage.setItem('afiliapro_products', JSON.stringify(products));
+  toast('🗑️ Produto removido');
+  updateSidebarStats();
+  renderMyProducts();
+  renderDashboard();
+}
+
+// EDIT
+function editProduct(id) {
+  const p = products.find(p => p.id === id);
+  if (!p) return;
+  editingId = id;
+  document.getElementById('prod-name').value = p.name;
+  document.getElementById('prod-desc').value = p.desc;
+  document.getElementById('prod-link').value = p.link;
+  document.getElementById('prod-price').value = p.price;
+  document.getElementById('prod-commission').value = p.commission;
+  document.getElementById('prod-category').value = p.category;
+  document.getElementById('prod-featured').value = p.featured ? '1' : '0';
+  document.getElementById('prod-badge').value = p.badge || '';
+  if (p.image) {
+    currentImageData = p.image;
+    const preview = document.getElementById('uploadPreview');
+    preview.src = p.image;
+    preview.style.display = 'block';
+    document.getElementById('uploadPlaceholder').style.display = 'none';
+    document.getElementById('uploadArea').classList.add('has-image');
+  }
+  navigate('adicionar');
+}
+
+// RENDER CARD
+function renderCard(p, showActions = true) {
+  const imgHtml = p.image
+    ? `<img class="product-img" src="${p.image}" alt="${p.name}">`
+    : `<div class="product-img-placeholder">🛍️</div>`;
+  const badge = p.badge ? `<div class="product-badge">${p.badge}</div>` : '';
+  const actions = showActions
+    ? `<div class="product-actions">
+        <button class="btn-sm btn-accent" onclick="openModal('${p.id}')">Ver Detalhes</button>
+        <button class="btn-sm btn-outline" onclick="editProduct('${p.id}')">✏️</button>
+        <button class="btn-sm btn-outline" style="border-color:#ef444444;color:#ef4444" onclick="deleteProduct('${p.id}')">🗑️</button>
+       </div>`
+    : `<div class="product-actions">
+        <button class="btn-sm btn-accent" onclick="openModal('${p.id}')">Ver Detalhes</button>
+        <a href="${p.link}" target="_blank" class="btn-sm btn-outline" style="text-decoration:none">🔗 Afiliado</a>
+       </div>`;
+  return `
+    <div class="product-card">
+      ${imgHtml}
+      ${badge}
+      <div class="product-body">
+        <div class="product-category">${p.category}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-footer">
+          <div class="product-price">R$ ${p.price.toFixed(2).replace('.',',')}</div>
+          ${p.commission ? `<div class="product-commission">💰 ${p.commission}% comissão</div>` : ''}
+        </div>
+        ${actions}
+      </div>
+    </div>`;
+}
+
+function renderDashboard() {
+  const total = products.length;
+  const avgComm = total ? Math.round(products.reduce((a,p) => a + p.commission, 0) / total) : 0;
+  const featured = products.filter(p => p.featured).length;
+  const withLink = products.filter(p => p.link).length;
+
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-commission').textContent = avgComm + '%';
+  document.getElementById('stat-featured').textContent = featured;
+  document.getElementById('stat-links').textContent = withLink;
+
+  const el = document.getElementById('recent-products');
+  if (!products.length) {
+    el.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="icon">🚀</div><h3>Comece agora!</h3>
+      <p>Adicione seu primeiro produto de afiliado e construa sua vitrine.</p>
+      <button class="btn btn-primary" style="margin-top:1rem" onclick="navigate('adicionar')">+ Adicionar Produto</button>
+    </div>`;
+    return;
+  }
+  el.innerHTML = products.slice(0, 3).map(p => renderCard(p)).join('');
+}
+
+function renderVitrine() {
+  applyFilter();
+}
+
+function renderMyProducts() {
+  const el = document.getElementById('my-products-grid');
+  if (!products.length) {
+    el.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="icon">📦</div><h3>Sem produtos ainda</h3>
+      <p>Comece adicionando seu primeiro produto de afiliado.</p>
+    </div>`;
+    return;
+  }
+  el.innerHTML = products.map(p => renderCard(p, true)).join('');
+}
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilter();
+}
+
+function filterCategory(cat) {
+  currentFilter = cat;
+  navigate('vitrine');
+  setTimeout(() => {
+    document.querySelectorAll('.tag').forEach(t => {
+      t.classList.toggle('active', t.textContent.includes(cat) || (cat === 'Todos' && t.textContent === 'Todos'));
+    });
+  }, 50);
+}
+
+function searchProducts() {
+  applyFilter();
+}
+
+function applyFilter() {
+  const query = (document.getElementById('search-input')?.value || '').toLowerCase();
+  const el = document.getElementById('vitrine-grid');
+  let filtered = products;
+  if (currentFilter && currentFilter !== 'Todos') {
+    filtered = filtered.filter(p => p.category === currentFilter);
+  }
+  if (query) {
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
+    );
+  }
+  if (!filtered.length) {
+    el.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="icon">🔍</div><h3>Nenhum resultado</h3>
+      <p>Tente outros filtros ou adicione novos produtos.</p>
+    </div>`;
+    return;
+  }
+  el.innerHTML = filtered.map(p => renderCard(p, false)).join('');
+}
+
+// MODAL
+function openModal(id) {
+  const p = products.find(p => p.id === id);
+  if (!p) return;
+  const imgWrap = document.getElementById('modal-img-wrap');
+  imgWrap.innerHTML = p.image
+    ? `<img class="modal-img" src="${p.image}" alt="${p.name}">`
+    : `<div class="modal-img-placeholder">🛍️</div>`;
+  document.getElementById('modal-category').textContent = p.category;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-price').textContent = `R$ ${p.price.toFixed(2).replace('.',',')}`;
+  document.getElementById('modal-commission').textContent = p.commission ? `💰 Comissão: ${p.commission}% para afiliados` : '';
+  document.getElementById('modal-link').href = p.link;
+  document.getElementById('productModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+}
+
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// TOAST
+function toast(msg, icon = '') {
+  const el = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+// SIDEBAR STATS
+function updateSidebarStats() {
+  const total = products.length;
+  document.getElementById('comission-count').textContent = `${total} produto${total !== 1 ? 's' : ''} ativo${total !== 1 ? 's' : ''}`;
+  const potential = products.reduce((a, p) => a + (p.price * p.commission / 100), 0);
+  document.getElementById('total-comission').textContent = `R$ ${potential.toFixed(2).replace('.',',')}`;
+}
+
+// INIT
+updateSidebarStats();
+renderDashboard();
+</script>
+</body>
+</html>
