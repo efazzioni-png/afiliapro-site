@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carferengenharia.com.br/sitemap.xml

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" preserveAspectRatio="xMidYMid slice" role="img">
+<defs>
+<radialGradient id="vig" cx="50%%" cy="42%%" r="78%%"><stop offset="55%%" stop-color="#000" stop-opacity="0"/><stop offset="100%%" stop-color="#000" stop-opacity="0.42"/></radialGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A0E13" stop-opacity="1"/><stop offset="58%" stop-color="#171E27" stop-opacity="1"/><stop offset="100%" stop-color="#3B4757" stop-opacity="1"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="62%" r="62%"><stop offset="0%" stop-color="#E8681B" stop-opacity="0.26"/><stop offset="100%" stop-color="#E8681B" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="900" fill="url(#sky)"/>
+<rect width="1200" height="900" fill="url(#glow)"/>
+<rect x="144" y="360" width="480" height="378" fill="#1B222B"/>
+<rect x="552" y="468" width="408" height="270" fill="#2A333E"/>
+<rect x="96" y="360" width="576" height="8" fill="#7C8794" opacity="0.85"/>
+<rect x="504" y="468" width="504" height="7" fill="#7C8794" opacity="0.75"/>
+<rect x="192" y="396" width="168" height="126" fill="#FFCB8E" opacity="0.4"/>
+<rect x="192" y="396" width="168" height="126" fill="none" stroke="#B4BEC9" stroke-width="1.5" opacity="0.35"/>
+<rect x="384" y="396" width="204" height="126" fill="#FFCB8E" opacity="0.3"/>
+<rect x="384" y="396" width="204" height="126" fill="none" stroke="#B4BEC9" stroke-width="1.5" opacity="0.35"/>
+<rect x="600" y="504" width="144" height="135" fill="#FFCB8E" opacity="0.34"/>
+<rect x="600" y="504" width="144" height="135" fill="none" stroke="#B4BEC9" stroke-width="1.5" opacity="0.35"/>
+<rect x="780" y="504" width="144" height="135" fill="#FFCB8E" opacity="0.22"/>
+<rect x="780" y="504" width="144" height="135" fill="none" stroke="#B4BEC9" stroke-width="1.5" opacity="0.35"/>
+<g opacity="0.5"><rect x="216" y="558" width="4" height="180" fill="#F59B4B"/><rect x="230.4" y="558" width="4" height="180" fill="#F59B4B"/><rect x="244.8" y="558" width="4" height="180" fill="#F59B4B"/><rect x="259.2" y="558" width="4" height="180" fill="#F59B4B"/><rect x="273.6" y="558" width="4" height="180" fill="#F59B4B"/><rect x="288" y="558" width="4" height="180" fill="#F59B4B"/><rect x="302.4" y="558" width="4" height="180" fill="#F59B4B"/><rect x="316.8" y="558" width="4" height="180" fill="#F59B4B"/><rect x="331.2" y="558" width="4" height="180" fill="#F59B4B"/><rect x="345.6" y="558" width="4" height="180" fill="#F59B4B"/><rect x="360" y="558" width="4" height="180" fill="#F59B4B"/><rect x="374.4" y="558" width="4" height="180" fill="#F59B4B"/><rect x="388.8" y="558" width="4" height="180" fill="#F59B4B"/><rect x="403.2" y="558" width="4" height="180" fill="#F59B4B"/></g>
+<rect x="120" y="765" width="624" height="81" fill="#2E5C7A" opacity="0.30" rx="2"/>
+<rect x="120" y="792" width="624" height="2" fill="#FFCB8E" opacity="0.35"/>
+<rect x="1073.7" y="581.24" width="3" height="156.76" fill="#263430" opacity="0.7"/>
+<ellipse cx="1075.2" cy="581.24" rx="31.2" ry="31.5" fill="#22322C" opacity="0.6"/>
+<rect x="1098.51" y="563.18" width="3" height="174.82" fill="#263430" opacity="0.7"/>
+<ellipse cx="1100.01" cy="563.18" rx="31.2" ry="31.5" fill="#22322C" opacity="0.6"/>
+<rect x="1090.55" y="564.99" width="3" height="173.01" fill="#263430" opacity="0.7"/>
+<ellipse cx="1092.05" cy="564.99" rx="31.2" ry="31.5" fill="#22322C" opacity="0.6"/>
+<rect x="988.18" y="606.09" width="3" height="131.91" fill="#263430" opacity="0.7"/>
+<ellipse cx="989.68" cy="606.09" rx="31.2" ry="31.5" fill="#22322C" opacity="0.6"/>
+<rect x="1119.84" y="589.59" width="3" height="148.41" fill="#263430" opacity="0.7"/>
+<ellipse cx="1121.34" cy="589.59" rx="31.2" ry="31.5" fill="#22322C" opacity="0.6"/>
+<rect x="1113.73" y="637.81" width="3" height="100.19" fill="#263430" opacity="0.7"/>
+<ellipse cx="1115.23" cy="637.81" rx="31.2" ry="31.5" fill="#22322C" opacity="0.6"/>
+<linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1B222B" stop-opacity="1"/><stop offset="100%" stop-color="#0A0E13" stop-opacity="1"/></linearGradient>
+<rect x="0" y="738" width="1200" height="162" fill="url(#gnd)"/>
+<rect width="1200" height="900" fill="url(#vig)"/>
+</svg>
