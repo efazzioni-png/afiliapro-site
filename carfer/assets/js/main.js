@@ -485,10 +485,17 @@
     if (!slot) return;
     var skeleton = $('[data-map-skeleton]');
 
+    // O mapa é montado a partir do endereço em site.config.js. O atributo
+    // data-map-src do HTML é só a reserva para quem estiver sem JavaScript.
+    var busca = END.busca || '';
+    var src = busca
+      ? 'https://www.google.com/maps?q=' + encodeURIComponent(busca) +
+        '&hl=pt-BR&z=16&output=embed'
+      : slot.getAttribute('data-map-src');
+
     var carregar = function () {
       if (slot.dataset.carregado) return;
       slot.dataset.carregado = '1';
-      var src = slot.getAttribute('data-map-src');
       var iframe = document.createElement('iframe');
       iframe.src = src;
       iframe.title = 'Mapa com a localização da Carfer Engenharia em Itaipava, Petrópolis';
@@ -507,7 +514,11 @@
       setTimeout(function () {
         if (carregou || !skeleton) return;
         skeleton.innerHTML =
-          'Não foi possível carregar o mapa aqui. ' +
+          '<strong style="font-size:.95rem">Mapa indisponível nesta visualização</strong>' +
+          '<span style="max-width:32ch;text-align:center;line-height:1.5">' +
+          (END.logradouro || '') + '<br>' +
+          (END.bairro || '') + ', ' + (END.cidade || '') + ' — ' + (END.uf || '') +
+          '</span>' +
           '<a href="' + src.replace('&output=embed', '') + '" target="_blank" rel="noopener">' +
           'Abrir no Google Maps</a>';
       }, 9000);
@@ -527,8 +538,11 @@
   }
 
   function ligarRota() {
-    var destinoTexto = encodeURIComponent(END.consulta || '');
+    // O endereço por escrito é o destino padrão — o Maps resolve a ficha da
+    // empresa com precisão. As coordenadas só entram se estiverem preenchidas.
+    var destinoTexto = encodeURIComponent(END.busca || '');
     var destinoGeo = (END.lat && END.lng) ? (END.lat + ',' + END.lng) : '';
+    var destino = destinoGeo ? encodeURIComponent(destinoGeo) : destinoTexto;
     var hint = $('[data-route-hint]');
 
     var appleBtn = $('[data-apple]');
@@ -537,15 +551,17 @@
     function urlRota(app, origem) {
       switch (app) {
         case 'waze':
-          return 'https://www.waze.com/ul?ll=' + (destinoGeo || '') +
-                 '&q=' + destinoTexto + '&navigate=yes';
+          // Sem coordenadas o Waze busca pelo texto; com elas, vai direto.
+          return 'https://www.waze.com/ul?' +
+                 (destinoGeo ? 'll=' + encodeURIComponent(destinoGeo) + '&' : '') +
+                 'q=' + destinoTexto + '&navigate=yes';
         case 'apple':
-          return 'https://maps.apple.com/?daddr=' + destinoTexto +
+          return 'https://maps.apple.com/?daddr=' + destino +
                  (origem ? '&saddr=' + origem : '') + '&dirflg=d';
         default:
           return 'https://www.google.com/maps/dir/?api=1' +
                  (origem ? '&origin=' + origem : '') +
-                 '&destination=' + destinoTexto + '&travelmode=driving';
+                 '&destination=' + destino + '&travelmode=driving';
       }
     }
 
@@ -570,6 +586,13 @@
         },
         { enableHighAccuracy: false, timeout: 7000, maximumAge: 300000 }
       );
+    }
+
+    // Link para a ficha da empresa no Maps, montado a partir da configuração.
+    var ficha = $('[data-map-link]');
+    if (ficha && END.busca) {
+      ficha.setAttribute('href',
+        'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(END.busca));
     }
 
     var principal = $('[data-route]');

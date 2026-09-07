@@ -1507,7 +1507,6 @@ body.menu-aberto .dock { opacity: 0; pointer-events: none; }
     "postalCode": "25730-740",
     "addressCountry": "BR"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": -22.3167, "longitude": -43.1361 },
   "areaServed": [
     { "@type": "State", "name": "Rio de Janeiro" },
     { "@type": "State", "name": "São Paulo" },
@@ -2491,7 +2490,7 @@ body.menu-aberto .dock { opacity: 0; pointer-events: none; }
           Carregando o mapa…
         </div>
         <div data-map-slot
-             data-map-src="https://www.google.com/maps?q=Carfer%20Engenharia%2C%20Estr.%20Uni%C3%A3o%20e%20Ind%C3%BAstria%2C%2010337%20-%20Sala%20118%2C%20Itaipava%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025730-740&hl=pt-BR&z=16&output=embed"
+             data-map-src="https://www.google.com/maps?q=Carfer%20Engenharia%2C%20Estrada%20Uni%C3%A3o%20e%20Ind%C3%BAstria%2C%2010337%2C%20Itaipava%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025730-740%2C%20Brasil&amp;hl=pt-BR&amp;z=16&amp;output=embed"
              style="width:100%;height:100%"></div>
 
         <div class="route-card">
@@ -2512,6 +2511,7 @@ body.menu-aberto .dock { opacity: 0; pointer-events: none; }
             <button class="route-app" type="button" data-route-app="waze">Waze</button>
             <button class="route-app" type="button" data-route-app="apple" hidden data-apple>Apple Maps</button>
           </div>
+          <p class="route-card__hint"><a href="https://www.google.com/maps/search/?api=1&amp;query=Carfer%20Engenharia%2C%20Estrada%20Uni%C3%A3o%20e%20Ind%C3%BAstria%2C%2010337%2C%20Itaipava%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025730-740%2C%20Brasil" data-map-link target="_blank" rel="noopener">Abrir a ficha no Google Maps</a></p>
           <p class="route-card__hint" data-route-hint>
             O botão usa a sua localização atual como ponto de partida e abre a navegação
             direto no aplicativo de mapas do seu celular.
@@ -2657,17 +2657,26 @@ window.CARFER = {
 
   /* --------------------------------------------------------- endereço --- */
   endereco: {
+    // Como o endereço aparece escrito na tela.
     logradouro: 'Estr. União e Indústria, 10337 — Sl 118',
     bairro: 'Itaipava',
     cidade: 'Petrópolis',
     uf: 'RJ',
     cep: '25730-740',
-    // Usado no mapa e na rota. Manter em uma linha, como se digitasse no Maps.
-    consulta: 'Carfer Engenharia, Estr. União e Indústria, 10337 - Sala 118, Itaipava, Petrópolis - RJ, 25730-740',
-    // ⚠️ CONFIRMAR: coordenadas aproximadas de Itaipava (usadas apenas no
-    // Waze/Apple Maps como destino alternativo e no schema.org).
-    lat: -22.3167,
-    lng: -43.1361
+
+    // Texto usado para ACHAR a empresa no mapa (Google Maps, Waze e Apple
+    // Maps) — é o que você digitaria na busca do Maps. Sem o número da sala:
+    // "Sala 118" não existe para o mapa e só atrapalha a localização.
+    // Começar pelo nome da empresa faz o Maps abrir a ficha do negócio.
+    busca: 'Carfer Engenharia, Estrada União e Indústria, 10337, Itaipava, Petrópolis - RJ, 25730-740, Brasil',
+
+    // OPCIONAL — deixe null que o mapa se vira com o endereço acima.
+    // Se quiser cravar o pino num ponto exato (a entrada da obra, o
+    // estacionamento): abra o Google Maps, clique com o botão direito
+    // sobre o local e copie os dois números do topo do menu.
+    // Ex.: lat: -22.316742, lng: -43.136055
+    lat: null,
+    lng: null
   },
 
   /* ------------------------------------------------- mensagens do zap --- */
@@ -3179,10 +3188,17 @@ window.CARFER = {
     if (!slot) return;
     var skeleton = $('[data-map-skeleton]');
 
+    // O mapa é montado a partir do endereço em site.config.js. O atributo
+    // data-map-src do HTML é só a reserva para quem estiver sem JavaScript.
+    var busca = END.busca || '';
+    var src = busca
+      ? 'https://www.google.com/maps?q=' + encodeURIComponent(busca) +
+        '&hl=pt-BR&z=16&output=embed'
+      : slot.getAttribute('data-map-src');
+
     var carregar = function () {
       if (slot.dataset.carregado) return;
       slot.dataset.carregado = '1';
-      var src = slot.getAttribute('data-map-src');
       var iframe = document.createElement('iframe');
       iframe.src = src;
       iframe.title = 'Mapa com a localização da Carfer Engenharia em Itaipava, Petrópolis';
@@ -3201,7 +3217,11 @@ window.CARFER = {
       setTimeout(function () {
         if (carregou || !skeleton) return;
         skeleton.innerHTML =
-          'Não foi possível carregar o mapa aqui. ' +
+          '<strong style="font-size:.95rem">Mapa indisponível nesta visualização</strong>' +
+          '<span style="max-width:32ch;text-align:center;line-height:1.5">' +
+          (END.logradouro || '') + '<br>' +
+          (END.bairro || '') + ', ' + (END.cidade || '') + ' — ' + (END.uf || '') +
+          '</span>' +
           '<a href="' + src.replace('&output=embed', '') + '" target="_blank" rel="noopener">' +
           'Abrir no Google Maps</a>';
       }, 9000);
@@ -3221,8 +3241,11 @@ window.CARFER = {
   }
 
   function ligarRota() {
-    var destinoTexto = encodeURIComponent(END.consulta || '');
+    // O endereço por escrito é o destino padrão — o Maps resolve a ficha da
+    // empresa com precisão. As coordenadas só entram se estiverem preenchidas.
+    var destinoTexto = encodeURIComponent(END.busca || '');
     var destinoGeo = (END.lat && END.lng) ? (END.lat + ',' + END.lng) : '';
+    var destino = destinoGeo ? encodeURIComponent(destinoGeo) : destinoTexto;
     var hint = $('[data-route-hint]');
 
     var appleBtn = $('[data-apple]');
@@ -3231,15 +3254,17 @@ window.CARFER = {
     function urlRota(app, origem) {
       switch (app) {
         case 'waze':
-          return 'https://www.waze.com/ul?ll=' + (destinoGeo || '') +
-                 '&q=' + destinoTexto + '&navigate=yes';
+          // Sem coordenadas o Waze busca pelo texto; com elas, vai direto.
+          return 'https://www.waze.com/ul?' +
+                 (destinoGeo ? 'll=' + encodeURIComponent(destinoGeo) + '&' : '') +
+                 'q=' + destinoTexto + '&navigate=yes';
         case 'apple':
-          return 'https://maps.apple.com/?daddr=' + destinoTexto +
+          return 'https://maps.apple.com/?daddr=' + destino +
                  (origem ? '&saddr=' + origem : '') + '&dirflg=d';
         default:
           return 'https://www.google.com/maps/dir/?api=1' +
                  (origem ? '&origin=' + origem : '') +
-                 '&destination=' + destinoTexto + '&travelmode=driving';
+                 '&destination=' + destino + '&travelmode=driving';
       }
     }
 
@@ -3264,6 +3289,13 @@ window.CARFER = {
         },
         { enableHighAccuracy: false, timeout: 7000, maximumAge: 300000 }
       );
+    }
+
+    // Link para a ficha da empresa no Maps, montado a partir da configuração.
+    var ficha = $('[data-map-link]');
+    if (ficha && END.busca) {
+      ficha.setAttribute('href',
+        'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(END.busca));
     }
 
     var principal = $('[data-route]');

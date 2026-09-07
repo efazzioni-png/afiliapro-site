@@ -25,17 +25,26 @@ window.CARFER = {
 
   /* --------------------------------------------------------- endereço --- */
   endereco: {
+    // Como o endereço aparece escrito na tela.
     logradouro: 'Estr. União e Indústria, 10337 — Sl 118',
     bairro: 'Itaipava',
     cidade: 'Petrópolis',
     uf: 'RJ',
     cep: '25730-740',
-    // Usado no mapa e na rota. Manter em uma linha, como se digitasse no Maps.
-    consulta: 'Carfer Engenharia, Estr. União e Indústria, 10337 - Sala 118, Itaipava, Petrópolis - RJ, 25730-740',
-    // ⚠️ CONFIRMAR: coordenadas aproximadas de Itaipava (usadas apenas no
-    // Waze/Apple Maps como destino alternativo e no schema.org).
-    lat: -22.3167,
-    lng: -43.1361
+
+    // Texto usado para ACHAR a empresa no mapa (Google Maps, Waze e Apple
+    // Maps) — é o que você digitaria na busca do Maps. Sem o número da sala:
+    // "Sala 118" não existe para o mapa e só atrapalha a localização.
+    // Começar pelo nome da empresa faz o Maps abrir a ficha do negócio.
+    busca: 'Carfer Engenharia, Estrada União e Indústria, 10337, Itaipava, Petrópolis - RJ, 25730-740, Brasil',
+
+    // OPCIONAL — deixe null que o mapa se vira com o endereço acima.
+    // Se quiser cravar o pino num ponto exato (a entrada da obra, o
+    // estacionamento): abra o Google Maps, clique com o botão direito
+    // sobre o local e copie os dois números do topo do menu.
+    // Ex.: lat: -22.316742, lng: -43.136055
+    lat: null,
+    lng: null
   },
 
   /* ------------------------------------------------- mensagens do zap --- */

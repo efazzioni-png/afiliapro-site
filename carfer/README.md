@@ -45,7 +45,8 @@ No topo de `assets/css/styles.css`, no bloco `:root`. Trocar
 |---|---|---|
 | `site.config.js` → `contato.email` | `contato@carferengenharia.com.br` | Endereço **presumido**. É o e-mail usado no botão “Por e-mail” do formulário. Confirme ou troque. |
 | `site.config.js` → `indicadores` | “+150 obras entregues” e “+10 anos de experiência” | Números **provisórios**, marcados com `nota: 'ajustar'`. Os outros dois (49 avaliações e 3 estados) são reais. |
-| `site.config.js` → `endereco.lat/lng` | Coordenadas de Itaipava | Aproximadas. O mapa e a rota usam o **endereço por escrito** (preciso); as coordenadas só entram no Waze e nos dados estruturados. |
+| `site.config.js` → `endereco.busca` | Texto usado para achar a empresa no mapa | Confirme abrindo o link “Abrir a ficha no Google Maps” no site: se o pino cair no lugar certo, está pronto. Se não, ajuste o texto (ou preencha `lat`/`lng`). |
+| `site.config.js` → `endereco.lat/lng` | `null` por padrão | Opcional. Sem eles, mapa e rota usam o endereço por escrito. Preencha só se quiser cravar o pino num ponto exato — clique com o botão direito no local no Google Maps e copie os dois números. |
 | `index.html` → `<link rel="canonical">`, `og:url`, `og:image`, `sitemap.xml`, `robots.txt` | `https://carferengenharia.com.br/` | Trocar se o site for publicado em outro domínio. |
 | `assets/img/obra-*.svg`, `area-*.svg`, `sobre-carfer.svg` | Ilustrações-base | São desenhos vetoriais de apoio, **não fotos de obras reais**. Substitua por fotos suas (veja abaixo). |
 
@@ -92,8 +93,15 @@ a navegação já traçada: Apple Maps no iPhone, Google Maps nos demais. Se a
 pessoa negar a localização, o app de mapas abre mesmo assim e usa a posição
 atual dele. Há ainda botões diretos para Google Maps, Waze e Apple Maps.
 
-**Mapa** — o iframe do Google Maps só é carregado quando a seção se aproxima
-da tela; se não carregar, aparece um link para abrir no Google Maps.
+**Mapa** — o endereço vem de `endereco.busca` no `site.config.js`: o mesmo
+texto alimenta o mapa incorporado, a rota, o Waze, o Apple Maps e o link da
+ficha. Mudou o endereço lá, mudou em todos. O texto começa pelo nome da
+empresa (faz o Maps abrir a ficha do negócio, não só um ponto na rua) e não
+inclui o número da sala, que o mapa não reconhece.
+
+O iframe só é carregado quando a seção se aproxima da tela; se não carregar
+(rede fora, navegador bloqueando iframes de terceiros), o bloco mostra o
+endereço escrito e um link para abrir no Google Maps.
 
 **Galeria** — filtros por categoria e lightbox com teclado (← → e Esc),
 arraste no celular e foco preso dentro do diálogo.
