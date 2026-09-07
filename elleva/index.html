@@ -598,10 +598,24 @@ main p + p{margin-top:1.05rem}
 .info-item .muted{color:var(--ink-3);font-size:.88rem;margin-top:.2rem}
 
 .map{
+  position:relative;
   border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);
   border:1px solid var(--line-2);min-height:420px;background:var(--bg-alt);
 }
-.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.28) contrast(1.02)}
+.map iframe{
+  position:relative;z-index:1;
+  width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.28) contrast(1.02);
+  opacity:0;transition:opacity .5s var(--ease);
+}
+.map iframe.is-loaded{opacity:1}
+/* Aparece quando o mapa nao carrega (conexao lenta ou iframe bloqueado) */
+.map__fallback{
+  position:absolute;inset:0;z-index:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.1rem;text-align:center;padding:2rem;
+}
+.map__fallback svg{width:30px;height:30px;color:var(--gold)}
+.map__fallback p{color:var(--ink);font-size:1rem;line-height:1.6}
 
 /* ============================ CONTATO ============================ */
 .contact__grid{
@@ -1403,6 +1417,11 @@ main p + p{margin-top:1.05rem}
       </div>
 
       <div class="map" data-reveal style="--d:.1s">
+        <div class="map__fallback">
+          <svg aria-hidden="true"><use href="#i-pin"></use></svg>
+          <p>Rua do Imperador, 48 — Centro<br>Petrópolis — RJ, 25620-000</p>
+          <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20do%20Imperador%2C%2048%20-%20Centro%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025620-000" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        </div>
         <iframe
           title="Mapa da localização da ELLEVA — Rua do Imperador, 48, Centro, Petrópolis - RJ"
           src="https://www.google.com/maps?q=Rua%20do%20Imperador%2C%2048%20-%20Centro%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025620-000&amp;hl=pt-BR&amp;z=17&amp;output=embed"
@@ -1748,8 +1767,18 @@ main p + p{margin-top:1.05rem}
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    revealables.forEach(function (el) { revealObs.observe(el); });
+    /* O que ja esta visivel na primeira tela aparece de imediato, sem esperar
+       o observador — assim a pagina nunca e pintada vazia ao abrir. */
+    revealables.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-visible');
+      else revealObs.observe(el);
+    });
   }
+
+  /* ---------- Mapa ---------- */
+  var mapa = $('.map iframe');
+  if (mapa) mapa.addEventListener('load', function () { mapa.classList.add('is-loaded'); });
 
   /* ---------- Link ativo no menu ---------- */
   var sections = $$('main section[id]');
