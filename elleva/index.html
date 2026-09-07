@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+  ==========================================================================
+  ELLEVA — Clínica Integrada · Petrópolis/RJ
+  Site institucional estático (HTML + CSS + JS, sem dependências de build).
+  --------------------------------------------------------------------------
+  >>> DADOS QUE PRECISAM SER CONFIRMADOS/SUBSTITUÍDOS ANTES DE PUBLICAR <<<
+  Procure no arquivo pelos marcadores  [EDITAR]  e  [CONFIRMAR].
+  Há um checklist completo em  elleva/LEIA-ME.md
+  ==========================================================================
+-->
+
+<title>ELLEVA — Clínica Integrada | Dentista em Petrópolis, Centro</title>
+<meta name="description" content="Clínica odontológica e de medicina integrada no Centro de Petrópolis (RJ). Ética, acolhimento e excelência: nota 4,9 no Google. Rua do Imperador, 48. Agende pelo WhatsApp.">
+<meta name="author" content="ELLEVA — Clínica Integrada">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1D2A24">
+<meta name="geo.region" content="BR-RJ">
+<meta name="geo.placename" content="Petrópolis">
+
+<!-- [EDITAR] Trocar pelo domínio definitivo da clínica -->
+<link rel="canonical" href="https://afiliapro.com/elleva/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="ELLEVA — Clínica Integrada">
+<meta property="og:title" content="ELLEVA — Clínica Integrada | Dentista em Petrópolis, Centro">
+<meta property="og:description" content="Cuidamos do seu sorriso com ética, acolhimento e excelência. Clínica odontológica e integrada no Centro de Petrópolis — nota 4,9 no Google.">
+<meta property="og:url" content="https://afiliapro.com/elleva/">
+<!-- [EDITAR] Imagem de compartilhamento 1200x630px -->
+<meta property="og:image" content="https://afiliapro.com/elleva/assets/og-elleva.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%231D2A24'/%3E%3Cstop offset='.55' stop-color='%23B8933F'/%3E%3Cstop offset='1' stop-color='%23E4C97F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20 3c0 8-11 11-11 21a11 11 0 0 0 22 0C31 14 20 11 20 3Z' fill='url(%23g)'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<script>document.documentElement.className += ' js';</script>
+
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --bg:#FBF9F5;
+  --bg-alt:#F5F0E7;
+  --white:#FFFFFF;
+  --ink:#22302A;
+  --ink-2:#4E5D55;
+  --ink-3:#646F69;
+  --line:#E7DDCC;
+  --line-2:#F0E9DD;
+  --gold:#B8933F;
+  --gold-2:#D9BE7C;
+  --gold-3:#866A26;
+  --gold-soft:#F7F0DF;
+  --deep:#1D2A24;
+  --deep-2:#2A3B33;
+  --wa:#25D366;
+
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+
+  --r-sm:12px; --r:18px; --r-lg:28px; --r-pill:999px;
+  --sh-sm:0 2px 10px rgba(34,48,42,.05);
+  --sh:0 14px 44px -16px rgba(34,48,42,.18);
+  --sh-lg:0 30px 74px -26px rgba(34,48,42,.28);
+
+  --container:1180px;
+  --pad:clamp(1.15rem,4vw,2rem);
+  --section:clamp(4.25rem,8.5vw,7.5rem);
+  --header-h:76px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--header-h) + 14px);
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  font-family:var(--sans);
+  font-size:clamp(1rem,.97rem + .15vw,1.0625rem);
+  line-height:1.72;
+  color:var(--ink-2);
+  background:var(--bg);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+img,svg,iframe{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+ul{list-style:none}
+
+::selection{background:var(--gold-2);color:var(--deep)}
+
+:focus-visible{
+  outline:2px solid var(--gold-3);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.skip-link{
+  position:absolute;left:50%;top:-100px;transform:translateX(-50%);
+  z-index:2000;background:var(--deep);color:#fff;
+  padding:.85rem 1.5rem;border-radius:0 0 var(--r-sm) var(--r-sm);
+  font-size:.9rem;font-weight:600;transition:top .2s;
+}
+.skip-link:focus{top:0}
+
+/* ============================ LAYOUT ============================ */
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--pad)}
+.container--narrow{max-width:860px}
+.section{padding-block:var(--section);position:relative}
+.section--alt{background:var(--bg-alt)}
+.section--deep{background:var(--deep);color:#D7DEDA}
+
+/* ============================ TIPOGRAFIA ============================ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-3);margin-bottom:1.1rem;
+}
+.eyebrow::before{
+  content:"";width:26px;height:1px;background:var(--gold);flex:none;
+}
+.section--deep .eyebrow{color:var(--gold-2)}
+.section--deep .eyebrow::before{background:var(--gold-2)}
+
+h1,h2,h3,h4,.display{
+  font-family:var(--serif);
+  color:var(--ink);
+  font-weight:500;
+  line-height:1.12;
+  letter-spacing:-.01em;
+}
+.section--deep h1,.section--deep h2,.section--deep h3,.section--deep h4{color:#F6F2E9}
+
+h1,.h1{font-size:clamp(2.55rem,1.6rem + 4.1vw,4.35rem)}
+h2,.h2{font-size:clamp(2.05rem,1.45rem + 2.65vw,3.35rem)}
+h3,.h3{font-size:clamp(1.3rem,1.18rem + .55vw,1.6rem);line-height:1.25}
+.value h3{font-size:1.08rem;line-height:1.35}
+
+em.accent{font-style:italic;color:var(--gold-3)}
+.section--deep em.accent{color:var(--gold-2)}
+
+.lead{font-size:clamp(1.05rem,1rem + .35vw,1.22rem);line-height:1.72;color:var(--ink-2)}
+main p + p{margin-top:1.05rem}
+.section--deep .lead{color:#C3CDC8}
+
+.section-head{max-width:660px;margin-bottom:clamp(2.75rem,5vw,4rem)}
+.section-head--center{margin-inline:auto;text-align:center}
+.section-head--center .eyebrow::before{display:none}
+.section-head p{margin-top:1.15rem}
+
+/* ============================ BOTÕES ============================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.95rem 1.7rem;border-radius:var(--r-pill);border:1px solid transparent;
+  font-size:.94rem;font-weight:600;letter-spacing:.01em;
+  cursor:pointer;text-align:center;white-space:nowrap;
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),background-color .28s var(--ease),color .28s var(--ease),border-color .28s var(--ease);
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+
+.btn--primary{
+  background:linear-gradient(135deg,var(--gold-2),var(--gold));
+  color:var(--deep);
+  box-shadow:0 10px 26px -12px rgba(184,147,63,.85);
+}
+.btn--primary:hover{box-shadow:0 16px 34px -12px rgba(184,147,63,.95)}
+
+.btn--dark{background:var(--deep);color:#F6F2E9;box-shadow:0 12px 30px -16px rgba(29,42,36,.9)}
+.btn--dark:hover{background:var(--deep-2)}
+
+.btn--ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn--ghost:hover{border-color:var(--gold);background:var(--gold-soft)}
+.section--deep .btn--ghost{border-color:rgba(255,255,255,.22);color:#F6F2E9}
+.section--deep .btn--ghost:hover{border-color:var(--gold-2);background:rgba(255,255,255,.06)}
+
+.btn--sm{padding:.7rem 1.25rem;font-size:.86rem}
+.btn--block{width:100%}
+
+.link-arrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-weight:600;font-size:.92rem;color:var(--gold-3);
+}
+.link-arrow svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.link-arrow:hover svg{transform:translateX(4px)}
+
+/* ============================ REVEAL ============================ */
+.js [data-reveal]{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s var(--ease),transform .8s var(--ease);
+  transition-delay:var(--d,0s);
+}
+.js [data-reveal].is-visible{opacity:1;transform:none}
+
+/* ============================ HEADER ============================ */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:900;
+  height:var(--header-h);
+  display:flex;align-items:center;
+  background:rgba(251,249,245,0);
+  border-bottom:1px solid transparent;
+  transition:background-color .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease),height .35s var(--ease);
+}
+.header.is-stuck{
+  background:rgba(251,249,245,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line-2);
+  box-shadow:0 6px 26px -20px rgba(34,48,42,.5);
+}
+.header__inner{
+  width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+}
+
+/* Logo */
+.logo{display:flex;align-items:center;gap:.7rem;flex:none}
+.logo__mark{width:34px;height:34px;flex:none}
+.logo__text{display:flex;flex-direction:column;line-height:1}
+.logo__name{
+  font-family:var(--serif);font-size:1.55rem;font-weight:600;
+  color:var(--ink);letter-spacing:.06em;
+}
+.logo__tag{
+  font-size:.53rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:.22rem;
+}
+.footer .logo__name{color:#F6F2E9}
+.footer .logo__tag{color:#8FA098}
+
+/* Nav */
+.nav{display:flex;align-items:center;gap:2rem}
+.nav__list{display:flex;align-items:center;gap:1.75rem}
+.nav__link{
+  position:relative;font-size:.9rem;font-weight:500;color:var(--ink-2);
+  padding-block:.4rem;transition:color .25s;
+}
+.nav__link::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .32s var(--ease);
+}
+.nav__link:hover,.nav__link.is-active{color:var(--ink)}
+.nav__link:hover::after,.nav__link.is-active::after{transform:scaleX(1)}
+
+.nav__cta{display:inline-flex}
+
+.burger{
+  display:none;width:44px;height:44px;border:1px solid var(--line);
+  background:var(--white);border-radius:var(--r-sm);cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.burger span{
+  display:block;width:18px;height:1.5px;background:var(--ink);border-radius:2px;
+  transition:transform .3s var(--ease),opacity .2s;
+}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+.nav-backdrop{
+  position:fixed;inset:0;z-index:880;background:rgba(29,42,36,.45);
+  opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;
+}
+.nav-backdrop.is-open{opacity:1;visibility:visible}
+
+/* ============================ HERO ============================ */
+.hero{
+  position:relative;
+  padding-top:calc(var(--header-h) + clamp(2.5rem,6vw,4.5rem));
+  padding-bottom:clamp(3.5rem,7vw,6rem);
+  overflow:hidden;
+}
+.hero::before,.hero::after{content:"";position:absolute;pointer-events:none;z-index:0}
+.hero::before{
+  inset:0;
+  background:
+    radial-gradient(58% 46% at 78% 12%,rgba(217,190,124,.30),transparent 62%),
+    radial-gradient(50% 42% at 6% 82%,rgba(151,175,160,.20),transparent 66%);
+}
+.hero::after{
+  width:min(620px,70vw);aspect-ratio:1;right:-16%;top:-24%;
+  border:1px solid rgba(184,147,63,.20);border-radius:50%;
+}
+.hero__inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.06fr .94fr;
+  gap:clamp(2.5rem,5vw,4.5rem);align-items:center;
+}
+.hero__badge{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.45rem 1rem .45rem .55rem;margin-bottom:1.6rem;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-pill);
+  font-size:.79rem;font-weight:500;color:var(--ink-2);box-shadow:var(--sh-sm);
+}
+.hero__badge b{color:var(--ink);font-weight:600}
+.hero__badge .stars{display:inline-flex;gap:1px;color:var(--gold)}
+.hero__badge .stars svg{width:13px;height:13px}
+.hero__badge .dot{width:3px;height:3px;border-radius:50%;background:var(--line);flex:none}
+
+.hero h1{margin-bottom:1.35rem}
+.hero h1 .accent{display:block}
+.hero .lead{max-width:31rem}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.1rem}
+.hero__meta{
+  display:flex;flex-wrap:wrap;gap:.6rem 1.75rem;margin-top:2.4rem;
+  padding-top:1.75rem;border-top:1px solid var(--line);
+  font-size:.85rem;color:var(--ink-3);
+}
+.hero__meta span{display:inline-flex;align-items:center;gap:.5rem}
+.hero__meta svg{width:15px;height:15px;color:var(--gold);flex:none}
+
+/* Moldura de imagem do hero */
+.hero__figure{position:relative}
+.hero__frame{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--sh-lg);aspect-ratio:4/5;
+}
+.hero__frame::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  border:1px solid rgba(255,255,255,.35);pointer-events:none;
+}
+.hero__card{
+  position:absolute;left:-1.5rem;bottom:2rem;z-index:2;
+  background:var(--white);border-radius:var(--r);padding:1.05rem 1.3rem;
+  box-shadow:var(--sh);border:1px solid var(--line-2);
+  display:flex;align-items:center;gap:.9rem;max-width:16.5rem;
+}
+.hero__card .g-mark{
+  width:38px;height:38px;border-radius:50%;flex:none;
+  background:var(--gold-soft);display:grid;place-items:center;
+}
+.hero__card .g-mark svg{width:19px;height:19px}
+.hero__card strong{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--ink);line-height:1}
+.hero__card small{display:block;font-size:.73rem;color:var(--ink-3);margin-top:.2rem}
+
+/* ============================ PLACEHOLDER DE IMAGEM ============================ */
+/* Substituir cada .ph por <img src="assets/..." alt="..." loading="lazy"> */
+.ph{
+  width:100%;height:100%;min-height:180px;
+  background:
+    linear-gradient(135deg,rgba(217,190,124,.22),rgba(151,175,160,.16)),
+    var(--bg-alt);
+  border:1px dashed rgba(184,147,63,.5);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.6rem;text-align:center;padding:1.5rem;
+}
+.ph svg{width:30px;height:30px;color:var(--gold);opacity:.65}
+.ph span{
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-3);font-weight:600;max-width:16rem;line-height:1.6;
+}
+
+/* ============================ TRUST BAR ============================ */
+.trust{border-block:1px solid var(--line-2);background:var(--white)}
+.trust__grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.trust__item{
+  padding:clamp(1.75rem,3vw,2.4rem) 1.25rem;text-align:center;
+  border-left:1px solid var(--line-2);
+}
+.trust__item:first-child{border-left:0}
+.trust__item strong{
+  display:block;font-family:var(--serif);font-size:clamp(1.75rem,1.3rem + 1.4vw,2.4rem);
+  color:var(--ink);line-height:1;margin-bottom:.45rem;
+}
+.trust__item span{font-size:.8rem;letter-spacing:.05em;color:var(--ink-3)}
+
+/* ============================ SOBRE ============================ */
+.about__grid{
+  display:grid;grid-template-columns:.92fr 1.08fr;
+  gap:clamp(2.5rem,5.5vw,5rem);align-items:center;
+}
+.about__figure{position:relative}
+.about__figure .frame{
+  border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;box-shadow:var(--sh);
+}
+.about__figure .frame--sm{
+  position:absolute;right:-2rem;bottom:-2.5rem;width:52%;aspect-ratio:1;
+  border-radius:var(--r);overflow:hidden;border:6px solid var(--bg);
+  box-shadow:var(--sh);
+}
+.about__content h2{margin-bottom:1.25rem}
+.about__values{
+  display:grid;gap:1.5rem;margin-top:2.25rem;padding-top:2.25rem;
+  border-top:1px solid var(--line);
+}
+.value{display:flex;gap:1.1rem;align-items:flex-start}
+.value__icon{
+  width:44px;height:44px;flex:none;border-radius:50%;
+  background:var(--gold-soft);color:var(--gold-3);
+  display:grid;place-items:center;
+}
+.value__icon svg{width:21px;height:21px}
+.value h3{margin-bottom:.3rem}
+.value p{font-size:.94rem;line-height:1.65}
+
+.quote-block{
+  margin-top:2.5rem;padding:1.5rem 1.75rem;
+  background:var(--white);border-left:3px solid var(--gold);
+  border-radius:0 var(--r) var(--r) 0;box-shadow:var(--sh-sm);
+}
+.quote-block p{
+  font-family:var(--serif);font-size:1.28rem;font-style:italic;
+  line-height:1.5;color:var(--ink);
+}
+
+/* ============================ ESPECIALIDADES ============================ */
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+  gap:clamp(1rem,1.8vw,1.4rem);
+}
+.card{
+  background:var(--white);border:1px solid var(--line-2);border-radius:var(--r);
+  padding:clamp(1.6rem,2.4vw,2rem);position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+}
+.card::before{
+  content:"";position:absolute;inset:auto 0 0 0;height:2px;
+  background:linear-gradient(90deg,var(--gold-2),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);
+}
+.card:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--line)}
+.card:hover::before{transform:scaleX(1)}
+.card__icon{
+  width:52px;height:52px;border-radius:14px;margin-bottom:1.25rem;
+  background:var(--gold-soft);color:var(--gold-3);
+  display:grid;place-items:center;
+  transition:background-color .4s var(--ease),color .4s var(--ease);
+}
+.card__icon svg{width:25px;height:25px}
+.card:hover .card__icon{background:var(--deep);color:var(--gold-2)}
+.card h3{margin-bottom:.55rem;font-size:1.22rem}
+.card p{font-size:.93rem;line-height:1.65}
+
+.chips{
+  display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;
+  margin-top:clamp(2rem,3.5vw,2.75rem);
+}
+.chip{
+  padding:.5rem 1.05rem;border:1px solid var(--line);border-radius:var(--r-pill);
+  background:var(--white);font-size:.83rem;color:var(--ink-2);
+}
+.chips__note{
+  text-align:center;font-size:.86rem;color:var(--ink-3);
+  margin-top:1.5rem;
+}
+
+/* ============================ EQUIPE ============================ */
+.team{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
+  gap:clamp(1.1rem,2vw,1.6rem);
+}
+.member{
+  background:var(--white);border:1px solid var(--line-2);border-radius:var(--r);
+  overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.member:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+.member__photo{aspect-ratio:4/5;overflow:hidden;background:var(--bg-alt)}
+.member__photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.member:hover .member__photo img{transform:scale(1.04)}
+.member__body{padding:1.35rem 1.4rem 1.6rem}
+.member__body h3{font-size:1.18rem;margin-bottom:.2rem}
+.member__role{
+  font-size:.79rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--gold-3);font-weight:600;
+}
+.member__cro{font-size:.79rem;color:var(--ink-3);margin-top:.7rem}
+
+/* ============================ DIFERENCIAIS ============================ */
+.perks{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:clamp(1.75rem,3.5vw,2.75rem);
+}
+.perk{text-align:center}
+.perk__icon{
+  width:64px;height:64px;margin:0 auto 1.15rem;border-radius:50%;
+  border:1px solid rgba(217,190,124,.4);
+  background:rgba(217,190,124,.10);color:var(--gold-2);
+  display:grid;place-items:center;
+}
+.perk__icon svg{width:27px;height:27px}
+.perk h3{font-size:1.14rem;margin-bottom:.5rem}
+.perk p{font-size:.9rem;line-height:1.65;color:#AEBAB4}
+
+/* ============================ AVALIAÇÕES ============================ */
+.reviews__top{
+  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:1.75rem;margin-bottom:clamp(2.25rem,4vw,3.25rem);
+}
+.reviews__top .section-head{margin-bottom:0}
+.rating-box{
+  display:flex;align-items:center;gap:1.1rem;flex:none;
+  background:var(--white);border:1px solid var(--line-2);border-radius:var(--r);
+  padding:1.1rem 1.5rem;box-shadow:var(--sh-sm);
+}
+.rating-box__score{
+  font-family:var(--serif);font-size:2.9rem;line-height:1;color:var(--ink);
+}
+.rating-box .stars{display:flex;gap:2px;color:var(--gold);margin-bottom:.25rem}
+.rating-box .stars svg{width:15px;height:15px}
+.rating-box small{font-size:.79rem;color:var(--ink-3)}
+
+.carousel{position:relative}
+.carousel__viewport{overflow:hidden;margin-inline:-.6rem;padding:.6rem}
+.carousel__track{
+  display:flex;gap:1.25rem;
+  transition:transform .65s var(--ease);will-change:transform;
+}
+.slide{flex:0 0 calc((100% - 2.5rem)/3);min-width:0}
+.review{
+  height:100%;background:var(--white);border:1px solid var(--line-2);
+  border-radius:var(--r);padding:1.85rem 1.75rem 1.6rem;
+  display:flex;flex-direction:column;gap:1rem;
+}
+.review__stars{display:flex;gap:2px;color:var(--gold)}
+.review__stars svg{width:15px;height:15px}
+.review__text{
+  flex:1;font-size:.97rem;line-height:1.75;color:var(--ink-2);
+}
+.review__text::before{
+  content:"“";font-family:var(--serif);font-size:2.6rem;line-height:0;
+  color:var(--gold-2);vertical-align:-.35em;margin-right:.15rem;
+}
+.review__meta{
+  display:flex;align-items:center;gap:.75rem;
+  padding-top:1rem;border-top:1px solid var(--line-2);
+}
+.review__avatar{
+  width:38px;height:38px;border-radius:50%;flex:none;
+  background:var(--gold-soft);color:var(--gold-3);
+  display:grid;place-items:center;font-weight:600;font-size:.9rem;
+  font-family:var(--serif);
+}
+.review__meta strong{display:block;font-size:.88rem;color:var(--ink);font-weight:600}
+.review__meta small{display:flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--ink-3)}
+.review__meta small svg{width:12px;height:12px}
+
+.carousel__nav{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-top:1.85rem;
+}
+.carousel__dots{display:flex;gap:.5rem}
+.dot-btn{
+  position:relative;
+  width:8px;height:8px;padding:0;border:0;border-radius:50%;
+  background:var(--line);cursor:pointer;transition:width .35s var(--ease),background-color .35s;
+}
+/* Amplia a area clicavel para 24px sem mudar o tamanho visual do ponto */
+.dot-btn::after{content:"";position:absolute;inset:-8px}
+.dot-btn.is-active{width:26px;border-radius:var(--r-pill);background:var(--gold)}
+.carousel__arrows{display:flex;gap:.6rem}
+.arrow-btn{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:var(--white);color:var(--ink);cursor:pointer;
+  display:grid;place-items:center;
+  transition:background-color .3s,border-color .3s,color .3s,opacity .3s;
+}
+.arrow-btn svg{width:17px;height:17px}
+.arrow-btn:hover:not(:disabled){background:var(--deep);border-color:var(--deep);color:var(--gold-2)}
+.arrow-btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* ============================ LOCALIZAÇÃO ============================ */
+.local__grid{
+  display:grid;grid-template-columns:.85fr 1.15fr;
+  gap:clamp(2rem,4vw,3.5rem);align-items:stretch;
+}
+.local__info{display:flex;flex-direction:column}
+.info-list{display:grid;gap:1.5rem;margin-top:.5rem}
+.info-item{display:flex;gap:1.05rem;align-items:flex-start}
+.info-item__icon{
+  width:42px;height:42px;flex:none;border-radius:12px;
+  background:var(--white);border:1px solid var(--line-2);
+  color:var(--gold-3);display:grid;place-items:center;box-shadow:var(--sh-sm);
+}
+.info-item__icon svg{width:19px;height:19px}
+.info-item h3{font-size:.79rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.35rem;font-family:var(--sans);font-weight:600}
+.info-item p{color:var(--ink);font-size:.98rem;line-height:1.6}
+.info-item a:hover{color:var(--gold-3)}
+.info-item .muted{color:var(--ink-3);font-size:.88rem;margin-top:.2rem}
+
+.map{
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);
+  border:1px solid var(--line-2);min-height:420px;background:var(--bg-alt);
+}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.28) contrast(1.02)}
+
+/* ============================ CONTATO ============================ */
+.contact__grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(2.25rem,4.5vw,4rem);align-items:start;
+}
+.contact__channels{display:grid;gap:.9rem;margin-top:2.25rem}
+.channel{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.05rem 1.3rem;border-radius:var(--r);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);
+  transition:background-color .3s,border-color .3s,transform .3s var(--ease);
+}
+.channel:hover{background:rgba(255,255,255,.09);border-color:rgba(217,190,124,.45);transform:translateX(4px)}
+.channel__icon{
+  width:42px;height:42px;flex:none;border-radius:12px;
+  background:rgba(217,190,124,.14);color:var(--gold-2);
+  display:grid;place-items:center;
+}
+.channel__icon svg{width:20px;height:20px}
+.channel small{display:block;font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:#8FA098}
+.channel strong{display:block;font-size:1rem;color:#F6F2E9;font-weight:500;margin-top:.15rem}
+
+.form{
+  background:var(--white);border-radius:var(--r-lg);
+  padding:clamp(1.75rem,3.2vw,2.5rem);box-shadow:var(--sh-lg);
+  color:var(--ink-2);
+}
+.section--deep .form h3{color:var(--ink)}
+.form h3{margin-bottom:.5rem}
+.form > p{font-size:.92rem;margin-bottom:1.75rem;color:var(--ink-2)}
+.field{margin-bottom:1.15rem}
+.field label{
+  display:block;font-size:.79rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:.5rem;
+}
+.field input,.field textarea{
+  width:100%;padding:.9rem 1.1rem;border:1px solid var(--line);
+  color:var(--ink);
+  border-radius:var(--r-sm);background:var(--bg);font-size:.97rem;
+  transition:border-color .25s,background-color .25s,box-shadow .25s;
+}
+.field textarea{resize:vertical;min-height:118px;line-height:1.6}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-3)}
+.field input:focus,.field textarea:focus{
+  outline:0;border-color:var(--gold);background:var(--white);
+  box-shadow:0 0 0 3px rgba(184,147,63,.14);
+}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{
+  border-color:#C0563F;box-shadow:0 0 0 3px rgba(192,86,63,.12);
+}
+.field__error{display:block;font-size:.8rem;color:#B04A34;margin-top:.4rem;min-height:1.1em}
+.form__note{
+  display:flex;gap:.55rem;align-items:flex-start;
+  font-size:.78rem;color:var(--ink-3);line-height:1.6;margin-top:1.15rem;
+}
+.form__note svg{width:15px;height:15px;flex:none;margin-top:.15rem;color:var(--gold)}
+.form__status{
+  margin-top:1rem;font-size:.88rem;font-weight:500;color:var(--gold-3);
+  min-height:1.2em;
+}
+
+/* ============================ RODAPÉ ============================ */
+.footer{background:var(--deep);color:#9FADA6;padding-top:clamp(3.5rem,6vw,5rem)}
+.footer__grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:clamp(2rem,4vw,3rem);padding-bottom:3rem;
+}
+.footer h3{
+  font-family:var(--sans);font-size:.79rem;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gold-2);margin-bottom:1.15rem;
+}
+.footer p,.footer li{font-size:.9rem;line-height:1.75}
+.footer ul{display:grid;gap:.55rem}
+.footer a{transition:color .25s}
+.footer a:hover{color:var(--gold-2)}
+.footer__about p{max-width:26rem;margin-top:1.25rem}
+.socials{display:flex;gap:.65rem;margin-top:1.5rem}
+.social{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);color:#C3CDC8;
+  display:grid;place-items:center;
+  transition:background-color .3s,border-color .3s,color .3s,transform .3s var(--ease);
+}
+.social svg{width:18px;height:18px}
+.social:hover{background:rgba(217,190,124,.14);border-color:var(--gold-2);color:var(--gold-2);transform:translateY(-2px)}
+.footer__bottom{
+  border-top:1px solid rgba(255,255,255,.09);
+  padding-block:1.6rem;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;
+  align-items:center;justify-content:space-between;
+  font-size:.8rem;color:#83918B;
+}
+.footer__legal{max-width:52rem;font-size:.76rem;line-height:1.7;color:#85918B;padding-bottom:1.6rem}
+
+/* ============================ WHATSAPP FLUTUANTE ============================ */
+.wa-float{
+  position:fixed;right:clamp(1rem,3vw,1.75rem);bottom:clamp(1rem,3vw,1.75rem);
+  z-index:850;display:flex;align-items:center;gap:.7rem;
+  padding:.75rem;border-radius:var(--r-pill);
+  background:var(--wa);color:var(--deep);font-weight:600;font-size:.9rem;
+  box-shadow:0 14px 34px -10px rgba(37,211,102,.55);
+  opacity:0;visibility:hidden;transform:translateY(14px) scale(.94);
+  transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s,box-shadow .3s;
+}
+.wa-float.is-visible{opacity:1;visibility:visible;transform:none}
+.wa-float:hover{box-shadow:0 18px 40px -10px rgba(37,211,102,.7)}
+.wa-float svg{width:30px;height:30px;flex:none}
+.wa-float__label{padding-right:.7rem;white-space:nowrap}
+.wa-float::after{
+  content:"";position:absolute;left:.75rem;top:.75rem;width:30px;height:30px;
+  border-radius:50%;border:2px solid var(--wa);
+  animation:waPulse 2.6s var(--ease) infinite;pointer-events:none;
+}
+@keyframes waPulse{
+  0%{transform:scale(1);opacity:.7}
+  70%,100%{transform:scale(2.1);opacity:0}
+}
+
+/* ============================ RESPONSIVO ============================ */
+@media (max-width:1080px){
+  .hero__inner{grid-template-columns:1fr;gap:3rem}
+  .hero__figure{max-width:520px;margin-inline:auto;width:100%}
+  .hero__frame{aspect-ratio:5/4}
+  .about__grid,.local__grid,.contact__grid{grid-template-columns:1fr}
+  .about__figure{max-width:480px}
+  .about__figure .frame{aspect-ratio:4/3}
+  .about__figure .frame--sm{width:44%}
+  .slide{flex-basis:calc((100% - 1.25rem)/2)}
+  .footer__grid{grid-template-columns:1fr 1fr}
+  .footer__about{grid-column:1/-1}
+}
+
+@media (max-width:860px){
+  :root{--header-h:68px}
+  .burger{display:flex}
+  .nav{
+    position:fixed;top:0;right:0;z-index:890;
+    width:min(320px,86vw);height:100dvh;
+    flex-direction:column;align-items:stretch;justify-content:flex-start;
+    gap:0;padding:calc(var(--header-h) + 1.5rem) 1.75rem 2rem;
+    background:var(--bg);box-shadow:-18px 0 50px -24px rgba(34,48,42,.5);
+    transform:translateX(102%);transition:transform .42s var(--ease);
+    overflow-y:auto;
+  }
+  .nav.is-open{transform:none}
+  .nav__list{flex-direction:column;align-items:stretch;gap:0}
+  .nav__link{
+    display:block;padding:1rem 0;font-size:1.02rem;
+    border-bottom:1px solid var(--line-2);
+  }
+  .nav__link::after{display:none}
+  .nav__cta{margin-top:1.75rem}
+  .nav__cta .btn{width:100%}
+  .trust__grid{grid-template-columns:1fr 1fr}
+  .trust__item:nth-child(3){border-left:0}
+  .trust__item:nth-child(-n+2){border-bottom:1px solid var(--line-2)}
+  .slide{flex-basis:100%}
+  .carousel__viewport{margin-inline:0;padding-inline:0}
+  .reviews__top{flex-direction:column;align-items:flex-start}
+  .footer__grid{grid-template-columns:1fr;gap:2.25rem}
+  .wa-float__label{display:none}
+  .wa-float{padding:.85rem}
+  .wa-float::after{left:.85rem;top:.85rem}
+}
+
+@media (max-width:520px){
+  .hero__card{left:.75rem;right:.75rem;bottom:.75rem;max-width:none}
+  .about__figure .frame--sm{right:-.5rem;bottom:-1.5rem;width:46%}
+  .hero__actions .btn{width:100%}
+  .carousel__nav{flex-direction:column-reverse;gap:1.25rem}
+  .footer__bottom{flex-direction:column;align-items:flex-start}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+  .js [data-reveal]{opacity:1!important;transform:none!important}
+}
+
+@media print{
+  .header,.wa-float,.nav-backdrop,.carousel__nav,.map{display:none!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Ir para o conteúdo principal</a>
+
+<!-- ===================== SPRITE DE ÍCONES ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ellevaFlame" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1D2A24"/><stop offset=".55" stop-color="#B8933F"/><stop offset="1" stop-color="#E4C97F"/>
+    </linearGradient>
+  </defs>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.4l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.25l-5.81 3.05 1.11-6.47-4.7-4.58 6.5-.95z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" d="M12.04 2C6.6 2 2.17 6.43 2.17 11.87c0 1.74.46 3.44 1.32 4.94L2 22.5l5.85-1.53a9.83 9.83 0 004.19.93h.01c5.43 0 9.86-4.43 9.86-9.87 0-2.64-1.02-5.11-2.89-6.98A9.79 9.79 0 0012.04 2zm0 17.94h-.01a8.2 8.2 0 01-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.16 8.16 0 01-1.25-4.36c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.86 5.8 2.41a8.15 8.15 0 012.4 5.8c0 4.52-3.68 8.19-8.2 8.19z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16.9v2.5a2 2 0 01-2.2 2 19.6 19.6 0 01-8.5-3 19.3 19.3 0 01-6-6 19.6 19.6 0 01-3-8.6A2 2 0 013.3 1.6h2.5a2 2 0 012 1.7c.1 1 .3 1.9.6 2.8a2 2 0 01-.4 2.1L6.9 9.4a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.8.6a2 2 0 011.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.4c0 5.6-8 12.6-8 12.6s-8-7-8-12.6a8 8 0 1116 0z"/><circle cx="12" cy="10.2" r="2.9"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 6.6V12l3.6 2.1"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15M13.2 5.5L19.8 12l-6.6 6.5"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4.5L7.5 12l7.5 7.5"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5L16.5 12 9 19.5"/></symbol>
+  <symbol id="i-google" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.23c0-.7-.06-1.37-.18-2.02H12v3.82h5.38a4.6 4.6 0 01-2 3.02v2.5h3.24c1.89-1.74 2.98-4.3 2.98-7.32z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.24-2.5c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.6-4.12H3.07v2.58A10 10 0 0012 22z"/><path fill="#FBBC05" d="M6.4 13.9a6 6 0 010-3.83V7.5H3.07a10 10 0 000 9l3.33-2.6z"/><path fill="#EA4335" d="M12 5.95c1.47 0 2.78.5 3.82 1.5l2.86-2.86C16.95 2.98 14.7 2 12 2A10 10 0 003.07 7.5L6.4 10.1c.8-2.37 3-4.13 5.6-4.13z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7.5 3v6c0 4.6-3.1 8.8-7.5 10-4.4-1.2-7.5-5.4-7.5-10v-6z"/><path d="M9 12l2.2 2.2L15.4 10"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4l-1.4-1.28C5.6 14.6 2.5 11.8 2.5 8.4A4.9 4.9 0 017.4 3.5c1.6 0 3.1.74 4.1 1.94A5.4 5.4 0 0115.6 3.5a4.9 4.9 0 014.9 4.9c0 3.4-3.1 6.2-8.1 10.72z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6.3"/><path d="M8.3 14.3L7.2 22l4.8-2.6 4.8 2.6-1.1-7.7"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.1 5.6 5.6 2.1-5.6 2.1L12 18.2l-2.1-5.6-5.6-2.1 5.6-2.1z"/><path d="M18.8 16.5l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8z"/></symbol>
+  <symbol id="i-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.4 2.6c-1.4 0-2.1.5-3 .9-.5.2-.9.3-1.4.3s-.9-.1-1.4-.3c-.9-.4-1.6-.9-3-.9C4.9 2.6 3 5 3 8.4c0 2 .5 3.4 1 5.1.4 1.3.6 2.6.8 4 .2 1.8.6 3.9 2.1 3.9 1.3 0 1.7-1.4 2-3.1.3-1.7.7-3.5 3.1-3.5s2.8 1.8 3.1 3.5c.3 1.7.7 3.1 2 3.1 1.5 0 1.9-2.1 2.1-3.9.2-1.4.4-2.7.8-4 .5-1.7 1-3.1 1-5.1 0-3.4-1.9-5.8-4.6-5.8z"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12h19"/><rect x="4" y="8.6" width="5" height="6.8" rx="1.4"/><rect x="15" y="8.6" width="5" height="6.8" rx="1.4"/><path d="M9 12h6M2.5 9.4v5.2M21.5 9.4v5.2"/></symbol>
+  <symbol id="i-implant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.3h8a2.6 2.6 0 01-2.6 2.6h-2.8A2.6 2.6 0 018 3.3z"/><path d="M12 5.9v2.4M9.6 9.2h4.8M9.9 12h4.2M10.3 14.8h3.4M10.8 17.6h2.4M12 20.4v.9"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 11.2h16.4a8.2 8.2 0 0 1-16.4 0z"/><path d="M8.4 11.2v3.4M12 11.2v4.3M15.6 11.2v3.4"/><path d="M18.4 2.2l.65 1.75 1.75.65-1.75.65-.65 1.75-.65-1.75-1.75-.65 1.75-.65z"/></symbol>
+  <symbol id="i-root" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.4 2.6c-1.4 0-2.1.5-3 .9-.5.2-.9.3-1.4.3s-.9-.1-1.4-.3c-.9-.4-1.6-.9-3-.9C4.9 2.6 3 5 3 8.4c0 2 .5 3.4 1 5.1.4 1.3.6 2.6.8 4 .2 1.8.6 3.9 2.1 3.9 1.3 0 1.7-1.4 2-3.1.3-1.7.7-3.5 3.1-3.5s2.8 1.8 3.1 3.5c.3 1.7.7 3.1 2 3.1 1.5 0 1.9-2.1 2.1-3.9.2-1.4.4-2.7.8-4 .5-1.7 1-3.1 1-5.1 0-3.4-1.9-5.8-4.6-5.8z"/><path d="M9.4 7.6l.7 8.2M14.6 7.6l-.7 8.2"/><path d="M9.4 7.6h5.2"/></symbol>
+  <symbol id="i-gum" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.2h6.8l-.8 7.4H9.4z"/><path d="M2.6 15.4c1.6-1.9 3.1-1.9 4.7 0s3.1 1.9 4.7 0 3.1-1.9 4.7 0 3.1 1.9 4.7 0"/><path d="M2.6 15.4v3.1c0 1.3 1 2.3 2.3 2.3h14.2c1.3 0 2.3-1 2.3-2.3v-3.1"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.4" r="4.4"/><path d="M9.9 6.8h.02M14.1 6.8h.02M10.2 9.2c.5.6 1.1.9 1.8.9s1.3-.3 1.8-.9"/><path d="M4.6 21.5a7.4 7.4 0 0114.8 0"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.4l3.6 3L12 3.6l5.4 6.8 3.6-3-1.7 10.2H4.7z"/><path d="M4.7 20.4h14.6"/></symbol>
+  <symbol id="i-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 2.8v5.4a4.4 4.4 0 008.8 0V2.8"/><path d="M3.6 2.8h1.8M12.4 2.8h1.8"/><path d="M9.8 12.6v2.8a4.6 4.6 0 009.2 0v-1.9"/><circle cx="19" cy="11.6" r="2.1"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.4" width="18.4" height="15.2" rx="2.6"/><circle cx="8.4" cy="9.8" r="1.8"/><path d="M21.2 15.6l-4.8-4.4-8.2 8.4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 11.2v5M12 7.9h.02"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 40 40"><path d="M20 3c0 8-11 11-11 21a11 11 0 0 0 22 0C31 14 20 11 20 3Z" fill="url(#ellevaFlame)"/></symbol>
+</svg>
+
+<!-- ===================== CABEÇALHO ===================== -->
+<header class="header" id="header">
+  <div class="header__inner">
+
+    <!-- [EDITAR] Para usar o logotipo real, troque o bloco .logo__mark por:
+         <img class="logo__mark" src="assets/logo-elleva.svg" alt="ELLEVA — Clínica Integrada" width="34" height="34"> -->
+    <a class="logo" href="#inicio" aria-label="ELLEVA — Clínica Integrada, ir para o início">
+      <svg class="logo__mark" aria-hidden="true"><use href="#i-flame"></use></svg>
+      <span class="logo__text">
+        <span class="logo__name">Elleva</span>
+        <span class="logo__tag">Clínica Integrada</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Menu principal">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#inicio">Início</a></li>
+        <li><a class="nav__link" href="#sobre">Sobre</a></li>
+        <li><a class="nav__link" href="#especialidades">Especialidades</a></li>
+        <li><a class="nav__link" href="#equipe">Equipe</a></li>
+        <li><a class="nav__link" href="#avaliacoes">Avaliações</a></li>
+        <li><a class="nav__link" href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a class="btn btn--primary btn--sm" href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          Agendar pelo WhatsApp
+        </a>
+      </div>
+    </nav>
+
+    <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="container hero__inner">
+
+    <div class="hero__content">
+      <p class="hero__badge" data-reveal>
+        <span class="stars" aria-hidden="true">
+          <svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg>
+        </span>
+        <b>4,9</b> no Google
+        <span class="dot" aria-hidden="true"></span>
+        48+ avaliações
+      </p>
+
+      <h1 data-reveal style="--d:.08s">
+        Cuidamos do seu sorriso com
+        <em class="accent">ética, acolhimento e excelência.</em>
+      </h1>
+
+      <p class="lead" data-reveal style="--d:.16s">
+        Odontologia e medicina integrada no coração de Petrópolis. Uma equipe
+        multidisciplinar que só indica o que você realmente precisa — e explica
+        cada passo antes de começar.
+      </p>
+
+      <div class="hero__actions" data-reveal style="--d:.24s">
+        <a class="btn btn--primary" href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#especialidades">Conhecer especialidades</a>
+      </div>
+
+      <div class="hero__meta" data-reveal style="--d:.32s">
+        <span><svg aria-hidden="true"><use href="#i-pin"></use></svg> Rua do Imperador, 48 — Centro</span>
+        <span><svg aria-hidden="true"><use href="#i-clock"></use></svg> Seg. a sex., 9h às 19h</span>
+      </div>
+    </div>
+
+    <div class="hero__figure" data-reveal style="--d:.2s">
+      <div class="hero__frame">
+        <!-- [EDITAR] Foto real da recepção/ambiente da clínica (retrato, mín. 900x1125px)
+             <img src="assets/recepcao-elleva.jpg" alt="Recepção da clínica ELLEVA em Petrópolis" width="900" height="1125"> -->
+        <div class="ph">
+          <svg aria-hidden="true"><use href="#i-image"></use></svg>
+          <span>Foto real da clínica<br>recepção ou ambiente</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <span class="g-mark" aria-hidden="true"><svg><use href="#i-google"></use></svg></span>
+        <span>
+          <strong>4,9</strong>
+          <small>48+ avaliações no Google</small>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== BARRA DE CONFIANÇA ===================== -->
+<section class="trust" aria-label="Números da clínica">
+  <div class="container">
+    <div class="trust__grid">
+      <div class="trust__item" data-reveal><strong>4,9</strong><span>Nota no Google</span></div>
+      <div class="trust__item" data-reveal style="--d:.08s"><strong>48+</strong><span>Avaliações de pacientes</span></div>
+      <div class="trust__item" data-reveal style="--d:.16s"><strong>100%</strong><span>Plano de tratamento transparente</span></div>
+      <div class="trust__item" data-reveal style="--d:.24s"><strong>Centro</strong><span>Petrópolis — Rua do Imperador</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE ===================== -->
+<section class="section" id="sobre">
+  <div class="container">
+    <div class="about__grid">
+
+      <div class="about__figure" data-reveal>
+        <div class="frame">
+          <!-- [EDITAR] Foto da equipe ELLEVA (retrato, mín. 900x1200px) -->
+          <div class="ph">
+            <svg aria-hidden="true"><use href="#i-image"></use></svg>
+            <span>Foto da equipe<br>ELLEVA</span>
+          </div>
+        </div>
+        <div class="frame frame--sm">
+          <!-- [EDITAR] Foto de um detalhe do consultório (quadrada, mín. 600x600px) -->
+          <div class="ph">
+            <svg aria-hidden="true"><use href="#i-image"></use></svg>
+            <span>Detalhe do<br>consultório</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__content">
+        <p class="eyebrow" data-reveal>Sobre a ELLEVA</p>
+        <h2 data-reveal style="--d:.06s">
+          Uma clínica feita para você se sentir <em class="accent">em casa</em>.
+        </h2>
+        <p class="lead" data-reveal style="--d:.12s">
+          A ELLEVA nasceu da vontade de fazer odontologia de outro jeito em Petrópolis:
+          com tempo para ouvir, clareza para explicar e honestidade para dizer também
+          o que <strong>não</strong> precisa ser feito.
+        </p>
+        <p data-reveal style="--d:.18s">
+          Somos uma clínica <strong>liderada por mulheres empreendedoras</strong>, que
+          construíram aqui um espaço de odontologia e medicina integrada onde a equipe
+          multidisciplinar conversa entre si — e com você. Cada plano de tratamento é
+          apresentado por completo, com valores e alternativas, antes de qualquer
+          procedimento começar.
+        </p>
+
+        <div class="about__values">
+          <div class="value" data-reveal>
+            <span class="value__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span>
+            <div>
+              <h3>Ética antes de tudo</h3>
+              <p>Nunca indicamos procedimentos desnecessários. Se o melhor caminho for esperar ou fazer menos, é isso que vamos te dizer.</p>
+            </div>
+          </div>
+          <div class="value" data-reveal style="--d:.08s">
+            <span class="value__icon" aria-hidden="true"><svg><use href="#i-heart"></use></svg></span>
+            <div>
+              <h3>Acolhimento de verdade</h3>
+              <p>Do primeiro contato ao retorno, você é recebido pelo nome. Muita gente chega com medo de dentista e sai com vontade de voltar.</p>
+            </div>
+          </div>
+          <div class="value" data-reveal style="--d:.16s">
+            <span class="value__icon" aria-hidden="true"><svg><use href="#i-award"></use></svg></span>
+            <div>
+              <h3>Excelência técnica</h3>
+              <p>Profissionais qualificados, atualização constante e protocolos rigorosos de biossegurança em cada atendimento.</p>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="quote-block" data-reveal>
+          <p>“Aqui, a confiança vem antes do tratamento.”</p>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESPECIALIDADES ===================== -->
+<section class="section section--alt" id="especialidades">
+  <div class="container">
+
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Especialidades</p>
+      <h2>Cuidado completo, <em class="accent">em um só lugar</em></h2>
+      <p class="lead">
+        Odontologia e medicina integrada com uma equipe multidisciplinar que acompanha
+        você do diagnóstico à manutenção — sem precisar correr de clínica em clínica.
+      </p>
+    </div>
+
+    <!-- [CONFIRMAR] Ajuste esta lista para refletir exatamente os serviços oferecidos
+         hoje pela ELLEVA. Cada card = 1 especialidade. -->
+    <div class="cards">
+
+      <article class="card" data-reveal>
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-tooth"></use></svg></span>
+        <h3>Clínica geral e prevenção</h3>
+        <p>Avaliação completa, limpeza, restaurações e acompanhamento periódico para manter seu sorriso saudável a longo prazo.</p>
+      </article>
+
+      <article class="card" data-reveal style="--d:.06s">
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-braces"></use></svg></span>
+        <h3>Ortodontia</h3>
+        <p>Alinhamento dos dentes e correção da mordida com aparelhos fixos, estéticos ou alinhadores transparentes.</p>
+      </article>
+
+      <article class="card" data-reveal style="--d:.12s">
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-implant"></use></svg></span>
+        <h3>Implantodontia</h3>
+        <p>Reposição de dentes perdidos com implantes planejados caso a caso, devolvendo função, conforto e naturalidade.</p>
+      </article>
+
+      <article class="card" data-reveal style="--d:.18s">
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-smile"></use></svg></span>
+        <h3>Estética do sorriso</h3>
+        <p>Clareamento, facetas e lentes de contato dental com planejamento realista — respeitando as suas características.</p>
+      </article>
+
+      <article class="card" data-reveal>
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-root"></use></svg></span>
+        <h3>Endodontia</h3>
+        <p>Tratamento de canal com técnica atual e foco em conforto, para preservar o dente natural sempre que possível.</p>
+      </article>
+
+      <article class="card" data-reveal style="--d:.06s">
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-gum"></use></svg></span>
+        <h3>Periodontia</h3>
+        <p>Saúde da gengiva e do osso de suporte: prevenção, tratamento de gengivite e periodontite e manutenção.</p>
+      </article>
+
+      <article class="card" data-reveal style="--d:.12s">
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-child"></use></svg></span>
+        <h3>Odontopediatria</h3>
+        <p>Atendimento com paciência e leveza para as crianças criarem uma relação tranquila com o dentista desde cedo.</p>
+      </article>
+
+      <article class="card" data-reveal style="--d:.18s">
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-crown"></use></svg></span>
+        <h3>Prótese e reabilitação</h3>
+        <p>Coroas, próteses fixas e removíveis para devolver a mastigação, a fala e a confiança no dia a dia.</p>
+      </article>
+
+      <article class="card" data-reveal>
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-stethoscope"></use></svg></span>
+        <h3>Medicina integrada</h3>
+        <p>Nossa equipe multidisciplinar conecta a saúde bucal ao cuidado geral, com encaminhamento e acompanhamento conjunto.</p>
+      </article>
+
+    </div>
+
+    <div class="chips" data-reveal>
+      <span class="chip">Cirurgia oral e extrações</span>
+      <span class="chip">Harmonização orofacial</span>
+      <span class="chip">DTM e bruxismo</span>
+      <span class="chip">Urgência odontológica</span>
+    </div>
+    <p class="chips__note" data-reveal>
+      Não encontrou o que procura?
+      <a class="link-arrow" href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener">
+        Fale com a gente no WhatsApp <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<!-- ===================== EQUIPE ===================== -->
+<section class="section" id="equipe">
+  <div class="container">
+
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Nossa equipe</p>
+      <h2>Quem vai cuidar de <em class="accent">você</em></h2>
+      <p class="lead">
+        Uma equipe multidisciplinar que trabalha junto — e que você conhece pelo nome
+        desde a primeira consulta.
+      </p>
+    </div>
+
+    <!--
+      =====================================================================
+      [EDITAR] SEÇÃO EQUIPE — OBRIGATÓRIO ANTES DE PUBLICAR
+      Substitua os cards marcados como "A definir" pelos profissionais reais.
+      Para cada um: foto (4:5, mín. 600x750px), nome, especialidade e CRO/CRM.
+      A exibição do nome e do registro do profissional é exigida pelo CFO/CRO.
+      =====================================================================
+    -->
+    <div class="team">
+
+      <article class="member" data-reveal>
+        <div class="member__photo">
+          <!-- [EDITAR] <img src="assets/equipe/vitor-waruar.jpg" alt="Dr. Vitor Waruar, responsável técnico da ELLEVA" width="600" height="750" loading="lazy"> -->
+          <div class="ph"><svg aria-hidden="true"><use href="#i-image"></use></svg><span>Foto 4:5</span></div>
+        </div>
+        <div class="member__body">
+          <h3>Dr. Vitor Waruar</h3>
+          <p class="member__role">Responsável técnico</p>
+          <p class="member__cro">CRO-RJ 31235</p>
+        </div>
+      </article>
+
+      <article class="member" data-reveal style="--d:.08s">
+        <div class="member__photo">
+          <div class="ph"><svg aria-hidden="true"><use href="#i-image"></use></svg><span>Foto 4:5</span></div>
+        </div>
+        <div class="member__body">
+          <h3>A definir</h3>
+          <p class="member__role">Especialidade</p>
+          <p class="member__cro">CRO-RJ 00000</p>
+        </div>
+      </article>
+
+      <article class="member" data-reveal style="--d:.16s">
+        <div class="member__photo">
+          <div class="ph"><svg aria-hidden="true"><use href="#i-image"></use></svg><span>Foto 4:5</span></div>
+        </div>
+        <div class="member__body">
+          <h3>A definir</h3>
+          <p class="member__role">Especialidade</p>
+          <p class="member__cro">CRO-RJ 00000</p>
+        </div>
+      </article>
+
+      <article class="member" data-reveal style="--d:.24s">
+        <div class="member__photo">
+          <div class="ph"><svg aria-hidden="true"><use href="#i-image"></use></svg><span>Foto 4:5</span></div>
+        </div>
+        <div class="member__body">
+          <h3>A definir</h3>
+          <p class="member__role">Especialidade</p>
+          <p class="member__cro">CRO-RJ 00000</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIFERENCIAIS ===================== -->
+<section class="section section--deep" aria-labelledby="diferenciais-titulo">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Por que a ELLEVA</p>
+      <h2 id="diferenciais-titulo">O cuidado que os pacientes <em class="accent">indicam</em></h2>
+    </div>
+
+    <div class="perks">
+      <div class="perk" data-reveal>
+        <span class="perk__icon" aria-hidden="true"><svg><use href="#i-heart"></use></svg></span>
+        <h3>Atendimento humanizado</h3>
+        <p>Tempo para ouvir, explicar e tirar dúvidas. Sem pressa e sem pressão.</p>
+      </div>
+      <div class="perk" data-reveal style="--d:.08s">
+        <span class="perk__icon" aria-hidden="true"><svg><use href="#i-sparkle"></use></svg></span>
+        <h3>Ambiente impecável</h3>
+        <p>Espaço limpo, organizado e agradável, com biossegurança rigorosa.</p>
+      </div>
+      <div class="perk" data-reveal style="--d:.16s">
+        <span class="perk__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span>
+        <h3>Transparência total</h3>
+        <p>Plano de tratamento detalhado, com valores e alternativas, antes de começar.</p>
+      </div>
+      <div class="perk" data-reveal style="--d:.24s">
+        <span class="perk__icon" aria-hidden="true"><svg><use href="#i-pin"></use></svg></span>
+        <h3>No Centro de Petrópolis</h3>
+        <p>Rua do Imperador, 48 — fácil de chegar, a pé ou de carro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AVALIAÇÕES ===================== -->
+<section class="section section--alt" id="avaliacoes">
+  <div class="container">
+
+    <div class="reviews__top">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Avaliações</p>
+        <h2>O que dizem os nossos <em class="accent">pacientes</em></h2>
+      </div>
+      <div class="rating-box" data-reveal style="--d:.1s">
+        <span class="rating-box__score">4,9</span>
+        <span>
+          <span class="stars" aria-hidden="true">
+            <svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg>
+          </span>
+          <small>Média de 48+ avaliações no Google</small>
+        </span>
+      </div>
+    </div>
+
+    <!--
+      =====================================================================
+      [EDITAR] AVALIAÇÕES — SUBSTITUIR ANTES DE PUBLICAR
+      Os textos abaixo são RESUMOS dos temas que os pacientes costumam
+      destacar e estão SEM autoria individual de propósito.
+      Copie os depoimentos reais do perfil da clínica no Google e substitua
+      o texto (.review__text), o nome (strong), a inicial (.review__avatar)
+      e a data. Não publique depoimentos com nomes inventados.
+      Para adicionar/remover slides, basta duplicar/apagar um <li class="slide">.
+      =====================================================================
+    -->
+    <div class="carousel" id="reviewsCarousel" data-reveal>
+      <div class="carousel__viewport">
+        <ul class="carousel__track" id="reviewsTrack" aria-live="polite">
+
+          <li class="slide">
+            <figure class="review">
+              <span class="review__stars" aria-label="5 de 5 estrelas">
+                <svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg>
+              </span>
+              <blockquote class="review__text">Profissionalismo do começo ao fim. Explicaram cada etapa do tratamento antes de iniciar e nunca me empurraram nada que eu não precisasse.</blockquote>
+              <figcaption class="review__meta">
+                <span class="review__avatar" aria-hidden="true">P</span>
+                <span>
+                  <strong>Paciente ELLEVA</strong>
+                  <small><svg aria-hidden="true"><use href="#i-google"></use></svg> Avaliação no Google</small>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="slide">
+            <figure class="review">
+              <span class="review__stars" aria-label="5 de 5 estrelas">
+                <svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg>
+              </span>
+              <blockquote class="review__text">A honestidade dessa equipe é o que mais me marcou. Fui preparada para um procedimento caro e me disseram que não era necessário.</blockquote>
+              <figcaption class="review__meta">
+                <span class="review__avatar" aria-hidden="true">P</span>
+                <span>
+                  <strong>Paciente ELLEVA</strong>
+                  <small><svg aria-hidden="true"><use href="#i-google"></use></svg> Avaliação no Google</small>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="slide">
+            <figure class="review">
+              <span class="review__stars" aria-label="5 de 5 estrelas">
+                <svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg>
+              </span>
+              <blockquote class="review__text">Ambiente impecável, sempre muito limpo e organizado. Dá gosto de chegar e esperar na recepção.</blockquote>
+              <figcaption class="review__meta">
+                <span class="review__avatar" aria-hidden="true">P</span>
+                <span>
+                  <strong>Paciente ELLEVA</strong>
+                  <small><svg aria-hidden="true"><use href="#i-google"></use></svg> Avaliação no Google</small>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="slide">
+            <figure class="review">
+              <span class="review__stars" aria-label="5 de 5 estrelas">
+                <svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg>
+              </span>
+              <blockquote class="review__text">Me sinto em família toda vez que venho. Sou recebida pelo nome e saio com a sensação de ter sido realmente bem cuidada.</blockquote>
+              <figcaption class="review__meta">
+                <span class="review__avatar" aria-hidden="true">P</span>
+                <span>
+                  <strong>Paciente ELLEVA</strong>
+                  <small><svg aria-hidden="true"><use href="#i-google"></use></svg> Avaliação no Google</small>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+
+          <li class="slide">
+            <figure class="review">
+              <span class="review__stars" aria-label="5 de 5 estrelas">
+                <svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg><svg aria-hidden="true"><use href="#i-star"></use></svg>
+              </span>
+              <blockquote class="review__text">Tinha muito medo de dentista e aqui isso acabou. Atendimento atencioso, tudo explicado com calma e sem julgamento.</blockquote>
+              <figcaption class="review__meta">
+                <span class="review__avatar" aria-hidden="true">P</span>
+                <span>
+                  <strong>Paciente ELLEVA</strong>
+                  <small><svg aria-hidden="true"><use href="#i-google"></use></svg> Avaliação no Google</small>
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="carousel__nav">
+        <div class="carousel__dots" id="reviewsDots" role="tablist" aria-label="Escolher depoimento"></div>
+        <div class="carousel__arrows">
+          <button class="arrow-btn" id="reviewsPrev" type="button" aria-label="Depoimento anterior" aria-controls="reviewsTrack">
+            <svg aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+          </button>
+          <button class="arrow-btn" id="reviewsNext" type="button" aria-label="Próximo depoimento" aria-controls="reviewsTrack">
+            <svg aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <p class="chips__note" data-reveal>
+      <!-- [EDITAR] Trocar pelo link direto do perfil da ELLEVA no Google -->
+      <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=ELLEVA%20Cl%C3%ADnica%20Integrada%20Rua%20do%20Imperador%2048%20Petr%C3%B3polis%20RJ" target="_blank" rel="noopener">
+        Ver todas as avaliações no Google <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<!-- ===================== LOCALIZAÇÃO ===================== -->
+<section class="section" id="localizacao">
+  <div class="container">
+
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Onde estamos</p>
+      <h2>No coração do <em class="accent">Centro de Petrópolis</em></h2>
+    </div>
+
+    <div class="local__grid">
+      <div class="local__info" data-reveal>
+        <div class="info-list">
+
+          <div class="info-item">
+            <span class="info-item__icon" aria-hidden="true"><svg><use href="#i-pin"></use></svg></span>
+            <div>
+              <h3>Endereço</h3>
+              <p>Rua do Imperador, 48 — Centro<br>Petrópolis — RJ, 25620-000</p>
+              <p class="muted">A poucos passos da principal via do Centro histórico.</p>
+            </div>
+          </div>
+
+          <!-- [CONFIRMAR] Horário de funcionamento — ajustar aos dias/horários reais.
+               Lembre-se de atualizar também o JSON-LD no final do arquivo. -->
+          <div class="info-item">
+            <span class="info-item__icon" aria-hidden="true"><svg><use href="#i-clock"></use></svg></span>
+            <div>
+              <h3>Horário de atendimento</h3>
+              <p>Segunda a sexta — 09:00 às 19:00<br>Sábado — 09:00 às 13:00</p>
+              <p class="muted">Domingos e feriados: fechado.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-item__icon" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
+            <div>
+              <h3>Agendamento</h3>
+              <p><a href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener">WhatsApp (24) 99285-6822</a></p>
+              <p class="muted">Respondemos durante o horário de atendimento.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:2.25rem">
+          <a class="btn btn--dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20do%20Imperador%2C%2048%20-%20Centro%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025620-000" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-pin"></use></svg>
+            Traçar rota até a clínica
+          </a>
+        </div>
+      </div>
+
+      <div class="map" data-reveal style="--d:.1s">
+        <iframe
+          title="Mapa da localização da ELLEVA — Rua do Imperador, 48, Centro, Petrópolis - RJ"
+          src="https://www.google.com/maps?q=Rua%20do%20Imperador%2C%2048%20-%20Centro%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025620-000&amp;hl=pt-BR&amp;z=17&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="section section--deep" id="contato">
+  <div class="container">
+    <div class="contact__grid">
+
+      <div data-reveal>
+        <p class="eyebrow">Fale conosco</p>
+        <h2>Seu novo sorriso <em class="accent">começa aqui</em></h2>
+        <p class="lead" style="margin-top:1.15rem">
+          Conte pra gente o que você precisa. A primeira conversa é sem compromisso —
+          e serve para entender o seu caso antes de qualquer coisa.
+        </p>
+
+        <div class="contact__channels">
+          <a class="channel" href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener">
+            <span class="channel__icon" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
+            <span><small>WhatsApp</small><strong>(24) 99285-6822</strong></span>
+          </a>
+          <a class="channel" href="tel:+5524992856822">
+            <span class="channel__icon" aria-hidden="true"><svg><use href="#i-phone"></use></svg></span>
+            <span><small>Telefone</small><strong>(24) 99285-6822</strong></span>
+          </a>
+          <a class="channel" href="https://www.instagram.com/ellevaclinicaintegrada/" target="_blank" rel="noopener">
+            <span class="channel__icon" aria-hidden="true"><svg><use href="#i-instagram"></use></svg></span>
+            <span><small>Instagram</small><strong>@ellevaclinicaintegrada</strong></span>
+          </a>
+          <a class="channel" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20do%20Imperador%2C%2048%20-%20Centro%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025620-000" target="_blank" rel="noopener">
+            <span class="channel__icon" aria-hidden="true"><svg><use href="#i-pin"></use></svg></span>
+            <span><small>Endereço</small><strong>Rua do Imperador, 48 — Centro</strong></span>
+          </a>
+        </div>
+      </div>
+
+      <div data-reveal style="--d:.1s">
+        <form class="form" id="contactForm" novalidate>
+          <h3>Prefere que a gente te chame?</h3>
+          <p>Preencha os campos e envie — a mensagem abre direto no WhatsApp da clínica, já preenchida.</p>
+
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" autocomplete="name" required>
+            <span class="field__error" id="erroNome" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(24) 99999-9999" autocomplete="tel" inputmode="tel" required>
+            <span class="field__error" id="erroTelefone" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte brevemente o que você procura (ex.: avaliação, ortodontia, limpeza…)"></textarea>
+            <span class="field__error" id="erroMensagem" role="alert"></span>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">
+            <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+            Enviar pelo WhatsApp
+          </button>
+
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+
+          <p class="form__note">
+            <svg aria-hidden="true"><use href="#i-info"></use></svg>
+            Não enviamos seus dados para nenhum servidor: o formulário apenas monta a
+            mensagem e abre o WhatsApp da clínica no seu aparelho.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+
+      <div class="footer__about">
+        <a class="logo" href="#inicio" aria-label="ELLEVA — Clínica Integrada">
+          <svg class="logo__mark" aria-hidden="true"><use href="#i-flame"></use></svg>
+          <span class="logo__text">
+            <span class="logo__name">Elleva</span>
+            <span class="logo__tag">Clínica Integrada</span>
+          </span>
+        </a>
+        <p>
+          Odontologia e medicina integrada no Centro de Petrópolis. Cuidado completo
+          para o seu sorriso, com ética, acolhimento e excelência técnica.
+        </p>
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/ellevaclinicaintegrada/" target="_blank" rel="noopener" aria-label="Instagram da ELLEVA">
+            <svg aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+          <a class="social" href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener" aria-label="WhatsApp da ELLEVA">
+            <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          </a>
+          <a class="social" href="tel:+5524992856822" aria-label="Ligar para a ELLEVA">
+            <svg aria-hidden="true"><use href="#i-phone"></use></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegação do rodapé">
+        <h3>Navegue</h3>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre a ELLEVA</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3>Especialidades</h3>
+        <ul>
+          <li>Clínica geral e prevenção</li>
+          <li>Ortodontia</li>
+          <li>Implantodontia</li>
+          <li>Estética do sorriso</li>
+          <li>Prótese e reabilitação</li>
+          <li>Medicina integrada</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contato</h3>
+        <ul>
+          <li>Rua do Imperador, 48 — Centro<br>Petrópolis — RJ, 25620-000</li>
+          <li><a href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA." target="_blank" rel="noopener">WhatsApp (24) 99285-6822</a></li>
+          <li>Seg. a sex., 09:00–19:00<br>Sáb., 09:00–13:00</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="footer__legal">
+      ELLEVA — Clínica Integrada · Responsável técnico: Dr. Vitor Waruar — CRO-RJ 31235.
+      <!-- [CONFIRMAR] Incluir CNPJ e nº de registro da clínica no CRO-RJ, se aplicável. -->
+      As informações deste site têm caráter informativo e não substituem uma consulta
+      presencial. Resultados de tratamentos variam de pessoa para pessoa e são definidos
+      após avaliação individual.
+    </p>
+
+    <div class="footer__bottom">
+      <span>© <span id="ano">2026</span> ELLEVA — Clínica Integrada. Todos os direitos reservados.</span>
+      <span>Feito com cuidado em Petrópolis — RJ.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== WHATSAPP FLUTUANTE ===================== -->
+<a class="wa-float" id="waFloat"
+   href="https://wa.me/5524992856822?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20ELLEVA."
+   target="_blank" rel="noopener" aria-label="Agendar consulta pelo WhatsApp">
+  <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+  <span class="wa-float__label">Agendar consulta</span>
+</a>
+
+<!-- ===================== DADOS ESTRUTURADOS (SEO LOCAL) ===================== -->
+<!--
+  [CONFIRMAR] Antes de publicar, revise: openingHoursSpecification, geo (latitude/longitude
+  exatas — copie do Google Maps), telephone e o URL do perfil no Google (sameAs).
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "@id": "https://afiliapro.com/elleva/#clinica",
+  "name": "ELLEVA — Clínica Integrada",
+  "alternateName": "Elleva Odontologia e Medicina Integrada",
+  "description": "Clínica de odontologia e medicina integrada no Centro de Petrópolis (RJ), com equipe multidisciplinar e atendimento pautado por ética, acolhimento e excelência técnica.",
+  "url": "https://afiliapro.com/elleva/",
+  "telephone": "+55-24-99285-6822",
+  "priceRange": "$$",
+  "currenciesAccepted": "BRL",
+  "image": "https://afiliapro.com/elleva/assets/og-elleva.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua do Imperador, 48",
+    "addressLocality": "Petrópolis",
+    "addressRegion": "RJ",
+    "postalCode": "25620-000",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -22.5065,
+    "longitude": -43.1791
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua%20do%20Imperador%2C%2048%20-%20Centro%2C%20Petr%C3%B3polis%20-%20RJ",
+  "areaServed": [
+    { "@type": "City", "name": "Petrópolis" },
+    { "@type": "AdministrativeArea", "name": "Região Serrana do Rio de Janeiro" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/ellevaclinicaintegrada/"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "48",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Dr. Vitor Waruar",
+    "jobTitle": "Responsável técnico",
+    "identifier": "CRO-RJ 31235"
+  },
+  "medicalSpecialty": "Dentistry",
+  "availableService": [
+    { "@type": "MedicalProcedure", "name": "Clínica geral e prevenção" },
+    { "@type": "MedicalProcedure", "name": "Ortodontia" },
+    { "@type": "MedicalProcedure", "name": "Implantodontia" },
+    { "@type": "MedicalProcedure", "name": "Estética do sorriso" },
+    { "@type": "MedicalProcedure", "name": "Endodontia" },
+    { "@type": "MedicalProcedure", "name": "Periodontia" },
+    { "@type": "MedicalProcedure", "name": "Odontopediatria" },
+    { "@type": "MedicalProcedure", "name": "Prótese e reabilitação oral" },
+    { "@type": "MedicalProcedure", "name": "Medicina integrada" }
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Agendar consulta pelo WhatsApp",
+    "target": "https://wa.me/5524992856822"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ELLEVA — Clínica Integrada",
+  "url": "https://afiliapro.com/elleva/",
+  "inLanguage": "pt-BR",
+  "publisher": { "@id": "https://afiliapro.com/elleva/#clinica" }
+}
+</script>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $  = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* ---------- Ano no rodapé ---------- */
+  var ano = $('#ano');
+  if (ano) ano.textContent = new Date().getFullYear();
+
+  /* ---------- Cabeçalho ao rolar + WhatsApp flutuante ---------- */
+  var header  = $('#header');
+  var waFloat = $('#waFloat');
+
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    if (header) header.classList.toggle('is-stuck', y > 24);
+    if (waFloat) waFloat.classList.toggle('is-visible', y > 380);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Menu mobile ---------- */
+  var burger   = $('#burger');
+  var nav      = $('#nav');
+  var backdrop = $('#navBackdrop');
+
+  function setMenu(open) {
+    if (!nav || !burger) return;
+    nav.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    if (backdrop) {
+      backdrop.hidden = false;
+      backdrop.classList.toggle('is-open', open);
+    }
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  if (burger) {
+    burger.addEventListener('click', function () {
+      setMenu(burger.getAttribute('aria-expanded') !== 'true');
+    });
+  }
+  if (backdrop) backdrop.addEventListener('click', function () { setMenu(false); });
+  $$('.nav__link, .nav__cta a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 860) setMenu(false);
+  });
+
+  /* ---------- Revelação ao rolar ---------- */
+  var revealables = $$('[data-reveal]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealables.forEach(function (el) { revealObs.observe(el); });
+  }
+
+  /* ---------- Link ativo no menu ---------- */
+  var sections = $$('main section[id]');
+  var navLinks = $$('.nav__link');
+  if (sections.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.id;
+        navLinks.forEach(function (l) {
+          l.classList.toggle('is-active', l.getAttribute('href') === '#' + id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---------- Carrossel de avaliações ---------- */
+  (function () {
+    var root  = $('#reviewsCarousel');
+    var track = $('#reviewsTrack');
+    var dots  = $('#reviewsDots');
+    if (!root || !track || !track.children.length) return;
+
+    var slides = Array.prototype.slice.call(track.children);
+    var index = 0;
+    var timer = null;
+    var DELAY = 7000;
+
+    function metrics() {
+      var rect = slides[0].getBoundingClientRect();
+      var cs = getComputedStyle(track);
+      var gap = parseFloat(cs.columnGap || cs.gap) || 0;
+      var step = rect.width + gap;
+      var viewport = track.parentElement.clientWidth;
+      var perView = Math.max(1, Math.round((viewport + gap) / step));
+      return { step: step, maxIndex: Math.max(0, slides.length - perView) };
+    }
+
+    function buildDots(maxIndex) {
+      if (!dots) return;
+      dots.innerHTML = '';
+      for (var i = 0; i <= maxIndex; i++) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dot-btn';
+        b.setAttribute('aria-label', 'Ir para o grupo de depoimentos ' + (i + 1));
+        b.dataset.index = String(i);
+        b.addEventListener('click', function (e) {
+          go(Number(e.currentTarget.dataset.index));
+          restart();
+        });
+        dots.appendChild(b);
+      }
+    }
+
+    function paint() {
+      var m = metrics();
+      if (index > m.maxIndex) index = m.maxIndex;
+      track.style.transform = 'translateX(' + (-index * m.step) + 'px)';
+      if (dots) {
+        $$('.dot-btn', dots).forEach(function (d, i) {
+          var active = i === index;
+          d.classList.toggle('is-active', active);
+          d.setAttribute('aria-current', active ? 'true' : 'false');
+        });
+      }
+    }
+
+    function go(i) {
+      var m = metrics();
+      index = i < 0 ? m.maxIndex : (i > m.maxIndex ? 0 : i);
+      paint();
+    }
+
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    function start() {
+      if (reduced || timer) return;
+      timer = setInterval(next, DELAY);
+    }
+    function stop() { clearInterval(timer); timer = null; }
+    function restart() { stop(); start(); }
+
+    function rebuild() {
+      var m = metrics();
+      buildDots(m.maxIndex);
+      paint();
+    }
+
+    $('#reviewsNext').addEventListener('click', function () { next(); restart(); });
+    $('#reviewsPrev').addEventListener('click', function () { prev(); restart(); });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : start();
+    });
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { next(); restart(); }
+      if (e.key === 'ArrowLeft')  { prev(); restart(); }
+    });
+
+    /* Arrastar / deslizar */
+    var startX = null;
+    root.addEventListener('pointerdown', function (e) { startX = e.clientX; stop(); });
+    root.addEventListener('pointerup', function (e) {
+      if (startX === null) return;
+      var delta = e.clientX - startX;
+      startX = null;
+      if (Math.abs(delta) > 45) { delta < 0 ? next() : prev(); }
+      start();
+    });
+    root.addEventListener('pointercancel', function () { startX = null; start(); });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(rebuild, 160);
+    });
+
+    if (reduced) track.style.transition = 'none';
+    rebuild();
+    start();
+  })();
+
+  /* ---------- Formulário -> WhatsApp ---------- */
+  (function () {
+    var form = $('#contactForm');
+    if (!form) return;
+
+    var nome     = $('#nome');
+    var telefone = $('#telefone');
+    var mensagem = $('#mensagem');
+    var status   = $('#formStatus');
+    var WA       = '5524992856822';
+
+    function setError(input, errorEl, msg) {
+      errorEl.textContent = msg || '';
+      if (msg) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+      return !msg;
+    }
+
+    /* Máscara de telefone brasileira */
+    telefone.addEventListener('input', function () {
+      var d = telefone.value.replace(/\D/g, '').slice(0, 11);
+      var out = d;
+      if (d.length > 6) {
+        out = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+      } else if (d.length > 2) {
+        out = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+      } else if (d.length > 0) {
+        out = '(' + d;
+      }
+      telefone.value = out;
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var okNome = setError(nome, $('#erroNome'),
+        nome.value.trim().length < 2 ? 'Por favor, informe o seu nome.' : '');
+
+      var digitos = telefone.value.replace(/\D/g, '');
+      var okTel = setError(telefone, $('#erroTelefone'),
+        (digitos.length < 10 || digitos.length > 11) ? 'Informe um telefone com DDD, ex.: (24) 99285-6822.' : '');
+
+      if (!okNome || !okTel) {
+        status.textContent = 'Confira os campos destacados para continuar.';
+        (!okNome ? nome : telefone).focus();
+        return;
+      }
+
+      var texto = 'Olá! Meu nome é ' + nome.value.trim() + '. '
+        + (mensagem.value.trim() || 'Gostaria de agendar uma consulta na ELLEVA.')
+        + ' Meu telefone para contato: ' + telefone.value.trim() + '.';
+
+      status.textContent = 'Abrindo o WhatsApp da ELLEVA…';
+      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+    });
+  })();
+
+})();
+</script>
+
+</body>
+</html>
