@@ -1,0 +1,12 @@
+Coloque aqui as imagens do site.
+
+  logo-elleva.svg      logotipo da clinica
+  og-elleva.jpg        imagem de compartilhamento, 1200 x 630 px
+  recepcao-elleva.jpg  foto do hero, 4:5, minimo 900 x 1125 px
+  equipe-elleva.jpg    foto da equipe, 3:4, minimo 900 x 1200 px
+  consultorio.jpg      detalhe do consultorio, 1:1, minimo 600 x 600 px
+  equipe/<nome>.jpg    foto de cada profissional, 4:5, minimo 600 x 750 px
+
+Comprima as imagens antes de subir (TinyPNG ou similar) e mantenha cada
+arquivo abaixo de ~300 KB. Os caminhos e tamanhos tambem estao nos
+comentarios do index.html, ao lado de cada moldura.
