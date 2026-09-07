@@ -123,7 +123,28 @@ arraste no celular e foco preso dentro do diálogo.
 > Search Console reclamar, basta remover o bloco `aggregateRating` do
 > JSON-LD no `<head>`; nada mais quebra.
 
-## 6. Publicar
+## 6. Versão em arquivo único (para mostrar sem hospedar)
+
+`carfer-engenharia-site.html` é o site inteiro num arquivo só — CSS, fontes,
+imagens, JavaScript e a biblioteca 3D embutidos. **Abre com duplo-clique**,
+funciona offline e pode ser enviado por e-mail ou WhatsApp. Serve para
+apresentar o site antes de publicar; o que vai para a hospedagem continua
+sendo a pasta completa.
+
+Para regerar depois de mexer no site:
+
+```bash
+cd carfer
+python3 build-arquivo-unico.py
+```
+
+> Por que existe: abrindo `index.html` direto do disco (`file://`), o
+> navegador bloqueia por segurança o carregamento das fontes e do módulo da
+> cena 3D — a página aparece, mas com a fonte do sistema e sem o 3D. Servido
+> por HTTP (hospedagem ou o comando abaixo) não há esse bloqueio; no arquivo
+> único também não, porque nada é carregado de fora.
+
+## 7. Publicar
 
 Qualquer hospedagem de arquivos estáticos serve (GitHub Pages, Netlify,
 Vercel, Hostinger, cPanel…). Não há passo de build.
