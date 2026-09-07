@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" preserveAspectRatio="xMidYMid slice" role="img">
+<defs>
+<radialGradient id="vig" cx="50%%" cy="42%%" r="78%%"><stop offset="55%%" stop-color="#000" stop-opacity="0"/><stop offset="100%%" stop-color="#000" stop-opacity="0.42"/></radialGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0B0F14" stop-opacity="1"/><stop offset="58%" stop-color="#1A222B" stop-opacity="1"/><stop offset="100%" stop-color="#3B4757" stop-opacity="1"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="44%" r="62%"><stop offset="0%" stop-color="#E8681B" stop-opacity="0.34"/><stop offset="100%" stop-color="#E8681B" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="900" fill="url(#sky)"/>
+<rect width="1200" height="900" fill="url(#glow)"/>
+<rect x="0" y="324" width="1200" height="108" fill="#1C2A26" opacity="0.85"/>
+<linearGradient id="dk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7A5230" stop-opacity="1"/><stop offset="100%" stop-color="#2A1D12" stop-opacity="1"/></linearGradient>
+<polygon points="192,414 1008,414 1440,900 -240,900" fill="url(#dk)"/>
+<g stroke="#0A0E13" stroke-width="2" opacity="0.30" fill="none"><path d="M192 414 L-240 900"/><path d="M260 414 L-100 900"/><path d="M328 414 L40 900"/><path d="M396 414 L180 900"/><path d="M464 414 L320 900"/><path d="M532 414 L460 900"/><path d="M600 414 L600 900"/><path d="M668 414 L740 900"/><path d="M736 414 L880 900"/><path d="M804 414 L1020 900"/><path d="M872 414 L1160 900"/><path d="M940 414 L1300 900"/><path d="M1008 414 L1440 900"/></g>
+<g stroke="#3C2A1B" stroke-width="6" fill="none" opacity="0.92"><path d="M120 90 L120 792"/><path d="M1080 90 L1080 792"/><path d="M72 90 L1128 90"/></g>
+<g stroke="#4A341F" stroke-width="5" opacity="0.75" fill="none"><path d="M144 90 L120 180"/><path d="M258 90 L234 180"/><path d="M372 90 L348 180"/><path d="M486 90 L462 180"/><path d="M600 90 L576 180"/><path d="M714 90 L690 180"/><path d="M828 90 L804 180"/><path d="M942 90 L918 180"/><path d="M1056 90 L1032 180"/></g>
+<ellipse cx="1116" cy="489.69" rx="32.24" ry="40.3" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="144" cy="528.84" rx="34.69" ry="43.36" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="144" cy="503.62" rx="43.22" ry="54.02" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="1056" cy="520.49" rx="64.97" ry="81.21" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="1152" cy="463.6" rx="31.46" ry="39.33" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="96" cy="457.21" rx="60.13" ry="75.17" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="144" cy="546.65" rx="63.42" ry="79.28" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="1116" cy="468.39" rx="49.83" ry="62.28" fill="#1E2E27" opacity="0.75"/>
+<ellipse cx="96" cy="502.41" rx="29.97" ry="37.46" fill="#1E2E27" opacity="0.75"/>
+<rect x="0" y="414" width="1200" height="486" fill="#FFCB8E" opacity="0.10"/>
+<rect x="0" y="414" width="1200" height="2" fill="#E8681B" opacity="0.5"/>
+<rect width="1200" height="900" fill="url(#vig)"/>
+</svg>
