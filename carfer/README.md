@@ -47,7 +47,7 @@ No topo de `assets/css/styles.css`, no bloco `:root`. Trocar
 | `site.config.js` → `indicadores` | “+150 obras entregues” e “+10 anos de experiência” | Números **provisórios**, marcados com `nota: 'ajustar'`. Os outros dois (49 avaliações e 3 estados) são reais. |
 | `site.config.js` → `endereco.busca` | Texto usado para achar a empresa no mapa | Confirme abrindo o link “Abrir a ficha no Google Maps” no site: se o pino cair no lugar certo, está pronto. Se não, ajuste o texto (ou preencha `lat`/`lng`). |
 | `site.config.js` → `endereco.lat/lng` | `null` por padrão | Opcional. Sem eles, mapa e rota usam o endereço por escrito. Preencha só se quiser cravar o pino num ponto exato — clique com o botão direito no local no Google Maps e copie os dois números. |
-| `index.html` → `<link rel="canonical">`, `og:url`, `og:image`, `sitemap.xml`, `robots.txt` | `https://carferengenharia.com.br/` | Trocar se o site for publicado em outro domínio. |
+| Domínio do site | `https://carferengenharia.com.br/` | Aparece em 11 lugares (canonical, Open Graph, dados estruturados, sitemap, robots, configuração). Para trocar todos de uma vez: `python3 trocar-dominio.py novodominio.com.br` — some `--email` se o e-mail também mudar. |
 | `assets/img/obra-*.svg`, `area-*.svg`, `sobre-carfer.svg` | Ilustrações-base | São desenhos vetoriais de apoio, **não fotos de obras reais**. Substitua por fotos suas (veja abaixo). |
 
 ### Trocar as imagens por fotos reais
