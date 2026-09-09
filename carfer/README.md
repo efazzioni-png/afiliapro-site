@@ -51,11 +51,43 @@ No topo de `assets/css/styles.css`, no bloco `:root`. Trocar
 | `assets/img/obra-*.svg`, `area-*.svg`, `sobre-carfer.svg` | Ilustrações-base | São desenhos vetoriais de apoio, **não fotos de obras reais**. Substitua por fotos suas (veja abaixo). |
 
 ### Trocar as imagens por fotos reais
-1. Salve as fotos em `assets/img/` (use `.webp` ou `.jpg`, largura ~1600px).
-2. Em `index.html`, troque o `src` e o `alt` da imagem, e o `data-full` do
-   botão da galeria (é o que o lightbox abre em tamanho grande).
-3. Mantenha `loading="lazy"` e `width`/`height` — é o que evita o site “pular”
-   enquanto carrega.
+
+As imagens que vieram no site são **ilustrações vetoriais geradas**, não fotos
+de obras. Para um site de construtora isso é a maior fraqueza da entrega —
+troque antes de mostrar ao cliente.
+
+**Jeito automático (recomendado):**
+
+1. Salve as fotos em `carfer/assets/fotos/`
+2. Rode `python3 usar-fotos.py`
+
+O script aplica as fotos no site inteiro — topo, bloco Sobre, cards de
+atuação, galeria, lightbox e seção do Instagram. Por padrão as fotos entram
+em ordem alfabética; para mandar uma foto a um lugar específico, comece o
+nome do arquivo pelo destino:
+
+| Nome do arquivo | Vai para |
+|---|---|
+| `hero-fachada.jpg` | fundo do topo (use uma foto deitada, panorâmica) |
+| `sobre-equipe.jpg` | bloco "Sobre" |
+| `industrial-galpao.jpg` | card Industrial (idem `comercial-`, `residencial-`) |
+| `obra-05-pintura.jpg` | 5ª posição da galeria |
+| qualquer outro nome | preenche as vagas de galeria que sobraram |
+
+Outros comandos:
+
+```bash
+python3 usar-fotos.py --listar     # o que já é foto e o que ainda é ilustração
+python3 usar-fotos.py --desfazer   # volta tudo para as ilustrações
+```
+
+**Peça os arquivos originais ao cliente**, não baixe do Instagram: o
+Instagram comprime bastante e corta em quadrado, o que fica ruim
+principalmente no topo, que é panorâmico. As fotos originais estão no
+celular de quem tirou.
+
+**Jeito manual:** troque `src`, `alt` e o `data-full` do botão da galeria
+direto no `index.html`. Mantenha `loading="lazy"` e `width`/`height`.
 
 ### Depoimentos do Google
 O site **não** traz depoimentos inventados. Na seção “Avaliações” existe um
