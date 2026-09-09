@@ -1036,6 +1036,92 @@ h1, h2, h3, h4 {
 .lightbox__prev { left: 0; }
 .lightbox__next { right: 0; }
 
+/* ------------------------------------------ 12b. Instagram --------------- */
+.instagram { border-top: 1px solid var(--border); }
+
+.ig-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.ig-head__id { display: flex; align-items: center; gap: .9rem; }
+.ig-avatar {
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #F9CE34 0%, #EE2A7B 48%, #6228D7 100%);
+}
+.ig-avatar .icon { width: 24px; height: 24px; }
+.ig-head__user { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.ig-head__meta { font-size: .84rem; color: var(--muted); }
+
+/* Grade de fotos — modo "imagens" */
+.ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.5rem, 1vw, .8rem); }
+
+.ig-post {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.ig-post img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.ig-post::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(7,9,12,.92));
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+}
+.ig-post:hover img, .ig-post:focus-visible img { transform: scale(1.08); }
+.ig-post:hover::after, .ig-post:focus-visible::after { opacity: 1; }
+.ig-post:hover { border-color: var(--accent); }
+
+.ig-post__legenda {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: .8rem .75rem;
+  font-size: .76rem;
+  line-height: 1.4;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.ig-post:hover .ig-post__legenda, .ig-post:focus-visible .ig-post__legenda { opacity: 1; transform: none; }
+
+.ig-post__marca {
+  position: absolute;
+  top: .55rem; right: .55rem;
+  z-index: 1;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(7, 9, 12, .62);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+.ig-post__marca .icon { width: 15px; height: 15px; }
+
+/* Incorporação oficial — modo "oficial" */
+.ig-grid--oficial { grid-template-columns: repeat(3, 1fr); align-items: start; }
+.ig-embed {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  min-height: 480px;
+}
+.ig-embed iframe { width: 100%; height: 560px; border: 0; display: block; }
+
 /* ---------------------------------------------- 13. Prova social --------- */
 .proof__layout {
   display: grid;
@@ -1411,6 +1497,7 @@ body.menu-aberto .dock { opacity: 0; pointer-events: none; }
 @media (max-width: 1100px) {
   .services__grid { grid-template-columns: repeat(3, 1fr); }
   .gallery { grid-template-columns: repeat(3, 1fr); }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
   .footer__top { grid-template-columns: 1fr 1fr; }
 }
 
@@ -1441,6 +1528,8 @@ body.menu-aberto .dock { opacity: 0; pointer-events: none; }
   .reveal--left, .reveal--right { transform: translateY(24px); }
   .services__grid { grid-template-columns: repeat(2, 1fr); }
   .gallery { grid-template-columns: repeat(2, 1fr); }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+  .ig-grid--oficial { grid-template-columns: 1fr; }
   .shot--wide { grid-column: span 2; aspect-ratio: 8.15 / 4.6; }
   .shot--tall { grid-row: span 1; aspect-ratio: 4 / 3; }
   .form__row { grid-template-columns: 1fr; }

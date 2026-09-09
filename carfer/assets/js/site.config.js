@@ -56,6 +56,35 @@ window.CARFER = {
     formularioTitulo: '*Solicitação de orçamento — site Carfer Engenharia*'
   },
 
+  /* -------------------------------------------------------- instagram --- */
+  instagram: {
+    usuario: 'carferengenharia',
+    seguidores: '5,4 mil',
+
+    // COMO OS POSTS APARECEM:
+    //   'imagens' → grade de fotos no visual do site. Rápida, combina com o
+    //               resto da página e funciona mesmo se o Instagram sair do ar.
+    //               Você salva as fotos em assets/img/ e aponta abaixo.
+    //   'oficial' → incorporação oficial do Instagram (o card branco com
+    //               curtidas e legenda). Puxa direto do Instagram, então
+    //               atualiza sozinho — mas é lento, destoa do visual escuro
+    //               e some se o post for apagado ou o perfil ficar privado.
+    modo: 'imagens',
+
+    // Um item por publicação. No modo 'oficial' só o campo "link" é usado.
+    // Para pegar o link: abra o post no Instagram → ••• → "Copiar link".
+    // ⚠️ As imagens abaixo ainda são as ilustrações de exemplo. Troque pelas
+    //    fotos reais das obras (o link pode apontar para o post de cada uma).
+    posts: [
+      { imagem: 'assets/img/obra-01.svg', legenda: 'Edifício residencial em fase final',      link: 'https://www.instagram.com/carferengenharia/' },
+      { imagem: 'assets/img/obra-02.svg', legenda: 'Galpão industrial em estrutura metálica', link: 'https://www.instagram.com/carferengenharia/' },
+      { imagem: 'assets/img/obra-05.svg', legenda: 'Malha de aço da fundação radier',         link: 'https://www.instagram.com/carferengenharia/' },
+      { imagem: 'assets/img/obra-03.svg', legenda: 'Cozinha entregue após reforma',           link: 'https://www.instagram.com/carferengenharia/' },
+      { imagem: 'assets/img/obra-07.svg', legenda: 'Pintura predial com andaimes montados',   link: 'https://www.instagram.com/carferengenharia/' },
+      { imagem: 'assets/img/obra-11.svg', legenda: 'Residência de alto padrão entregue',      link: 'https://www.instagram.com/carferengenharia/' }
+    ]
+  },
+
   /* ------------------------------------------------------- indicadores --- */
   // Exibidos na barra de contadores. Ajuste "valor" conforme os números reais.
   // sufixo/prefixo são opcionais e não entram na animação.

@@ -11,6 +11,7 @@
      6.  Contadores animados
      7.  Barras de avaliação
      8.  Portfólio: filtros e lightbox
+     8b. Instagram
      9.  Formulário de contato
      10. Mapa e rota por GPS
      11. Rodapé e botão "voltar ao topo"
@@ -392,6 +393,84 @@
     }, { passive: true });
   }
 
+  /* ------------------------------------ 8b. Instagram -------------------- */
+  function montarInstagram() {
+    var alvo = $('[data-instagram]');
+    if (!alvo) return;
+
+    var ig = CFG.instagram || {};
+    var posts = ig.posts || [];
+    var perfil = 'https://instagram.com/' + (ig.usuario || '');
+
+    // Cabeçalho vem da configuração
+    var elUser = $('[data-ig-user]');
+    if (elUser && ig.usuario) elUser.textContent = '@' + ig.usuario;
+    var elSeg = $('[data-ig-seguidores]');
+    if (elSeg && ig.seguidores) elSeg.textContent = ig.seguidores;
+
+    // Sem publicações cadastradas: esconde a seção inteira em vez de
+    // deixar um espaço vazio na página.
+    var secao = alvo.closest('section');
+    if (!posts.length) {
+      if (secao) secao.hidden = true;
+      return;
+    }
+
+    function escapar(t) {
+      return String(t == null ? '' : t)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /* ---- modo 'oficial': incorporação do próprio Instagram ------------- */
+    if (ig.modo === 'oficial') {
+      alvo.classList.add('ig-grid--oficial');
+      alvo.innerHTML = posts.map(function (p) {
+        return '<div class="ig-embed" data-ig-embed="' + escapar(p.link || perfil) + '"></div>';
+      }).join('');
+
+      // Os iframes do Instagram são pesados: só carregam ao chegar na tela.
+      var caixas = $$('[data-ig-embed]', alvo);
+      var carregar = function (caixa) {
+        if (caixa.dataset.pronto) return;
+        caixa.dataset.pronto = '1';
+        var url = caixa.getAttribute('data-ig-embed').replace(/\/?$/, '/') + 'embed/';
+        var f = document.createElement('iframe');
+        f.src = url;
+        f.title = 'Publicação de @' + (ig.usuario || '') + ' no Instagram';
+        f.loading = 'lazy';
+        f.setAttribute('scrolling', 'no');
+        f.setAttribute('allowtransparency', 'true');
+        caixa.appendChild(f);
+      };
+
+      if (!('IntersectionObserver' in window)) { caixas.forEach(carregar); return; }
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          carregar(e.target);
+          obs.unobserve(e.target);
+        });
+      }, { rootMargin: '300px' });
+      caixas.forEach(function (c) { io.observe(c); });
+      return;
+    }
+
+    /* ---- modo 'imagens' (padrão): grade no visual do site -------------- */
+    alvo.innerHTML = posts.map(function (p) {
+      var legenda = escapar(p.legenda || '');
+      return '<a class="ig-post" href="' + escapar(p.link || perfil) + '" target="_blank" rel="noopener"' +
+             ' aria-label="Ver no Instagram: ' + legenda + '">' +
+               '<img src="' + escapar(p.imagem) + '" alt="' + legenda + '"' +
+                    ' loading="lazy" decoding="async" width="1200" height="1200">' +
+               '<span class="ig-post__marca">' +
+                 '<svg class="icon" aria-hidden="true"><use href="#i-instagram"></use></svg>' +
+               '</span>' +
+               '<span class="ig-post__legenda">' + legenda + '</span>' +
+             '</a>';
+    }).join('');
+  }
+
   /* --------------------------------- 9. Formulário de contato ------------ */
   function ligarFormulario() {
     var form = $('[data-form]');
@@ -658,6 +737,7 @@
     montarContadores();
     ligarBarras();
     ligarPortfolio();
+    montarInstagram();
     ligarFormulario();
     ligarMapa();
     ligarRota();

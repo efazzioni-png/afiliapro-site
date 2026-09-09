@@ -88,6 +88,20 @@ Para adicionar um novo ponto de contato basta pôr `data-wa` e
 **Instagram** — no celular tenta abrir o app (`instagram://user?username=…`)
 e, se em ~0,9 s nada acontecer, cai para o site. No desktop abre em nova aba.
 
+**Instagram** — a seção de publicações vem de `instagram` no `site.config.js`.
+O campo `modo` decide como aparece:
+
+- `'imagens'` (padrão) — grade de fotos no visual do site. Você salva as fotos
+  em `assets/img/` e aponta o link do post de cada uma. Rápida, combina com a
+  página e continua funcionando mesmo se o Instagram sair do ar.
+- `'oficial'` — a incorporação do próprio Instagram (card branco com curtidas
+  e legenda). Atualiza sozinha quando o post muda, mas é bem mais lenta,
+  destoa do visual escuro, rastreia o visitante (atenção à LGPD) e some se o
+  post for apagado ou o perfil ficar privado. Os cards só carregam quando
+  chegam à tela, para não travar o site.
+
+Sem publicações cadastradas, a seção inteira some — não fica espaço vazio.
+
 **GPS / rota** — o botão “Traçar rota” pede a localização do visitante e abre
 a navegação já traçada: Apple Maps no iPhone, Google Maps nos demais. Se a
 pessoa negar a localização, o app de mapas abre mesmo assim e usa a posição
