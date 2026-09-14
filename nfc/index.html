@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070B18">
+
+<!-- ====================== SEO / metadados ======================
+     Ajuste title, description e a URL canônica ao publicar no domínio final.
+     ============================================================= -->
+<title>NFC: o que é, para que serve e onde usar | Guia com assistente de dúvidas</title>
+<meta name="description" content="Entenda NFC sem jargão: o que é, como funciona em 3 passos, onde usar (pagamentos, cartão de visita digital, cardápio, controle de acesso, eventos, saúde) e em quais formatos. Tire dúvidas com nosso assistente.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://afiliapro.com/nfc/">
+
+<!-- Open Graph / redes sociais -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="NFC: é só aproximar — o guia direto da tecnologia por aproximação">
+<meta property="og:description" content="O que é NFC, como funciona, onde usar e em quais formatos. Com um assistente para tirar dúvidas na hora.">
+<meta property="og:url" content="https://afiliapro.com/nfc/">
+<meta property="og:image" content="https://afiliapro.com/nfc/assets/img/og-nfc.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Ícones -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Tipografia servida pelo próprio site (sem Google Fonts, sem CDN) -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/sora-latin-700-normal.woff2" crossorigin>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Dados estruturados: página educativa + perguntas frequentes -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://afiliapro.com/nfc/#pagina",
+      "url": "https://afiliapro.com/nfc/",
+      "name": "NFC: o que é, para que serve e onde usar",
+      "inLanguage": "pt-BR",
+      "description": "Guia direto sobre a tecnologia NFC: o que é, como funciona, onde usar e em quais formatos."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://afiliapro.com/nfc/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que é NFC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NFC significa Near Field Communication, ou comunicação de campo próximo. É uma forma de dois objetos trocarem informação apenas por ficarem a poucos centímetros um do outro, sem fio, sem cabo e sem pareamento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NFC é seguro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O alcance é de poucos centímetros, nada é executado sozinho (o celular mostra o conteúdo e espera o seu toque), os pagamentos usam criptografia com um código único por compra e as tags podem ser travadas em modo somente leitura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NFC funciona em qualquer celular?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Na maioria dos aparelhos lançados nos últimos anos, sim, tanto em Android quanto em iPhone (do iPhone 7 em diante). Ficam de fora parte dos modelos de entrada e os aparelhos bem antigos, por isso a boa prática é oferecer NFC e QR Code na mesma peça."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Precisa baixar aplicativo para usar NFC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para ler, não. Android e iPhones modernos leem tags NFC de fábrica: o visitante aproxima, a notificação aparece e o conteúdo abre no navegador. Aplicativo só é necessário para gravar as tags."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é o alcance do NFC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De 0 a 4 centímetros na prática. O padrão admite até cerca de 10 cm. Esse alcance curto é proposital e funciona como primeira camada de segurança."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A tag NFC precisa de bateria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Tags, cartões e adesivos são passivos: tiram do campo magnético do celular a energia de que precisam no instante da leitura. Por isso funcionam por anos sem manutenção."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="pular-para" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================ Ícones ============================
+     Um único conjunto de símbolos reaproveitado com <use> na página
+     inteira: nenhuma requisição extra e nada repetido no HTML.
+     =============================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-nfc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M8.6 7.9a5.3 5.3 0 0 1 0 8.2"/><path d="M12.4 5.4a9 9 0 0 1 0 13.2" opacity=".72"/><path d="M16.2 2.9a12.7 12.7 0 0 1 0 18.2" opacity=".45"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4.5 12.6 4.8 4.8L19.5 7.2"/>
+    </symbol>
+    <symbol id="i-check-circulo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="m8.2 12.4 2.6 2.6 5-5.4"/>
+    </symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 12h14"/><path d="m13 6.5 5.5 5.5-5.5 5.5"/>
+    </symbol>
+    <symbol id="i-topo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5.5"/><path d="m6 11.5 6-6 6 6"/>
+    </symbol>
+    <symbol id="i-pagamento" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 9.8h19"/><path d="M6 15.2h3.4"/>
+    </symbol>
+    <symbol id="i-visita" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.5" y="4.5" width="19" height="15" rx="3"/><circle cx="8.6" cy="10.6" r="2.1"/>
+      <path d="M5.2 16.2c.5-1.7 1.8-2.6 3.4-2.6s2.9.9 3.4 2.6"/><path d="M15 9.5h4M15 13h3"/>
+    </symbol>
+    <symbol id="i-varejo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.8 11.2 11 4h6.2a2.8 2.8 0 0 1 2.8 2.8V13l-7.2 7.2a1.8 1.8 0 0 1-2.5 0l-6.5-6.5a1.8 1.8 0 0 1 0-2.5Z"/>
+      <circle cx="16" cy="8" r="1.4"/>
+    </symbol>
+    <symbol id="i-acesso" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4.5" y="10.5" width="15" height="9.5" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><path d="M12 14.4v2.2"/>
+    </symbol>
+    <symbol id="i-restaurante" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 3v8.5m0 0a2.6 2.6 0 0 0 2.6-2.6V3m-5.2 0v5.9A2.6 2.6 0 0 0 7 11.5Zm0 0V21"/>
+      <path d="M17.5 21v-7.5c2 0 2.8-1.7 2.8-4.6 0-3.4-1.3-5.9-2.8-5.9s-2.8 2.5-2.8 5.9c0 2.9.8 4.6 2.8 4.6"/>
+    </symbol>
+    <symbol id="i-evento" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 8.2V6.5a1.5 1.5 0 0 1 1.5-1.5h15A1.5 1.5 0 0 1 21 6.5v1.7a2.4 2.4 0 0 0 0 7.6v1.7a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-1.7a2.4 2.4 0 0 0 0-7.6Z"/>
+      <path d="M13.5 9v1.5m0 3V15" stroke-dasharray="0 0"/>
+    </symbol>
+    <symbol id="i-saude" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.3 8.6c0 4.6-6.2 9-8.3 10.4-2.1-1.4-8.3-5.8-8.3-10.4A4.4 4.4 0 0 1 12 6.3a4.4 4.4 0 0 1 8.3 2.3Z"/>
+      <path d="M6.5 12.4h2.8l1.3-2.3 1.8 4 1.4-2.2h2.7"/>
+    </symbol>
+    <symbol id="i-sem-contato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 11.5V5.2a1.6 1.6 0 0 1 3.2 0v5.3"/><path d="M12.2 10.7V9.2a1.6 1.6 0 0 1 3.2 0v1.8"/>
+      <path d="M15.4 11.2v-.8a1.6 1.6 0 0 1 3.2 0v5.2a5.4 5.4 0 0 1-5.4 5.4h-1.4a5 5 0 0 1-3.8-1.8l-3.1-3.7a1.6 1.6 0 0 1 2.3-2.2L9 15.1"/>
+    </symbol>
+    <symbol id="i-raio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13.4 2.5 4.8 13.2h6.1l-.9 8.3 8.9-10.9h-6.3Z"/>
+    </symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.8 4.8 5.6v5.6c0 4.4 3 8.4 7.2 9.9 4.2-1.5 7.2-5.5 7.2-9.9V5.6Z"/><path d="m8.9 11.9 2.2 2.2 4-4.3"/>
+    </symbol>
+    <symbol id="i-celular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.4 5.4h3.2"/><path d="M11 18.6h2"/>
+    </symbol>
+    <symbol id="i-moeda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M14.4 9.1a2.9 2.9 0 0 0-2.4-1.1c-1.5 0-2.6.9-2.6 2s1 1.8 2.6 2.1c1.6.3 2.7 1 2.7 2.1s-1.2 2-2.7 2a3 3 0 0 1-2.5-1.2"/><path d="M12 6.4v11.2"/>
+    </symbol>
+    <symbol id="i-folha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.6 19.4c-1.8-5 .4-10.4 5-12.4 2.6-1.2 6-1.3 10-.4.5 5-.8 8.8-3.4 11-2.6 2.2-6.8 2.5-11.6 1.8Z"/>
+      <path d="M5.5 19.5C8 15 11.4 11.8 15.5 9.7"/>
+    </symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v3M5.5 7.5 7.6 9.6M18.5 7.5 16.4 9.6"/><rect x="4" y="9" width="16" height="11" rx="3.5"/>
+      <circle cx="9" cy="14.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.2" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-enviar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.2 12.1 20 4.5l-7.4 15.8-1.8-6.4Z"/><path d="m10.8 13.9 4.4-4.4"/>
+    </symbol>
+    <symbol id="i-pergunta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8.8c0 1.7-2.4 2-2.4 3.6"/><path d="M12 17.1h.01"/>
+    </symbol>
+    <symbol id="i-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10.8" cy="10.8" r="6.6"/><path d="m15.6 15.6 4.2 4.2"/><path d="M8.6 10.8h4.4M10.8 8.6v4.4"/>
+    </symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="m6.4 6.4 11.2 11.2M17.6 6.4 6.4 17.6"/>
+    </symbol>
+    <symbol id="i-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.8" y="5" width="18.4" height="14" rx="2.6"/><path d="m3.4 7 7.4 5.4a2 2 0 0 0 2.4 0L20.6 7"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+      <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M4.8 3.3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.1 9h3.5v11.7H3.1Zm6 0h3.3v1.6a3.7 3.7 0 0 1 3.3-1.8c3 0 4.2 1.9 4.2 5v6.9h-3.5v-6.2c0-1.6-.6-2.5-1.9-2.5s-2 .9-2 2.5v6.2H9.1Z"/>
+    </symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M21.6 7.4a2.6 2.6 0 0 0-1.8-1.8C18.2 5.2 12 5.2 12 5.2s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.4 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.6 2.6 2.6 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.6ZM10 15.1V8.9l5.2 3.1Z"/>
+    </symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M16.5 2.5h-3v13.2a2.7 2.7 0 1 1-2.2-2.7v-3a5.7 5.7 0 1 0 5.2 5.7V9.3a6.7 6.7 0 0 0 4 1.3V7.7a3.8 3.8 0 0 1-4-3.9Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============================ Cabeçalho ============================ -->
+<header class="cabecalho" data-cabecalho>
+  <div class="container">
+    <a class="marca" href="#inicio" aria-label="NFC — página inicial">
+      <span class="marca-simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-nfc"></use></svg></span>
+      <span>NFC<small>é só aproximar</small></span>
+    </a>
+
+    <nav class="navegacao" id="menu-principal" data-navegacao aria-label="Navegação principal">
+      <ul class="nav-lista">
+        <li><a href="#o-que-e">O que é</a></li>
+        <li><a href="#assistente">Tire dúvidas</a></li>
+        <li><a href="#onde-usar">Onde usar</a></li>
+        <li><a href="#formatos">Formatos</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a class="btn nav-acao" href="#assistente" data-abre-chat>Perguntar à IA</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-botao" type="button" data-menu aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============================== 1. Hero ============================== -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div class="hero-texto">
+      <span class="tag-secao revelar">Near Field Communication</span>
+      <h1 class="revelar" style="--atraso:80ms">NFC é <span class="texto-grad">aproximar e pronto</span>.</h1>
+      <p class="hero-sub revelar" style="--atraso:160ms">
+        Dois objetos a poucos centímetros trocam informação sem fio, sem cabo e sem senha.
+        Serve para pagar, abrir um cardápio, salvar um contato ou liberar uma catraca —
+        em menos de um segundo, sem baixar aplicativo nenhum.
+      </p>
+
+      <div class="hero-acoes revelar" style="--atraso:240ms">
+        <a class="btn" href="#assistente" data-abre-chat>
+          <svg aria-hidden="true"><use href="#i-bot"></use></svg>
+          Tire suas dúvidas com nossa IA
+        </a>
+        <a class="btn btn--fantasma" href="#onde-usar">Ver onde usar</a>
+      </div>
+
+      <ul class="hero-notas revelar" style="--atraso:320ms">
+        <li><svg aria-hidden="true"><use href="#i-check-circulo"></use></svg> Sem aplicativo</li>
+        <li><svg aria-hidden="true"><use href="#i-check-circulo"></use></svg> Menos de 1 segundo</li>
+        <li><svg aria-hidden="true"><use href="#i-check-circulo"></use></svg> Funciona sem internet</li>
+      </ul>
+    </div>
+
+    <!-- Cena animada: o celular se aproxima do cartão, as ondas saem e a
+         confirmação aparece. Tudo em CSS; quem pede menos movimento vê a
+         cena parada. -->
+    <div class="cena-nfc revelar revelar--zoom" style="--atraso:180ms">
+      <span class="cena-anel cena-anel--1" aria-hidden="true"></span>
+      <span class="cena-anel cena-anel--2" aria-hidden="true"></span>
+      <svg viewBox="0 0 520 520" role="img" aria-label="Ilustração de um celular sendo aproximado de um cartão NFC">
+        <defs>
+          <linearGradient id="ac" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4F7BFF"/><stop offset="100%" stop-color="#A855F7"/>
+          </linearGradient>
+          <linearGradient id="vidro" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".26"/><stop offset="60%" stop-color="#FFFFFF" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="cartaoF" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#27335F"/><stop offset="100%" stop-color="#101838"/>
+          </linearGradient>
+        </defs>
+
+        <!-- cartão apoiado na mesa -->
+        <ellipse cx="136" cy="446" rx="138" ry="23" fill="#04060F" opacity=".45"/>
+        <g transform="translate(132 384) rotate(-12)">
+          <rect x="-116" y="-73" width="232" height="146" rx="18" fill="url(#cartaoF)" stroke="#5E6FB4" stroke-width="2.5"/>
+          <rect x="-116" y="-73" width="232" height="146" rx="18" fill="url(#vidro)"/>
+          <circle cx="-78" cy="-36" r="19" fill="url(#ac)"/>
+          <rect x="-50" y="-44" width="86" height="9" rx="4.5" fill="#D8E0FF" opacity=".85"/>
+          <rect x="-50" y="-26" width="56" height="7" rx="3.5" fill="#8593CC" opacity=".7"/>
+          <rect x="-78" y="18" width="132" height="6" rx="3" fill="#6B7CB8" opacity=".5"/>
+          <rect x="-78" y="36" width="104" height="6" rx="3" fill="#6B7CB8" opacity=".38"/>
+          <g class="nfc-brilho" fill="none" stroke="#9FB6FF" stroke-width="4.4" stroke-linecap="round">
+            <path d="M74 26a16 16 0 0 1 0 24"/><path d="M85 17a28 28 0 0 1 0 42" opacity=".7"/>
+          </g>
+        </g>
+
+        <!-- ondas saindo do cartão em direção ao celular -->
+        <g transform="translate(258 352) rotate(-56)" fill="none" stroke="#22D3EE" stroke-linecap="round">
+          <path class="nfc-onda nfc-onda--1" d="M13 -22.5A26 26 0 0 1 13 22.5" stroke-width="7.5"/>
+          <path class="nfc-onda nfc-onda--2" d="M24 -41.6A48 48 0 0 1 24 41.6" stroke-width="7.5" opacity=".85"/>
+          <path class="nfc-onda nfc-onda--3" d="M35 -60.6A70 70 0 0 1 35 60.6" stroke-width="7.5" opacity=".7"/>
+        </g>
+
+        <!-- celular que se aproxima -->
+        <g class="nfc-celular">
+          <g transform="translate(390 190) rotate(14)">
+            <rect x="-75" y="-136" width="150" height="272" rx="26" fill="#161D3E" stroke="#6070B4" stroke-width="3"/>
+            <rect x="-67" y="-128" width="134" height="256" rx="19" fill="#0B1230"/>
+            <rect x="-21" y="-120" width="42" height="6" rx="3.5" fill="#3B4574"/>
+            <g transform="translate(0 -24)">
+              <circle cx="0" cy="-36" r="31" fill="url(#ac)" opacity=".2"/>
+              <g fill="none" stroke="#A9BDFF" stroke-width="5" stroke-linecap="round">
+                <path d="M-9 -54a17 17 0 0 1 0 28"/><path d="M3 -64a30 30 0 0 1 0 48" opacity=".72"/><path d="M15 -74a43 43 0 0 1 0 68" opacity=".45"/>
+              </g>
+            </g>
+            <rect x="-46" y="76" width="92" height="7" rx="4" fill="#4C5896" opacity=".8"/>
+            <rect x="-32" y="94" width="64" height="7" rx="4" fill="#3E4880" opacity=".7"/>
+            <g transform="translate(0 26)">
+              <g class="nfc-ok">
+                <rect x="-58" y="-22" width="116" height="44" rx="22" fill="#12362C" stroke="#34D399" stroke-width="2.5"/>
+                <path d="m-28 0 10 11 22-24" fill="none" stroke="#34D399" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="14" y="-6" width="30" height="12" rx="6" fill="#34D399" opacity=".55"/>
+              </g>
+            </g>
+            <rect x="-75" y="-136" width="150" height="272" rx="26" fill="url(#vidro)"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== 2. O que é NFC =========================== -->
+<section class="secao secao--alt" id="o-que-e">
+  <div class="container">
+    <div class="cabecalho-secao centro revelar">
+      <span class="tag-secao">O básico</span>
+      <h2>Comunicação por aproximação, sem mistério</h2>
+      <p>NFC quer dizer <em>Near Field Communication</em> — comunicação de campo próximo. É o nome técnico de algo que você já faz: chegar perto e a coisa acontecer.</p>
+    </div>
+
+    <div class="explicacao">
+      <div class="revelar revelar--esq">
+        <p>Todo item com NFC carrega uma <strong>antena em espiral</strong> e um chip minúsculo. Quando ele entra no campo magnético de um celular ou de uma maquininha, acorda e conversa — <strong>sem cabo, sem pareamento e sem senha</strong>.</p>
+        <p>O alcance é curtíssimo, de <strong>0 a 4 centímetros</strong>. Isso não é limitação: é a primeira camada de segurança. Ninguém lê a sua tag do outro lado da sala.</p>
+        <p>A troca dura cerca de um décimo de segundo — o tempo de encostar e afastar.</p>
+
+        <div class="destaque">
+          <strong>Você já usou NFC.</strong>
+          Se algum dia pagou aproximando o cartão ou o celular da maquininha, foi exatamente esta tecnologia funcionando.
+        </div>
+      </div>
+
+      <ol class="passos" data-cascata>
+        <li class="passo revelar revelar--dir">
+          <div>
+            <h3>Aproximar</h3>
+            <p>O celular chega a menos de quatro centímetros da tag, do cartão ou da maquininha. Não precisa mirar, focar nem tocar em nada.</p>
+          </div>
+        </li>
+        <li class="passo revelar revelar--dir">
+          <div>
+            <h3>Conectar</h3>
+            <p>O campo magnético do celular alimenta o chip da tag e os dois se reconhecem sozinhos, em uma fração de segundo.</p>
+          </div>
+        </li>
+        <li class="passo revelar revelar--dir">
+          <div>
+            <h3>Agir</h3>
+            <p>O conteúdo aparece na tela: o cardápio abre, o contato é salvo, o pagamento é autorizado, a catraca libera.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="comparativo" data-cascata>
+      <article class="cartao revelar">
+        <span class="selo">NFC ativo</span>
+        <h3>Quem tem energia e começa a conversa</h3>
+        <p>É o celular, a maquininha, a catraca, a fechadura eletrônica. Tem bateria, cria o campo magnético e consegue ler, gravar e até se passar por um cartão — é o que acontece no pagamento por aproximação.</p>
+        <ul class="lista-check">
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Precisa de energia própria</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Lê e grava informação</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Quase sempre é o celular do seu cliente</li>
+        </ul>
+      </article>
+
+      <article class="cartao cartao--passivo revelar">
+        <span class="selo selo--verde">NFC passivo</span>
+        <h3>Quem só responde quando é chamado</h3>
+        <p>São as tags, os adesivos, os cartões, os chaveiros e as pulseiras. <strong>Não têm bateria nenhuma</strong>: ficam dormindo até que um aparelho ativo chegue perto e os alimente por indução.</p>
+        <ul class="lista-check">
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Nunca precisa de carga nem de manutenção</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Custa poucos reais por unidade</li>
+          <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Guardado na gaveta, não se gasta</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 3. Assistente de IA ========================= -->
+<section class="secao" id="assistente">
+  <div class="container chat-area">
+
+    <div class="chat-lado revelar revelar--esq">
+      <span class="tag-secao">Assistente de dúvidas</span>
+      <h2>Ficou com alguma dúvida? Pergunte.</h2>
+      <p>Escreva a pergunta do seu jeito, em português mesmo. O assistente responde na hora, sem formulário e sem esperar ninguém do outro lado.</p>
+
+      <ul class="temas">
+        <li><svg aria-hidden="true"><use href="#i-pergunta"></use></svg> O básico: o que é, como funciona, qual o alcance</li>
+        <li><svg aria-hidden="true"><use href="#i-escudo"></use></svg> Segurança: clonagem, vírus, privacidade e pagamento</li>
+        <li><svg aria-hidden="true"><use href="#i-celular"></use></svg> Seu aparelho: compatibilidade, iPhone, como ativar</li>
+        <li><svg aria-hidden="true"><use href="#i-varejo"></use></svg> Uso no seu negócio: cardápio, acesso, eventos, avaliações</li>
+        <li><svg aria-hidden="true"><use href="#i-moeda"></use></svg> As peças: preço, memória, durabilidade e como gravar</li>
+      </ul>
+    </div>
+
+    <div class="chat revelar revelar--dir">
+      <div class="chat__topo">
+        <span class="chat__avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bot"></use></svg></span>
+        <div>
+          <div class="chat__titulo">Assistente NFC</div>
+          <div class="chat__estado">respondendo agora</div>
+        </div>
+        <button type="button" class="chat__limpar" data-chat-limpar>Limpar<span class="chat__limpar-extra"> conversa</span></button>
+      </div>
+
+      <div class="chat__conversa" data-chat-conversa role="log" aria-live="polite" aria-label="Conversa com o assistente de NFC"></div>
+
+      <div class="chat__rodape">
+        <div class="chat__sugestoes" data-chat-sugestoes aria-label="Sugestões de perguntas"></div>
+
+        <form class="chat__forma" data-chat-forma autocomplete="off">
+          <label class="so-leitor" for="chat-campo">Escreva sua pergunta sobre NFC</label>
+          <textarea class="chat__campo" id="chat-campo" data-chat-campo rows="1" maxlength="500"
+                    placeholder="Escreva sua pergunta…"></textarea>
+          <button class="chat__enviar" type="submit" data-chat-enviar aria-label="Enviar pergunta">
+            <svg aria-hidden="true"><use href="#i-enviar"></use></svg>
+          </button>
+        </form>
+
+        <p class="chat__aviso">
+          Assistente automático: responde a partir do material desta página, sobre NFC.
+          Não é uma pessoa e pode não saber tudo — para assuntos específicos, fale com a gente pelo rodapé.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 4. Onde e em que ramos ======================= -->
+<section class="secao secao--alt" id="onde-usar">
+  <div class="container">
+    <div class="cabecalho-secao centro revelar">
+      <span class="tag-secao">Onde usar</span>
+      <h2>Um toque resolve — em cada ramo, de um jeito</h2>
+      <p>A tecnologia é a mesma; o que muda é o que acontece depois do toque. Veja o ganho concreto em cada setor.</p>
+    </div>
+
+    <div class="grade setores" data-cascata>
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-pagamento"></use></svg></span>
+        <h3>Pagamentos</h3>
+        <p>Cartão, celular ou relógio encostados na maquininha. O número real do cartão não trafega: vai um código criptografado que só vale para aquela compra.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Praticidade e fila mais curta</span>
+      </article>
+
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-visita"></use></svg></span>
+        <h3>Cartões de visita digitais</h3>
+        <p>Encostou no celular da pessoa, apareceu seu perfil com telefone, WhatsApp, redes e o botão de salvar contato. Mudou de número? Edita a página, o cartão continua valendo.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Networking instantâneo</span>
+      </article>
+
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-varejo"></use></svg></span>
+        <h3>Marketing e varejo</h3>
+        <p>Tag escondida no cartaz, na prateleira ou na embalagem: ficha do produto, vídeo, cupom e promoção a um toque. E, pela primeira vez, dá para medir quem interagiu com aquele material.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Promoção na hora, com métrica</span>
+      </article>
+
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-acesso"></use></svg></span>
+        <h3>Controle de acesso</h3>
+        <p>Crachás, catracas, fechaduras e estacionamento. Permissão por pessoa, área e horário; perdeu o cartão, cancela no sistema em segundos — sem trocar fechadura.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Segurança com registro de quem entrou</span>
+      </article>
+
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-restaurante"></use></svg></span>
+        <h3>Restaurantes e menus</h3>
+        <p>Display na mesa com a tag embutida: o cliente encosta e o cardápio abre com foto e preço. Mudou o valor ou acabou o prato, você edita na nuvem — nenhuma mesa precisa ser trocada.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Cardápio digital sem app</span>
+      </article>
+
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-evento"></use></svg></span>
+        <h3>Eventos</h3>
+        <p>Pulseira ou crachá que faz entrada, credenciamento, troca de contatos e consumo sem dinheiro. E continua funcionando quando o sinal do local cai.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Check-in e ingresso sem fila</span>
+      </article>
+
+      <article class="cartao setor revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-saude"></use></svg></span>
+        <h3>Saúde</h3>
+        <p>Pulseira do paciente conferida à beira do leito, prontuário sem digitar registro, rastreio de medicamentos e identificação de emergência. Na tag vai só o identificador; o dado clínico fica no sistema.</p>
+        <span class="setor__beneficio"><svg aria-hidden="true"><use href="#i-seta"></use></svg> Identificação certa, menos erro</span>
+      </article>
+
+      <article class="cartao setor setor--convite revelar">
+        <h3>Não achou o seu ramo?</h3>
+        <p>Descreva o seu caso para o assistente: ele diz se dá para resolver com um toque.</p>
+        <a class="btn" href="#assistente" data-abre-chat>
+          <svg aria-hidden="true"><use href="#i-bot"></use></svg>
+          Perguntar
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. Demonstrações / formatos ==================== -->
+<section class="secao" id="formatos">
+  <div class="container">
+    <div class="cabecalho-secao centro revelar">
+      <span class="tag-secao">Formatos</span>
+      <h2>O mesmo chip, na peça que o seu caso pede</h2>
+      <p>Por dentro é sempre igual: antena em espiral e chip. Por fora, muda para caber no bolso, colar na parede, pendurar na chave ou enfrentar chuva. Toque numa imagem para ver maior.</p>
+    </div>
+
+    <div class="galeria" data-cascata>
+      <figure class="formato revelar" data-formato
+              data-nome="Cartão de visita NFC"
+              data-uso="Uso real: o profissional encosta o cartão no celular de quem acabou de conhecer e o contato já entra na agenda, com WhatsApp, site e redes.">
+        <div class="formato__moldura">
+          <img src="assets/img/cartao-visita.svg" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Cartão de visita NFC preto sendo aproximado de um celular que mostra o botão de salvar contato">
+          <span class="formato__lupa"><svg aria-hidden="true"><use href="#i-lupa"></use></svg></span>
+        </div>
+        <figcaption>
+          <div class="formato__nome">Cartão de visita</div>
+          <p class="formato__uso">Um toque e seu contato está salvo. <b>Trocou de telefone? Edita a página</b> — o cartão que já circula continua certo.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="formato revelar" data-formato
+              data-nome="Cartão fidelidade NFC"
+              data-uso="Uso real: a cada compra o cliente encosta o cartão e ganha o selo. Nada de carimbo molhado, cartão amassado ou papel perdido na carteira.">
+        <div class="formato__moldura">
+          <img src="assets/img/cartao-fidelidade.svg" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Cartão fidelidade de cafeteria com cinco selos, três já carimbados">
+          <span class="formato__lupa"><svg aria-hidden="true"><use href="#i-lupa"></use></svg></span>
+        </div>
+        <figcaption>
+          <div class="formato__nome">Cartão fidelidade</div>
+          <p class="formato__uso">Selos que o cliente acompanha pelo celular. <b>Cafeterias, barbearias e salões</b> usam para trazer a pessoa de volta.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="formato revelar" data-formato
+              data-nome="Tags e adesivos NFC"
+              data-uso="Uso real: colados atrás do cartaz, na embalagem ou no verso do celular. Por dentro, o que existe é uma antena em espiral ligada a um chip do tamanho de um grão de areia.">
+        <div class="formato__moldura">
+          <img src="assets/img/tags-adesivos.svg" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Três tags NFC adesivas, uma delas translúcida mostrando a antena em espiral e o chip">
+          <span class="formato__lupa"><svg aria-hidden="true"><use href="#i-lupa"></use></svg></span>
+        </div>
+        <figcaption>
+          <div class="formato__nome">Tags e adesivos</div>
+          <p class="formato__uso">Finas e flexíveis, <b>coladas por trás do material gráfico</b>. O sinal atravessa papel, acrílico e plástico: o design fica intacto.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="formato revelar" data-formato
+              data-nome="Chaveiro e pulseira NFC"
+              data-uso="Uso real: pulseira que abre o quarto do hotel, libera a catraca da academia e paga o bar do festival; chaveiro que leva ao perfil da empresa.">
+        <div class="formato__moldura">
+          <img src="assets/img/chaveiro-pulseira.svg" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Chaveiro em acrílico com símbolo NFC ao lado de uma pulseira de silicone com etiqueta VIP">
+          <span class="formato__lupa"><svg aria-hidden="true"><use href="#i-lupa"></use></svg></span>
+        </div>
+        <figcaption>
+          <div class="formato__nome">Chaveiros e pulseiras</div>
+          <p class="formato__uso">Resistentes e à prova d'água. <b>Academias, hotéis e eventos</b>: entra, consome e sai sem tirar nada do bolso.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="formato revelar" data-formato
+              data-nome="Placa e display de mesa com NFC"
+              data-uso="Uso real: a plaquinha no balcão leva direto à tela de avaliação do Google, ao cardápio ou à senha do Wi-Fi — sem o cliente digitar o nome da loja.">
+        <div class="formato__moldura">
+          <img src="assets/img/placa-display.svg" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Display de acrílico sobre um balcão com o pedido de avaliação e um celular sendo aproximado">
+          <span class="formato__lupa"><svg aria-hidden="true"><use href="#i-lupa"></use></svg></span>
+        </div>
+        <figcaption>
+          <div class="formato__nome">Placas e displays</div>
+          <p class="formato__uso">No balcão, na mesa ou na recepção. <b>Avaliação no Google com um toque</b>, no momento em que o cliente ainda está satisfeito.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="formato revelar" data-formato
+              data-nome="Etiqueta NFC em produto"
+              data-uso="Uso real: o cliente aproxima o celular da etiqueta e vê a página oficial com lote, validade, garantia e certificado. Cada tag tem um número de série único que não se regrava.">
+        <div class="formato__moldura">
+          <img src="assets/img/etiqueta-produto.svg" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Caixa de produto com etiqueta NFC pendurada indicando originalidade, lote e garantia">
+          <span class="formato__lupa"><svg aria-hidden="true"><use href="#i-lupa"></use></svg></span>
+        </div>
+        <figcaption>
+          <div class="formato__nome">Etiquetas em produtos</div>
+          <p class="formato__uso">Selo de autenticidade e garantia sem papel. <b>Falsificar a embalagem é fácil; o chip, não.</b></p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== 6. Benefícios ============================= -->
+<section class="secao secao--alt" id="beneficios">
+  <div class="container">
+    <div class="cabecalho-secao centro revelar">
+      <span class="tag-secao">Benefícios</span>
+      <h2>Por que o toque venceu o papel</h2>
+      <p>Em uma frase: o NFC tira o atrito entre a pessoa e a informação. Na prática, são seis ganhos que aparecem em todo projeto.</p>
+    </div>
+
+    <div class="grade beneficios" data-cascata>
+      <article class="cartao beneficio revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-sem-contato"></use></svg></span>
+        <div>
+          <h3>Sem contato</h3>
+          <p>Nada de superfície compartilhada nem papel passando de mão em mão. Só a aproximação.</p>
+        </div>
+      </article>
+
+      <article class="cartao beneficio revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-raio"></use></svg></span>
+        <div>
+          <h3>Rápido</h3>
+          <p>Menos de um segundo. Sem abrir câmera, mirar, focar ou digitar endereço nenhum.</p>
+        </div>
+      </article>
+
+      <article class="cartao beneficio revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-escudo"></use></svg></span>
+        <div>
+          <h3>Seguro</h3>
+          <p>Alcance de centímetros, nada roda sozinho, pagamento criptografado e tag que pode ser travada.</p>
+        </div>
+      </article>
+
+      <article class="cartao beneficio revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-celular"></use></svg></span>
+        <div>
+          <h3>Sem aplicativo</h3>
+          <p>Funciona com o celular do jeito que ele já veio. Nada para baixar, nada para cadastrar.</p>
+        </div>
+      </article>
+
+      <article class="cartao beneficio revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-moeda"></use></svg></span>
+        <div>
+          <h3>Baixo custo</h3>
+          <p>Poucos reais por peça e nenhum equipamento para comprar: o leitor é o celular do seu cliente.</p>
+        </div>
+      </article>
+
+      <article class="cartao beneficio revelar">
+        <span class="icone-quadro"><svg aria-hidden="true"><use href="#i-folha"></use></svg></span>
+        <div>
+          <h3>Sustentável</h3>
+          <p>Uma peça reprogramável no lugar de milhares de impressos que envelhecem a cada mudança de preço.</p>
+        </div>
+      </article>
+    </div>
+
+    <dl class="faixa-dados revelar">
+      <div><dt>13,56 MHz</dt><dd>a frequência em que todo NFC conversa</dd></div>
+      <div><dt>0–4 cm</dt><dd>a distância que separa o toque do resto do mundo</dd></div>
+      <div><dt>&lt; 1 s</dt><dd>do encostar ao conteúdo na tela</dd></div>
+      <div><dt>~10 anos</dt><dd>de dados guardados na tag, sem bateria</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ========================== Chamada final ============================ -->
+<section class="secao">
+  <div class="container">
+    <div class="cta-final revelar revelar--zoom">
+      <h2>Ainda ficou alguma dúvida?</h2>
+      <p>Pergunte ao assistente aqui mesmo — ele responde na hora. Se preferir falar com uma pessoa, é só usar os contatos do rodapé.</p>
+      <div class="hero-acoes">
+        <a class="btn" href="#assistente" data-abre-chat>
+          <svg aria-hidden="true"><use href="#i-bot"></use></svg>
+          Perguntar ao assistente
+        </a>
+        <a class="btn btn--fantasma" href="#contato" data-wa data-wa-assunto="uma solução com NFC">Falar com a gente</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== Rodapé =============================== -->
+<footer class="rodape" id="contato">
+  <div class="container">
+    <div class="rodape-grid">
+      <div class="rodape-sobre">
+        <a class="marca" href="#inicio">
+          <span class="marca-simbolo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-nfc"></use></svg></span>
+          <span>NFC<small>é só aproximar</small></span>
+        </a>
+        <p>Conteúdo educativo sobre tecnologia NFC: o que é, onde usar e como escolher o formato certo para o seu negócio.</p>
+        <div class="redes" data-redes>
+          <a data-rede="instagram" href="#" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
+          <a data-rede="linkedin" href="#" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+          <a data-rede="youtube" href="#" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"></use></svg></a>
+          <a data-rede="tiktok" href="#" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"></use></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navegar</h4>
+        <ul class="rodape-links">
+          <li><a href="#o-que-e">O que é NFC</a></li>
+          <li><a href="#assistente">Tirar dúvidas</a></li>
+          <li><a href="#onde-usar">Onde usar</a></li>
+          <li><a href="#formatos">Formatos</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Assuntos</h4>
+        <ul class="rodape-links">
+          <li><a href="#assistente" data-abre-chat data-pergunta="NFC é seguro?">NFC é seguro?</a></li>
+          <li><a href="#assistente" data-abre-chat data-pergunta="Funciona em qualquer celular?">Funciona no meu celular?</a></li>
+          <li><a href="#assistente" data-abre-chat data-pergunta="Posso usar em pagamentos?">Pagamento por aproximação</a></li>
+          <li><a href="#assistente" data-abre-chat data-pergunta="Qual a diferença para o QR Code?">NFC ou QR Code?</a></li>
+          <li><a href="#assistente" data-abre-chat data-pergunta="Quanto custa uma tag NFC?">Quanto custa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <ul class="rodape-links">
+          <li><a data-contato="email" href="#">contato</a></li>
+          <li><a data-contato="telefone" href="#">telefone</a></li>
+          <li><a data-contato="whatsapp" data-wa href="#">WhatsApp</a></li>
+          <li><span data-contato="horario"></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape-base">
+      <span>© <span data-ano>2026</span> · Conteúdo sobre tecnologia NFC</span>
+      <span>Feito para carregar rápido: sem rastreadores e sem serviços de terceiros.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox da galeria -->
+<dialog class="lightbox" data-lightbox aria-label="Imagem ampliada">
+  <button class="lightbox__fechar" type="button" data-lightbox-fechar aria-label="Fechar">
+    <svg aria-hidden="true"><use href="#i-fechar"></use></svg>
+  </button>
+  <img data-lightbox-img src="" alt="">
+  <div class="lightbox__texto">
+    <h3 data-lightbox-titulo></h3>
+    <p data-lightbox-texto></p>
+  </div>
+</dialog>
+
+<button class="ao-topo" type="button" data-ao-topo aria-label="Voltar ao topo">
+  <svg aria-hidden="true"><use href="#i-topo"></use></svg>
+</button>
+
+<script src="assets/js/site.config.js" defer></script>
+<script src="assets/js/base-conhecimento.js" defer></script>
+<script src="assets/js/assistente.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

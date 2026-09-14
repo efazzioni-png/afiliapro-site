@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Display de mesa com NFC para avaliação">
+<defs>
+<linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A0F26"/><stop offset="55%" stop-color="#121A3A"/><stop offset="100%" stop-color="#0C1230"/></linearGradient>
+<radialGradient id="halo" cx="50%" cy="42%" r="62%"><stop offset="0%" stop-color="#4F7BFF" stop-opacity="0.34"/><stop offset="60%" stop-color="#A855F7" stop-opacity="0.13"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/></radialGradient>
+<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#26325F"/><stop offset="48%" stop-color="#18224A"/><stop offset="100%" stop-color="#0E1533"/></linearGradient>
+<linearGradient id="faceClara" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3F5FF"/><stop offset="100%" stop-color="#C9D2F0"/></linearGradient>
+<linearGradient id="acento" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4F7BFF"/><stop offset="100%" stop-color="#A855F7"/></linearGradient>
+<linearGradient id="brilhoFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/><stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.02"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<radialGradient id="sombra" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#04060F" stop-opacity="0.66"/><stop offset="100%" stop-color="#04060F" stop-opacity="0"/></radialGradient>
+<pattern id="malha" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.6" fill="#8FA3E8" opacity="0.13"/></pattern>
+
+</defs>
+<rect width="1200" height="900" fill="url(#fundo)"/>
+<rect width="1200" height="900" fill="url(#halo)"/>
+<g opacity="0.5"><rect width="1200" height="900" fill="url(#malha)"/></g><rect x="0" y="690" width="1200" height="210" fill="#0A1030" opacity="0.75"/><rect x="0" y="686" width="1200" height="6" fill="#4B5A9C" opacity="0.5"/><ellipse cx="600" cy="700" rx="330" ry="40" fill="url(#sombra)"/><g transform="translate(600 430)">
+  <path d="M -250 250 L -186 -250 L 186 -250 L 250 250 Z" fill="#0E1638" opacity="0.55"/>
+  <g transform="skewY(-3)">
+    <rect x="-228" y="-262" width="456" height="524" rx="26" fill="url(#face)" stroke="#6272BC" stroke-width="3"/>
+    <rect x="-228" y="-262" width="456" height="524" rx="26" fill="url(#brilhoFace)"/>
+    <circle cx="0" cy="-118" r="86" fill="url(#acento)" opacity="0.18"/>
+    <path d="M -18.5 -151.5 A 38.6 38.6 0 0 1 -18.5 -84.5" fill="none" stroke="#A9BDFF" stroke-width="10.1" stroke-linecap="round" opacity="0.98"/><path d="M -4.7 -175.4 A 66.2 66.2 0 0 1 -4.7 -60.6" fill="none" stroke="#A9BDFF" stroke-width="10.1" stroke-linecap="round" opacity="0.84"/><path d="M 9.1 -199.3 A 93.8 93.8 0 0 1 9.1 -36.7" fill="none" stroke="#A9BDFF" stroke-width="10.1" stroke-linecap="round" opacity="0.70"/>
+    <text x="0" y="36" font-family="Sora, Inter, sans-serif" font-size="46" font-weight="700" fill="#F0F4FF" text-anchor="middle">AVALIE</text>
+    <text x="0" y="82" font-family="Sora, Inter, sans-serif" font-size="46" font-weight="700" fill="#F0F4FF" text-anchor="middle">A GENTE</text>
+    <text x="0" y="132" font-family="Inter, sans-serif" font-size="25" fill="#94A3D8" text-anchor="middle">aproxime o celular</text>
+    <g transform="translate(0 196)"><path transform="translate(-130 0) scale(1.5)" d="M 0 -14 L 4.2 -4.6 L 14.4 -3.4 L 6.9 3.6 L 8.9 13.6 L 0 8.7 L -8.9 13.6 L -6.9 3.6 L -14.4 -3.4 L -4.2 -4.6 Z" fill="#FFC44D"/><path transform="translate(-65 0) scale(1.5)" d="M 0 -14 L 4.2 -4.6 L 14.4 -3.4 L 6.9 3.6 L 8.9 13.6 L 0 8.7 L -8.9 13.6 L -6.9 3.6 L -14.4 -3.4 L -4.2 -4.6 Z" fill="#FFC44D"/><path transform="translate(0 0) scale(1.5)" d="M 0 -14 L 4.2 -4.6 L 14.4 -3.4 L 6.9 3.6 L 8.9 13.6 L 0 8.7 L -8.9 13.6 L -6.9 3.6 L -14.4 -3.4 L -4.2 -4.6 Z" fill="#FFC44D"/><path transform="translate(65 0) scale(1.5)" d="M 0 -14 L 4.2 -4.6 L 14.4 -3.4 L 6.9 3.6 L 8.9 13.6 L 0 8.7 L -8.9 13.6 L -6.9 3.6 L -14.4 -3.4 L -4.2 -4.6 Z" fill="#FFC44D"/><path transform="translate(130 0) scale(1.5)" d="M 0 -14 L 4.2 -4.6 L 14.4 -3.4 L 6.9 3.6 L 8.9 13.6 L 0 8.7 L -8.9 13.6 L -6.9 3.6 L -14.4 -3.4 L -4.2 -4.6 Z" fill="#FFC44D"/></g>
+  </g>
+</g><g transform="translate(600 1388) scale(1 -0.34)" opacity="0.16"><rect x="-228" y="-262" width="456" height="524" rx="26" fill="url(#acento)"/></g><g opacity="0.9"><path d="M 880.0 295.4 A 48.0 48.0 0 0 1 880.0 364.6" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.62"/><path d="M 880.0 272.4 A 80.0 80.0 0 0 1 880.0 387.6" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.42"/><path d="M 880.0 249.4 A 112.0 112.0 0 0 1 880.0 410.6" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.22"/></g><g transform="translate(1040 330) rotate(9)">
+  <rect x="-86.0" y="-172.0" width="172" height="344" rx="22.36" fill="#1A2140" stroke="#5C6CA8" stroke-width="3"/>
+  <rect x="-78.0" y="-164.0" width="156" height="328" rx="17.36" fill="#101A3C"/>
+  <rect x="-27.52" y="-156.0" width="55.04" height="9" rx="4.5" fill="#39436E"/>
+  <rect x="-78.0" y="-164.0" width="156" height="328" rx="17.36" fill="url(#brilhoFace)"/>
+</g><rect width="1200" height="900" fill="none"/></svg>
