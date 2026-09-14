@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Etiqueta NFC de autenticidade presa a um produto">
+<defs>
+<linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A0F26"/><stop offset="55%" stop-color="#121A3A"/><stop offset="100%" stop-color="#0C1230"/></linearGradient>
+<radialGradient id="halo" cx="50%" cy="42%" r="62%"><stop offset="0%" stop-color="#4F7BFF" stop-opacity="0.34"/><stop offset="60%" stop-color="#A855F7" stop-opacity="0.13"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/></radialGradient>
+<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#26325F"/><stop offset="48%" stop-color="#18224A"/><stop offset="100%" stop-color="#0E1533"/></linearGradient>
+<linearGradient id="faceClara" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3F5FF"/><stop offset="100%" stop-color="#C9D2F0"/></linearGradient>
+<linearGradient id="acento" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4F7BFF"/><stop offset="100%" stop-color="#A855F7"/></linearGradient>
+<linearGradient id="brilhoFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/><stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.02"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<radialGradient id="sombra" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#04060F" stop-opacity="0.66"/><stop offset="100%" stop-color="#04060F" stop-opacity="0"/></radialGradient>
+<pattern id="malha" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.6" fill="#8FA3E8" opacity="0.13"/></pattern>
+
+</defs>
+<rect width="1200" height="900" fill="url(#fundo)"/>
+<rect width="1200" height="900" fill="url(#halo)"/>
+<g opacity="0.5"><rect width="1200" height="900" fill="url(#malha)"/></g><ellipse cx="470" cy="720" rx="260" ry="44" fill="url(#sombra)"/><g transform="translate(450 450)">
+  <path d="M -210 -170 L 0 -250 L 210 -170 L 210 190 L 0 270 L -210 190 Z" fill="url(#face)" stroke="#5E6FB4" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M -210 -170 L 0 -90 L 210 -170" fill="none" stroke="#5E6FB4" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 0 -90 L 0 270" fill="none" stroke="#5E6FB4" stroke-width="3"/>
+  <path d="M -210 -170 L 0 -90 L 0 270 L -210 190 Z" fill="#0B1130" opacity="0.35"/>
+  <g transform="translate(-108 40)">
+    <rect x="-60" y="-56" width="120" height="112" rx="14" fill="url(#acento)" opacity="0.22"/>
+    <path d="M -10.1 -18.9 A 21.8 21.8 0 0 1 -10.1 18.9" fill="none" stroke="#9FB6FF" stroke-width="5.7" stroke-linecap="round" opacity="0.90"/><path d="M -2.3 -32.4 A 37.4 37.4 0 0 1 -2.3 32.4" fill="none" stroke="#9FB6FF" stroke-width="5.7" stroke-linecap="round" opacity="0.76"/><path d="M 5.5 -45.9 A 53.0 53.0 0 0 1 5.5 45.9" fill="none" stroke="#9FB6FF" stroke-width="5.7" stroke-linecap="round" opacity="0.62"/>
+  </g>
+  <rect x="42" y="-30" width="128" height="13" rx="6.5" fill="#7285C4" opacity="0.6"/>
+  <rect x="42" y="4" width="98" height="13" rx="6.5" fill="#7285C4" opacity="0.45"/>
+</g><g transform="translate(830 420) rotate(7)">
+  <path d="M -206 -118 C -150 -66 -104 -20 -48 34" fill="none" stroke="#8291CC" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="-206" cy="-118" r="9" fill="#8291CC"/>
+  <g transform="translate(60 40)">
+    <path d="M -150 -128 L 96 -128 L 168 0 L 96 128 L -150 128 Z" fill="#EEF1FC" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="-108" cy="0" r="18" fill="#0E1638" opacity="0.55"/>
+    <circle cx="-108" cy="0" r="18" fill="none" stroke="#9AA7D8" stroke-width="4"/>
+    <path d="M -23.5 -52.2 A 21.0 21.0 0 0 1 -23.5 -15.8" fill="none" stroke="#2B3566" stroke-width="5.5" stroke-linecap="round" opacity="0.92"/><path d="M -16.0 -65.2 A 36.0 36.0 0 0 1 -16.0 -2.8" fill="none" stroke="#2B3566" stroke-width="5.5" stroke-linecap="round" opacity="0.78"/><path d="M -8.5 -78.2 A 51.0 51.0 0 0 1 -8.5 10.2" fill="none" stroke="#2B3566" stroke-width="5.5" stroke-linecap="round" opacity="0.64"/>
+    <text x="-6" y="34" font-family="Inter, sans-serif" font-size="27" font-weight="700" fill="#2B3566" text-anchor="middle">ORIGINAL</text>
+    <text x="-6" y="70" font-family="Inter, sans-serif" font-size="20" fill="#5C6892" text-anchor="middle">lote 24·A · garantia</text>
+  </g>
+</g><g opacity="0.75"><path d="M 1035.0 428.3 A 44.0 44.0 0 0 1 1035.0 491.7" fill="none" stroke="#34D399" stroke-width="5" stroke-linecap="round" opacity="0.55"/><path d="M 1035.0 406.7 A 74.0 74.0 0 0 1 1035.0 513.3" fill="none" stroke="#34D399" stroke-width="5" stroke-linecap="round" opacity="0.35"/></g><rect width="1200" height="900" fill="none"/></svg>

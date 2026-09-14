@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Tags e adesivos NFC, um deles mostrando a antena interna">
+<defs>
+<linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A0F26"/><stop offset="55%" stop-color="#121A3A"/><stop offset="100%" stop-color="#0C1230"/></linearGradient>
+<radialGradient id="halo" cx="50%" cy="42%" r="62%"><stop offset="0%" stop-color="#4F7BFF" stop-opacity="0.34"/><stop offset="60%" stop-color="#A855F7" stop-opacity="0.13"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/></radialGradient>
+<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#26325F"/><stop offset="48%" stop-color="#18224A"/><stop offset="100%" stop-color="#0E1533"/></linearGradient>
+<linearGradient id="faceClara" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3F5FF"/><stop offset="100%" stop-color="#C9D2F0"/></linearGradient>
+<linearGradient id="acento" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4F7BFF"/><stop offset="100%" stop-color="#A855F7"/></linearGradient>
+<linearGradient id="brilhoFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/><stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.02"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<radialGradient id="sombra" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#04060F" stop-opacity="0.66"/><stop offset="100%" stop-color="#04060F" stop-opacity="0"/></radialGradient>
+<pattern id="malha" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.6" fill="#8FA3E8" opacity="0.13"/></pattern>
+
+</defs>
+<rect width="1200" height="900" fill="url(#fundo)"/>
+<rect width="1200" height="900" fill="url(#halo)"/>
+<g opacity="0.5"><rect width="1200" height="900" fill="url(#malha)"/></g><ellipse cx="410" cy="640" rx="230" ry="42" fill="url(#sombra)"/><g transform="translate(410 430)">
+  <circle r="200" fill="#1A2450" stroke="#7385C8" stroke-width="3"/>
+  <circle r="200" fill="url(#brilhoFace)"/>
+  <circle r="176" fill="none" stroke="#3C4A86" stroke-width="2" stroke-dasharray="5 7"/>
+  <path d="M -128.0 -128.0 L 128.0 -128.0 L 128.0 128.0 L -128.0 128.0 L -128.0 -109.0 L -109.0 -109.0 L 109.0 -109.0 L 109.0 109.0 L -109.0 109.0 L -109.0 -90.0 L -90.0 -90.0 L 90.0 -90.0 L 90.0 90.0 L -90.0 90.0 L -90.0 -71.0 L -71.0 -71.0 L 71.0 -71.0 L 71.0 71.0 L -71.0 71.0 L -71.0 -52.0 L -52.0 -52.0 L 52.0 -52.0 L 52.0 52.0 L -52.0 52.0 L -52.0 -33.0 L -33.0 -33.0 L 33.0 -33.0 L 33.0 33.0 L -33.0 33.0 L -33.0 -14.0 L -14.0 -14.0" fill="none" stroke="#E9A87C" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.95"/>
+  <rect x="-34" y="-30" width="68" height="60" rx="9" fill="#1C2550" stroke="#C4763F" stroke-width="3"/>
+  <rect x="-22" y="-18" width="44" height="36" rx="5" fill="#2C3768"/>
+</g><text x="410" y="700" font-family="Inter, sans-serif" font-size="26" fill="#93A2D6" text-anchor="middle">antena + chip</text><ellipse cx="830" cy="560" rx="150" ry="30" fill="url(#sombra)"/><g transform="translate(830 400) rotate(9)">
+  <circle r="140" fill="url(#acento)"/>
+  <circle r="140" fill="url(#brilhoFace)"/>
+  <circle r="118" fill="none" stroke="#fff" stroke-width="3" opacity="0.5" stroke-dasharray="6 9"/>
+  <path d="M -14.5 -52.0 A 27.7 27.7 0 0 1 -14.5 -4.0" fill="none" stroke="#fff" stroke-width="7.3" stroke-linecap="round" opacity="0.98"/><path d="M -4.6 -69.2 A 47.5 47.5 0 0 1 -4.6 13.2" fill="none" stroke="#fff" stroke-width="7.3" stroke-linecap="round" opacity="0.84"/><path d="M 5.3 -86.3 A 67.3 67.3 0 0 1 5.3 30.3" fill="none" stroke="#fff" stroke-width="7.3" stroke-linecap="round" opacity="0.70"/>
+  <text x="0" y="66" font-family="Inter, sans-serif" font-size="26" font-weight="600" fill="#fff" text-anchor="middle">APROXIME</text>
+</g><ellipse cx="1000" cy="710" rx="120" ry="26" fill="url(#sombra)"/><g transform="translate(1000 640) rotate(-11)">
+  <rect x="-92" y="-92" width="184" height="184" rx="24" fill="#E9EDFB" stroke="#fff" stroke-width="3"/>
+  <path d="M -12.7 -29.6 A 22.7 22.7 0 0 1 -12.7 9.6" fill="none" stroke="#2B3566" stroke-width="5.9" stroke-linecap="round" opacity="0.90"/><path d="M -4.6 -43.7 A 38.9 38.9 0 0 1 -4.6 23.7" fill="none" stroke="#2B3566" stroke-width="5.9" stroke-linecap="round" opacity="0.76"/><path d="M 3.5 -57.7 A 55.1 55.1 0 0 1 3.5 37.7" fill="none" stroke="#2B3566" stroke-width="5.9" stroke-linecap="round" opacity="0.62"/>
+  <text x="0" y="56" font-family="Inter, sans-serif" font-size="21" font-weight="600" fill="#2B3566" text-anchor="middle">NFC TAG</text>
+</g><rect width="1200" height="900" fill="none"/></svg>

@@ -1,0 +1,5 @@
+# Conteúdo público: pode indexar tudo.
+User-agent: *
+Allow: /
+
+Sitemap: https://afiliapro.com/nfc/sitemap.xml

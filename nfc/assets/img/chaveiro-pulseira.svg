@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Chaveiro e pulseira com NFC">
+<defs>
+<linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A0F26"/><stop offset="55%" stop-color="#121A3A"/><stop offset="100%" stop-color="#0C1230"/></linearGradient>
+<radialGradient id="halo" cx="50%" cy="42%" r="62%"><stop offset="0%" stop-color="#4F7BFF" stop-opacity="0.34"/><stop offset="60%" stop-color="#A855F7" stop-opacity="0.13"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/></radialGradient>
+<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#26325F"/><stop offset="48%" stop-color="#18224A"/><stop offset="100%" stop-color="#0E1533"/></linearGradient>
+<linearGradient id="faceClara" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3F5FF"/><stop offset="100%" stop-color="#C9D2F0"/></linearGradient>
+<linearGradient id="acento" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4F7BFF"/><stop offset="100%" stop-color="#A855F7"/></linearGradient>
+<linearGradient id="brilhoFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/><stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.02"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<radialGradient id="sombra" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#04060F" stop-opacity="0.66"/><stop offset="100%" stop-color="#04060F" stop-opacity="0"/></radialGradient>
+<pattern id="malha" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.6" fill="#8FA3E8" opacity="0.13"/></pattern>
+
+</defs>
+<rect width="1200" height="900" fill="url(#fundo)"/>
+<rect width="1200" height="900" fill="url(#halo)"/>
+<g opacity="0.5"><rect width="1200" height="900" fill="url(#malha)"/></g><ellipse cx="760" cy="690" rx="280" ry="48" fill="url(#sombra)"/><g transform="translate(760 450)">
+  <ellipse rx="230" ry="150" fill="none" stroke="url(#acento)" stroke-width="66" opacity="0.95"/>
+  <ellipse rx="230" ry="150" fill="none" stroke="#FFFFFF" stroke-width="66" opacity="0.07"/>
+  <ellipse rx="230" ry="150" fill="none" stroke="#0B1130" stroke-width="2" opacity="0.5"/>
+  <g transform="translate(0 -150)">
+    <rect x="-84" y="-32" width="168" height="64" rx="16" fill="#101740" stroke="#6C7CC0" stroke-width="3"/>
+    <path d="M -44.5 -12.4 A 14.3 14.3 0 0 1 -44.5 12.4" fill="none" stroke="#9FB6FF" stroke-width="3.7" stroke-linecap="round" opacity="0.95"/><path d="M -39.4 -21.2 A 24.5 24.5 0 0 1 -39.4 21.2" fill="none" stroke="#9FB6FF" stroke-width="3.7" stroke-linecap="round" opacity="0.81"/><path d="M -34.3 -30.0 A 34.7 34.7 0 0 1 -34.3 30.0" fill="none" stroke="#9FB6FF" stroke-width="3.7" stroke-linecap="round" opacity="0.67"/>
+    <text x="24" y="9" font-family="Inter, sans-serif" font-size="23" font-weight="600" fill="#C4CFF6" text-anchor="middle">VIP</text>
+  </g>
+</g><ellipse cx="330" cy="700" rx="150" ry="32" fill="url(#sombra)"/><g transform="translate(330 470) rotate(-8)">
+  <circle cx="0" cy="-196" r="42" fill="none" stroke="#9AA7D8" stroke-width="11"/>
+  <rect x="-16" y="-176" width="32" height="46" rx="8" fill="#8A97C8"/>
+  <rect x="-132" y="-148" width="264" height="330" rx="36" fill="url(#face)" stroke="#6070B4" stroke-width="3"/>
+  <rect x="-132" y="-148" width="264" height="330" rx="36" fill="url(#brilhoFace)"/>
+  <circle cx="0" cy="-104" r="15" fill="#0A1030" stroke="#6070B4" stroke-width="3"/>
+  <path d="M -16.3 -32.2 A 30.2 30.2 0 0 1 -16.3 20.2" fill="none" stroke="#9FB6FF" stroke-width="7.9" stroke-linecap="round" opacity="0.95"/><path d="M -5.5 -50.9 A 51.8 51.8 0 0 1 -5.5 38.9" fill="none" stroke="#9FB6FF" stroke-width="7.9" stroke-linecap="round" opacity="0.81"/><path d="M 5.3 -69.6 A 73.4 73.4 0 0 1 5.3 57.6" fill="none" stroke="#9FB6FF" stroke-width="7.9" stroke-linecap="round" opacity="0.67"/>
+  <rect x="-86" y="86" width="172" height="12" rx="6" fill="#6879B8" opacity="0.6"/>
+  <rect x="-60" y="116" width="120" height="12" rx="6" fill="#6879B8" opacity="0.42"/>
+</g><g opacity="0.6"><path d="M 545.0 301.2 A 40.0 40.0 0 0 1 545.0 358.8" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.50"/><path d="M 545.0 281.0 A 68.0 68.0 0 0 1 545.0 379.0" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.30"/></g><rect width="1200" height="900" fill="none"/></svg>

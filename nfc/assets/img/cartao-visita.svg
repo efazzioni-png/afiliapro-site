@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Cartão de visita NFC preto sendo aproximado de um celular">
+<defs>
+<linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A0F26"/><stop offset="55%" stop-color="#121A3A"/><stop offset="100%" stop-color="#0C1230"/></linearGradient>
+<radialGradient id="halo" cx="50%" cy="42%" r="62%"><stop offset="0%" stop-color="#4F7BFF" stop-opacity="0.34"/><stop offset="60%" stop-color="#A855F7" stop-opacity="0.13"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/></radialGradient>
+<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#26325F"/><stop offset="48%" stop-color="#18224A"/><stop offset="100%" stop-color="#0E1533"/></linearGradient>
+<linearGradient id="faceClara" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3F5FF"/><stop offset="100%" stop-color="#C9D2F0"/></linearGradient>
+<linearGradient id="acento" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4F7BFF"/><stop offset="100%" stop-color="#A855F7"/></linearGradient>
+<linearGradient id="brilhoFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/><stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.02"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<radialGradient id="sombra" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#04060F" stop-opacity="0.66"/><stop offset="100%" stop-color="#04060F" stop-opacity="0"/></radialGradient>
+<pattern id="malha" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.6" fill="#8FA3E8" opacity="0.13"/></pattern>
+
+</defs>
+<rect width="1200" height="900" fill="url(#fundo)"/>
+<rect width="1200" height="900" fill="url(#halo)"/>
+<g opacity="0.5"><rect width="1200" height="900" fill="url(#malha)"/></g><ellipse cx="470" cy="700" rx="330" ry="62" fill="url(#sombra)"/><g transform="translate(470 470) rotate(-13)">
+  <rect x="-300" y="-180" width="600" height="360" rx="26" fill="url(#face)" stroke="#5E6FB4" stroke-width="3"/>
+  <rect x="-300" y="-180" width="600" height="360" rx="26" fill="url(#brilhoFace)"/>
+  <circle cx="-196" cy="-84" r="44" fill="url(#acento)"/>
+  <text x="-196" y="-70" font-family="Sora, Inter, sans-serif" font-size="42" font-weight="700" fill="#fff" text-anchor="middle">A</text>
+  <rect x="-128" y="-112" width="236" height="20" rx="10" fill="#E7ECFF" opacity="0.92"/>
+  <rect x="-128" y="-76" width="150" height="14" rx="7" fill="#8FA0D8" opacity="0.8"/>
+  <rect x="-196" y="10" width="330" height="11" rx="5.5" fill="#6B7CB8" opacity="0.62"/>
+  <rect x="-196" y="44" width="266" height="11" rx="5.5" fill="#6B7CB8" opacity="0.52"/>
+  <rect x="-196" y="78" width="300" height="11" rx="5.5" fill="#6B7CB8" opacity="0.42"/>
+  <g transform="translate(206 92)"><path d="M -18.0 -21.1 A 24.4 24.4 0 0 1 -18.0 21.1" fill="none" stroke="#9FB6FF" stroke-width="6.4" stroke-linecap="round" opacity="0.95"/><path d="M -9.3 -36.2 A 41.8 41.8 0 0 1 -9.3 36.2" fill="none" stroke="#9FB6FF" stroke-width="6.4" stroke-linecap="round" opacity="0.81"/><path d="M -0.6 -51.2 A 59.2 59.2 0 0 1 -0.6 51.2" fill="none" stroke="#9FB6FF" stroke-width="6.4" stroke-linecap="round" opacity="0.67"/></g>
+  <rect x="-300" y="132" width="600" height="48" rx="0" fill="url(#acento)" opacity="0.22"/>
+</g><g opacity="0.95"><path d="M 770.0 392.6 A 52.0 52.0 0 0 1 770.0 467.4" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.75"/><path d="M 770.0 368.1 A 86.0 86.0 0 0 1 770.0 491.9" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.55"/><path d="M 770.0 343.6 A 120.0 120.0 0 0 1 770.0 516.4" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" opacity="0.35"/></g><g transform="translate(985 430) rotate(6)">
+  <rect x="-98.0" y="-196.0" width="196" height="392" rx="25.48" fill="#1A2140" stroke="#5C6CA8" stroke-width="3"/>
+  <rect x="-90.0" y="-188.0" width="180" height="376" rx="20.48" fill="#101A3C"/>
+  <rect x="-31.36" y="-180.0" width="62.72" height="9" rx="4.5" fill="#39436E"/>
+  <rect x="-90.0" y="-188.0" width="180" height="376" rx="20.48" fill="url(#brilhoFace)"/>
+</g><g transform="translate(985 380)">
+  <circle cx="0" cy="-58" r="40" fill="url(#acento)" opacity="0.9"/>
+  <path d="M -10.4 -72.5 A 16.8 16.8 0 0 1 -10.4 -43.5" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round" opacity="0.98"/><path d="M -4.4 -82.9 A 28.8 28.8 0 0 1 -4.4 -33.1" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round" opacity="0.84"/><path d="M 1.6 -93.3 A 40.8 40.8 0 0 1 1.6 -22.7" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round" opacity="0.70"/>
+  <rect x="-62" y="2" width="124" height="14" rx="7" fill="#7E8FD0" opacity="0.75"/>
+  <rect x="-44" y="32" width="88" height="11" rx="5.5" fill="#5E6CA8" opacity="0.6"/>
+  <rect x="-70" y="74" width="140" height="42" rx="21" fill="url(#acento)"/>
+  <text x="0" y="102" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="#fff" text-anchor="middle">Salvar</text>
+</g><rect width="1200" height="900" fill="none"/></svg>
