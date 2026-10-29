@@ -337,7 +337,7 @@ const SPK = []; for (let i = 0; i < 26; i++) {
   SPK.push({ el: d, x: 260 + Math.random() * 560, dy: Math.random(), s: .6 + Math.random() * 1.4, ph: Math.random() * 6 });
 }
 const CARD = { x: 240, y: 480, w: 600, h: 800 };
-const WIN = { x: 276, y: 536, w: 528, h: 470 };  // photo window of slide1 at scale 1 (slide at 240,500)
+const WIN = { x: 276, y: 506, w: 528, h: 470 };  // photo window of slide1 at scale 1 (slide at 240,470)
 function sceneD(t) {
   // stepper
   const st = [...$('stepD').querySelectorAll('.st')], sl = [...$('stepD').querySelectorAll('.sl')];
@@ -393,7 +393,7 @@ function sceneD(t) {
   const sw = eIO(pr(t, 17.4, 18.3));
   const S = lerp(1, .667, c);           // 600x750 -> 400x500
   const gap = 24, step = 400 + gap;
-  const x1 = lerp(240, 340, c) - sw * step, y1 = lerp(500, 590, c);
+  const x1 = lerp(240, 340, c) - sw * step, y1 = lerp(470, 590, c);
   s1.style.display = t >= 13.3 ? '' : 'none';
   s1.style.opacity = tIn;
   s1.style.transform = `translate(${x1}px,${y1 + (1 - tIn) * 40}px) scale(${S})`;
@@ -415,12 +415,13 @@ function sceneD(t) {
   // dots under carousel
   const dd = $('dotsD'); dd.style.opacity = pr(t, 16.9, 17.2); dd.style.top = '1112px';
   dotsStyle(dd, sw > .5 ? 1 : 0, false);
-  // illustrative tag follows the main card
+  // illustrative tag: on the card, then centred above the carousel
   const tg = $('tagD');
-  tg.style.left = (t < 16.1 ? 262 : lerp(262, 362, c)) + 'px';
-  tg.style.top = (t < 13.36 ? 502 : lerp(522, 612, c)) + 'px';
+  if (t < 16.1) { tg.style.left = '262px'; tg.style.top = (t < 13.36 ? 502 : 492) + 'px'; }
+  else { tg.style.left = lerp(262, 540 - tg.offsetWidth / 2, c) + 'px'; tg.style.top = lerp(492, 520, c) + 'px'; }
   tg.style.opacity = pr(t, 10.0, 10.3);
-  L.style.top = (t >= 16.1 ? lerp(1182, 1150, c) : 1182) + 'px';
+  // label: inside the selfie card, below the template, then below the carousel
+  L.style.top = (t < 13.36 ? 1182 : t < 16.1 ? lerp(1182, 1238, eOut(pr(t, 13.36, 13.7))) : lerp(1238, 1150, c)) + 'px';
 }
 
 // ---------- E: product ----------
